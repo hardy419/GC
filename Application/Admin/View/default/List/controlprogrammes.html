@@ -1,0 +1,187 @@
+<include file="Common:header" />
+<body>
+<div class="container">
+      <div class="row">
+        <div class="span3">
+         <include file="Common:menu" />
+        </div><!--/span-->
+        <div class="span9">
+                     <ul class="breadcrumb">
+				    <li><a href="#">Home</a> <span class="divider">/</span></li>
+				    <li><a href="#"><if condition="$type eq 'programmes'">Courses<else/>{$type|ucfirst}</if> Management</a> <span class="divider">/</span></li>
+				    <li class="active"><if condition="$type eq 'programmes'">Courses<else/>{$type|ucfirst}</if> Management</li>
+				    </ul>
+				<legend><if condition="$list['id'] neq ''">Edit<else/>Add</if> <if condition="$type eq 'programmes'">Courses<else/>{$type|ucfirst}</if></legend>	
+                    <form class="form-horizontal" id="myForm" method="post" action="{:U('save')}">
+				    <div class="control-group">
+				    <label class="control-label">Title:</label>
+				    <div class="controls">
+				    <input type="text" id="title" name="title" check="Require" warning="Title cann't be empty" value="{$list.title}" >
+				    </div>
+				    </div>
+				  <div class="control-group">
+				    <label class="control-label">Title(En):</label>
+				    <div class="controls">
+				    <input type="text" id="etitle" name="etitle" check="Require" warning="Englisth Title cann't be empty" value="{$list.etitle}" >
+				    </div>
+				    </div> 
+				    <div class="control-group">
+				    <label class="control-label">Price:</label>
+				    <div class="controls">
+				    <input type="text" id="price" name="price" value="{$list.price}" >
+				    </div>
+				    </div>
+				     <div class="control-group">
+				    <label class="control-label">Description:</label>
+				    <div class="controls">
+				    <textarea id="description" name="description" style="width:490px;height:100px;">{$list.description}</textarea>
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">Order:</label>
+				    <div class="controls">
+				    <input type="text" id="sid" name="sid" value="{$list.sid}" >(Order from Big to Small)
+				    </div>
+				    </div>
+				     <div class="control-group">
+				    <label class="control-label">Status:</label>
+				    <div class="controls">
+				      <input type="radio" id="status1" name="status" value="1" <if condition="$list['status'] neq '0'">checked="checked"</if> /><span class="help-inline">Yes</span> <input type="radio" id="status1" name="status" value="0"  <if condition="$list['status'] eq '0'">checked="checked"</if>/><span class="help-inline">No</span>
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">Reservation:</label>
+				    <div class="controls">
+				      <span class="help-inline"> <input type="radio"  id="trial1" name="trial" value="1" <if condition="$list['trial'] eq 1">checked='checked'</if> />Yes</span>
+				      <span class="help-inline">  <input type="radio"  id="trial2" name="trial" value="0" <if condition="$list['trial'] neq 1">checked='checked'</if> />No</span>
+				    </div>
+				    </div>
+				     <div class="control-group">
+				    <label class="control-label">Course Total(Part A):</label>
+				    <div class="controls">
+				    <input type="text" id="totala" name="totala" value="{$list.totala}" >
+				    </div>
+				    </div>
+				     <div class="control-group">
+				    <label class="control-label">Course Time(Part A):</label>
+				    <div class="controls">
+				    <input type="text" id="timea" name="timea" value="{$list.timea}" >
+				    </div>
+				    </div>
+				     <div class="control-group">
+				    <label class="control-label">Number of People(Part A):</label>
+				    <div class="controls">
+				    <input type="text" id="numbera" name="numbera" value="{$list.numbera}" >
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">Course effect/Course infor(Part A):</label>
+				    <div class="controls">
+				    <textarea id="infora" name="infora" style="width:490px;height:100px;">{$list.infora}</textarea>
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">Course Content(Part A):</label>
+				    <div class="controls">
+				    <span class="help-inline">用'//'來做為一個'//'的分隔符號,如輸入'新娘發型//發飾配戴技巧及發型轉換'即可網頁即可顯示為'1.新娘發型 2發飾配戴技巧及發型轉換'</span>
+				    <textarea id="parta" name="parta" style="width:500px;height:300px;">{$list.parta}</textarea>
+				    </div>
+				    </div>
+				     <div class="control-group">
+				    <label class="control-label">Course Total(Part B):</label>
+				    <div class="controls">
+				    <input type="text" id="totalb" name="totalb" value="{$list.totalb}" >
+				    </div>
+				    </div>
+				     <div class="control-group">
+				    <label class="control-label">Course Time(Part B):</label>
+				    <div class="controls">
+				    <input type="text" id="timeb" name="timeb" value="{$list.timeb}" >
+				    </div>
+				    </div>
+				     <div class="control-group">
+				    <label class="control-label">Number of People(Part B):</label>
+				    <div class="controls">
+				    <input type="text" id="numberb" name="numberb" value="{$list.numberb}" >
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">Course effect/Course infor(Part B):</label>
+				    <div class="controls">
+				    <textarea id="inforb" name="inforb" style="width:490px;height:100px;">{$list.inforb}</textarea>
+				    </div>
+				    </div>
+				     <div class="control-group">
+				    <label class="control-label">Course Content(Part B):</label>
+				    <div class="controls">
+				    <span class="help-inline">用'//'來做為一個'//'的分隔符號,如輸入'新娘發型//發飾配戴技巧及發型轉換'即可網頁即可顯示為'1.新娘發型 2發飾配戴技巧及發型轉換'</span>
+				    <textarea id="partb" name="partb" style="width:500px;height:300px;">{$list.partb}</textarea>
+				    </div>
+				    </div>
+				     <div class="control-group">
+				    <label class="control-label">Course Total(Part C:</label>
+				    <div class="controls">
+				    <input type="text" id="totalc" name="totalc" value="{$list.totalc}" >
+				    </div>
+				    </div>
+				     <div class="control-group">
+				    <label class="control-label">Course Time(Part C):</label>
+				    <div class="controls">
+				    <input type="text" id="timec" name="timec" value="{$list.timec}" >
+				    </div>
+				    </div>
+				     <div class="control-group">
+				    <label class="control-label">Number of People(Part C):</label>
+				    <div class="controls">
+				    <input type="text" id="numberc" name="numberc" value="{$list.numberc}" >
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">Course effect/Course infor(Part C):</label>
+				    <div class="controls">
+				    <textarea id="infor" name="inforc" style="width:490px;height:100px;">{$list.infoc}</textarea>
+				    </div>
+				    </div>
+				     <div class="control-group">
+				    <label class="control-label">Course Content(Part C):</label>
+				    <div class="controls">
+				    <span class="help-inline">用'//'來做為一個'//'的分隔符號,如輸入'新娘發型//發飾配戴技巧及發型轉換'即可網頁即可顯示為'1.新娘發型 2發飾配戴技巧及發型轉換'</span>
+				    <textarea id="partc" name="partc" style="width:500px;height:300px;">{$list.partc}</textarea>
+				    </div>
+				    </div>
+				    <input type="hidden" id="id" name="id" value="{$list.id}" />
+				     <input type="hidden" id="type" name="type" value="{$type}" />
+				    <div class="control-group">
+				    <div class="controls">
+				    <button type="submit" class="btn">Submit</button>
+				    </div>
+				    </div>
+				    </form>
+	          
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+    </div>
+<script src="__JS__/jquery-1.8.2.min.js"></script>
+<script src="__JS__/jquery.form.js"></script>
+<script src="__JS__/CheckForm.js"></script>
+<script src="__JS__/common.js"></script>
+<script src="__JS__/kindeditor/kindeditor.js"></script>
+<script src="__JS__/kindeditor/lang/zh_CN.js"></script>
+<script>
+/* KindEditor.ready(function(K) {
+	editor = K.create('#course', {
+					allowFileManager : true,
+					urlType : 'domain'
+	});
+}); */
+</script> 
+<script>
+jQuery(function(){
+	commonAjaxSubmit('',"#myForm");
+});
+</script>    
+</body>
+</html>

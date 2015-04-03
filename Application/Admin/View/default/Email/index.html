@@ -1,0 +1,195 @@
+<include file="Common:header" />
+
+<body>
+<style>
+.background {
+display: block;
+width: 100%;
+height: 100%;
+opacity: 0.4;
+filter: alpha(opacity=40);
+background:#000;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 2000;
+}
+.progressBar {
+border: solid 2px #86A5AD;
+background: white url(__IMG__/load.gif) no-repeat 10px 10px;
+}
+.progressBar {
+display: block;
+width: 148px;
+height: 28px;
+position: fixed;
+top: 50%;
+left: 50%;
+margin-left: -74px;
+margin-top: -14px;
+padding: 10px 10px 10px 50px;
+text-align: left;
+line-height: 27px;
+font-weight: bold;
+position: absolute;
+z-index: 2001;
+}
+</style>
+<div id="background" class="background" style="display: none; "></div>
+<div id="progressBar" class="progressBar" style="display: none; ">Data Loading</div>
+
+<link rel="stylesheet" href="__CSS__/jquery-ui.css">
+<div class="container">
+      <div class="row">
+        <div class="span3">
+         <include file="Common:menu" />
+        </div><!--/span-->
+        <div class="span9">
+                    <ul class="breadcrumb">
+				    <li><a href="#">Home</a> <span class="divider">/</span></li>
+				    <li><a href="#">Email Management</a> <span class="divider">/</span></li>
+				    <li class="active">Email Management</li>
+				    </ul>
+			     <legend>Email Management</legend>	
+                <form action="{:U('sendEmail')}" id="myForm" method="post" class="form-horizontal">
+                    
+                      <div class="control-group">
+						<label class="control-label">Course</label>
+						<div class="controls">
+						    <select id="course" name="course" style="float:left;">
+			                              <volist name="programmes" id="vo">
+			                               <option value="{$vo.id}">{$vo.etitle}</option>
+			                              </volist>
+			                </select>
+						<label class="control-label">Course Code</label>
+						<foreach name="coursecodes" item="vods">
+						<select id="coursecodes{$key}" name="coursecodes" style="display:none;">
+			                <volist name="vods" id="vod">
+								<option value="{$vod.id}">{$vod.etitle}</option>
+			                </volist>
+			                </select>
+						</foreach>
+						</div>
+					  </div>
+					  <div class="control-group">
+						<label class="control-label">Title</label>
+						<div class="controls">
+						    <input type="text" id="title" name="title" />
+						</div>
+					  </div>
+					 <div class="control-group">
+						<label class="control-label">Content</label>
+						<div class="controls">
+						    <textarea id="content" name="content" style="width:600px; height:300px;"> </textarea>
+						</div>
+					  </div>
+					<div class="control-group">
+						<div class="controls">
+						     <button type="submit" class="btn">Submit</button>
+						</div>
+					</div>
+				 </form>       
+	            <legend>Console</legend>	
+                <div  id="console">
+				         <table class="table">
+						              <thead>
+						                <tr>
+						                    <th>Name</th>
+						                    <th>Course</th>
+						                    <th>Email</th>
+						                    <th>Phone</th>
+						                </tr>
+						              </thead>
+						              <tbody>
+						              
+						              </tbody>
+						            </table>
+				</div>		    
+               
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2014</p>
+      </footer>
+
+    </div>
+<script src="__JS__/jquery-1.8.2.min.js"></script>  
+<script src="__JS__/jquery-ui.min.js"></script>
+<script src="__JS__/jquery.form.js"></script>
+<script src="__JS__/CheckForm.js"></script>
+<script src="__JS__/kindeditor/kindeditor.js"></script>
+<script src="__JS__/kindeditor/lang/zh_CN.js"></script>
+<script>
+//KindEditor.ready(function(K) {
+	editor =KindEditor.create('#content', {
+					allowFileManager : true,
+					urlType : 'domain'
+	});
+//});
+</script> 
+<script>
+var ajaxbg = $("#background,#progressBar");
+function commonAjaxSubmit(url,formObj){
+    if(!formObj||formObj==''){
+        var formObj="form";
+    }
+    if(!url||url==''){
+        var url=document.URL;
+    }
+    var options={
+    	  beforeSubmit:showRequest,
+  		  success:showResponse
+  	 };
+    jQuery(formObj).ajaxForm(options);
+    return false;
+}
+function showRequest(formData,jqForm,options){
+	var check=CheckForm(formData,jqForm);
+	if(!check)return false;
+	ajaxbg.show();
+	editor.sync();
+	return true;
+}
+
+function showResponse(data,statusText,xhr,$form){
+	ajaxbg.hide();
+       var data=eval("("+data+")");
+       var index=0;
+       $("#console tbody").html('');
+       var timer=setInterval(function(){
+    	   if(data.length==index){
+    		   clearInterval(timer);
+    		   return false;
+    	   }
+    	   var val=data[index];
+    	   
+    	   var html='<tr><td>'+val['account']+'</td><td>'+val['course']+'</td>'; 	   
+    	   html+='<td>'+val['email']+'</td><td>'+val['phone']+'</td></tr>';
+    	   $("#console tbody").append(html);
+    	   
+    	   var top=$("#console tbody").innerHeight();
+    	   jQuery("#console").scrollTop(top);
+    	   index++;
+       },200);
+}
+
+jQuery(function(){
+	commonAjaxSubmit("","#myForm");
+	$("select[name=\'coursecodes\']").attr('disabled',true);
+	$('#coursecodes'+$('#course').val()).attr('disabled',false);
+	$('#coursecodes'+$('#course').val()).show();
+	$('#course').change(function (){
+		$("select[name=\'coursecodes\']").hide();		
+		$("select[name=\'coursecodes\']").attr('disabled',true);
+		$('#coursecodes'+$('#course').val()).attr('disabled',false);
+		$('#coursecodes'+$('#course').val()).show();
+		
+	})
+});
+
+</script>   
+</body>
+</html>

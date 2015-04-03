@@ -1,0 +1,28 @@
+*{padding:0px;margin:0px}
+a{text-decoration:none;}
+.container{width:1050px;margin:0px auto;}
+.bcontainer{width:1300px;margin:0px auto;}
+
+body{background:url(../Img/Base/bg.jpg) no-repeat center top #fff;font-size:13px;font-family:"微软雅黑"}
+#box{max-width:1920px;min-width:1300px;margin:0px auto;min-height:680px;position:relative;padding-top:112px;}
+
+#box #header{position:absolute;z-index:99;left:50%;top:0px;margin-left:-640px;width:1280px;height:180px;}
+#box #header .containerwraper{position:relative;}
+#box #header #logo{position:absolute;z-index:999;left:130px;top:14px;}
+#header #navwraper .navlist{float:left;}
+#header #navwraper{position:absolute;z-index:998;left:212px;top:0px;width:920px;padding-left:90px;padding-top:26px;height:106px;background:url(../Img/Base/navbg.png) no-repeat  center top;float:left;}
+#header #navwraper a.nav{width:83px;margin-left:10px;margin-right:10px;float:left;background:url(../Img/Base/nav.png) no-repeat left center;text-indent:-999px;overflow:hidden;}
+#header #navwraper a.newsnav{height:46px;background-position:0px 0px;}
+#header #navwraper a.ideanav{margin-top:34px;height:40px;background-position:-104px -32px;}
+#header #navwraper a.teachernav{margin-top:56px;height:32px;background-position:-208px -56px;}
+#header #navwraper a.artnav{margin-top:68px;height:26px;background-position:-312px -68px;}
+#header #navwraper a.awardnav{margin-top:68px;height:30px;width:104px;background-position:-418px -69px;}
+#header #navwraper a.reportnav{margin-top:56px;height:34px;background-position:-543px -55px;}
+#header #navwraper a.outsidenav{margin-top:34px;height:38px;background-position:-646px -32px;}
+#header #navwraper a.contactnav{height:42px;background-position:-748px 0px;}
+
+
+.banners{width:1300px;margin:0px auto;}
+
+#pagemain .containerwraper{min-height:600px;_height:600px;}
+#footer{background:#fbd58e;height:54px;margin-top:25px;}

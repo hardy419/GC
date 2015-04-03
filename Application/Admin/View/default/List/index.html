@@ -1,0 +1,90 @@
+<include file="Common:header" />
+<body>
+<div class="container">
+      <div class="row">
+        <div class="span3">
+         <include file="Common:menu" />
+        </div><!--/span-->
+        <div class="span9">
+                    <ul class="breadcrumb">
+				    <li><a href="#">Home</a> <span class="divider">/</span></li>
+				    <li><a href="#"><if condition="$type eq 'programmes'">Courses<else/>{$type|ucfirst}</if> Management</a> <span class="divider">/</span></li>
+				    <li class="active"><if condition="$type eq 'programmes'">Courses<else/>{$type|ucfirst}</if> Management</li>
+				    </ul>
+				    <p>
+				    <if condition="$type neq 'forget'">
+					 <form >
+					       <div class="input-append">
+						    <a class="btn" href='{:U('control',array('type'=>$type,'pid'=>$pid))}'>Add <if condition="$type eq 'programmes'">Courses<else/>{$type|ucfirst}</if></a>
+						    </div>
+					 </form>
+					 </if>
+					</p>
+				<legend><if condition="$type eq 'programmes'">Courses<else/>{$type|ucfirst}</if> Management</legend>	
+                <table class="table table-striped">
+	              <thead>
+	                <tr>
+	                    <th>ID</th>
+	                    <th>Name</th>
+	                    <th>Action</th>
+	                    </if>
+	                </tr>
+	              </thead>
+	              <tbody>
+	               <volist name="list" id="vo">
+	                <tr <if condition="$current eq $vo['id']">class="warning"</if>>
+	                    <td>{$vo.id}</td>
+	                    <td>{$vo.title}</td>
+	                    <td>
+	                    <if condition="($type eq 'programmes')">
+	                    <a href="{:U('index',array('pid'=>$vo['id'],'type'=>'coursescode'))}">Courses Code</a>
+	                    </if>
+	                    <if condition="($type eq 'programmes')">
+	                    <a href="{:U('index',array('pid'=>$vo['id'],'type'=>'document'))}">Documents</a>&nbsp;&nbsp;
+	                    </if>
+	                    <if condition="($type eq 'news') or ($type eq 'tutors') or ($type eq 'case') or ($type eq 'student')">
+	                    <a href="{:U('photos',array('pid'=>$vo['id'],'type'=>$type.'photos'))}">Photos</a>&nbsp;&nbsp;
+	                    </if>
+	                    <a href="{:U('control',array('id'=>$vo['id'],'type'=>$type,'pid'=>$pid))}">Edit</a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="del('{:U('del',array('id'=>$vo['id'],'type'=>$type))}');">Delete</a></td>
+	                   
+	                </tr>
+	                </volist>
+	              </tbody>
+	            </table>
+	            
+	            <div class="pagination pagination-right">
+	              <ul>
+	                {$show}
+	             </ul>
+	            </div>
+	          
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2014</p>
+      </footer>
+
+    </div>
+<script src="__JS__/jquery-1.8.2.min.js"></script>    
+<script>
+  function del(url){
+	  if(url=='') return false;
+      if(window.confirm('Are you sure to delete this record?')){	  
+		  $.get(url,function(responseText){
+			    var info=responseText['info'];
+		        var status=responseText['status'];
+		        var url=responseText['url'];
+		        if(status==1){
+		        alert(info)
+		        window.location.href=url;
+		        } else alert(info);
+		  });
+		  return true;
+	  }
+  }
+</script>   
+</body>
+</html>

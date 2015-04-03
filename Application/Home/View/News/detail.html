@@ -1,0 +1,33 @@
+<include file="Common:head"/><link  rel="stylesheet" type="text/css" href="__CSS__/news.css"/>
+	<div id="box">
+<!-- Header starts -->
+<include file="Common:header"/>
+<!-- Header ends -->
+   <div class="banners">
+          <div class="containerwraper">
+             <img src="{:SITE_PATH}Public/Img/News/banner.jpg" />
+          </div>
+   </div>
+
+<div id="pagemain" class="container">
+      <div class="containerwraper newswraper2">
+           <div class="contentwraper">
+               <div class="newslist">
+                  <div class="newstitle">{$list.title}</div>
+                  <div class="newsback">[<a href="{:U('index')}">返回</a>]</div>
+                  <div class="newsdesc">{$list.content|html_entity_decode=###}</div>
+                  <div class="newsphoto">
+                    <volist name="photos" id="vo">
+                      <dl><dd><img src="{:SITE_PATH}Uploads/{$vo.pic}" /></dd><dt>{$vo.title}</dt></dl>
+                    </volist>
+                  </div>
+	           </div>
+           </div>
+      </div>
+   </div>
+
+<!-- Footer starts -->
+<include file="Common:footer"/>
+<!-- Footer ends -->
+</body>
+</html> 

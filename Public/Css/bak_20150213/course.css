@@ -1,0 +1,59 @@
+.container{width:1160px;}
+.coursewraper{background:url(../Img/Course/bg.jpg) center top no-repeat;height:2428px;overflow:hidden;padding-bottom:400px;}
+.coursewraper2{background:url(../Img/Course/bg2.jpg) center top no-repeat;height:1270px;overflow:hidden;padding-bottom:200px;}
+.coursewraper3{background:url(../Img/Course/bg3.jpg) center top no-repeat;height:850px;overflow:hidden;padding-bottom:170px;}
+.coursewraper .contentwraper{padding-top:88px;padding-left:130px;font-size:0px;height:100%;}
+.leftColumn,.rightColumn,.courselist,.course,.teacher .photo,.teacher .desc{vertical-align:top;display:inline-block; _zoom:1;*display:inline;}
+.leftColumn{width:157px;border-right:1px dotted #bbbbbb;min-height:100px;height:100%;}
+.rightColumn{width:724px;margin:0px 30px;}
+
+
+.sectionlist .section{margin-bottom:29px;padding-left:20px;}
+.sectionlist .active{background:url(../Img/Course/arrow.jpg) no-repeat left 10px;}
+.sectionlist .section a{width:107px;height:24px;display:block;background:url(../Img/Course/nav.png) no-repeat left top;}
+.sectionlist .section a.story{height:50px;background-position:left 0px;}
+.sectionlist .section a.middleskill{height:50px;background-position:left -76px;}
+.sectionlist .section a.highskill{height:50px;background-position:left -146px;}
+.sectionlist .section a.westpainting{height:25px;background-position:left -220px;}
+.sectionlist .section a.lnkpainting{height:25px;background-position:left -274px;}
+
+
+.sectionlist .active a{background:url(../Img/Course/navhover.png) no-repeat left top;}
+
+
+.pagetitle{font-size:20px;line-height:24px;color:#000;}
+.teacher{margin-bottom:30px;margin-top:20px;}
+.teacher .photo{width:147px;}
+.teacher .desc{margin-left:20px;color:#666;width:550px;}
+.teacher .desc .infor{font-size:20px;line-height:20px;margin-bottom:26px;}
+.teacher .desc .introduction{font-size:15px;line-height:22px;}
+.group{padding-left:130px;margin-bottom:30px;}
+
+.courselist{}
+.courselist .course{margin-top:20px;width:720px;font-size:16px;line-height:24px;}
+.course a{color:#252525;font-size:16px;line-height:24px;}
+.course .name{margin:5px 5px 0px 5px;}
+.course .author{margin:0px 5px;}
+.course .head{font-size:20px;color:#fff;height:42px;line-height:42px;padding:0px 15px 0px 20px;width:685px;}
+.course .head .fit{float:right;font-size:16px;}
+.course .head .age{margin-left:40px; }
+.course .main{padding:15px 20px;width:680px;background:#fff;}
+.courselist .grey{border:1px solid #6c6c6c;}
+.courselist .grey .head{background:#6c6c6c;}
+.courselist .pink{border:1px solid #ed008c}
+.courselist .pink .head{background:#ed008c;}
+.courselist .purple{border:1px solid #7f3e98;}
+.courselist .purple .head{background:#7f3e98;}
+.courselist .green{border:1px solid #00a650;}
+.courselist .green .head{background:#00a650;}
+.courselist .brown{border:1px solid #8b5f3c;}
+.courselist .brown .head{background:#8b5f3c;}
+.courselist .orange{border:1px solid #ee5d31;}
+.courselist .orange .head{background:#ee5d31}
+.courselist .blue{border:1px solid #06aef5;}
+.courselist .blue .head{background:#06aef5;}
+.course .time{margin-top:8px;}
+.course .time span{padding-left:20px;background:url(../Img/Course/leftarrow.jpg) no-repeat left center;font-size:16px;color:#5454e9;}
+
+.coursewraper2 .pagetitle,.coursewraper3 .pagetitle{margin:10px 0px;}
+.description{font-size:15px;line-height:22px;color:#666;}

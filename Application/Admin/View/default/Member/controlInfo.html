@@ -1,0 +1,86 @@
+<include file="Common:header" />
+<body>
+<div class="container">
+      <div class="row">
+        <div class="span3">
+         <include file="Common:menu" />
+        </div><!--/span-->
+        <div class="span9">
+                     <ul class="breadcrumb">
+				    <li><a href="#">Home</a> <span class="divider">/</span></li>
+				    <li><a href="#">Member Management</a> <span class="divider">/</span></li>
+				    <li class="active">Member Management</li>
+				    </ul>
+				<legend>Edit Member</legend>
+                    <form class="form-horizontal" id="myForm" method="post" action="{:U('save')}">
+				    <div class="control-group">
+				    <label class="control-label">Account:<span class="red">*</span></label>
+				    <div class="controls">
+				    <input type="text" id="account" name="account" check="Require" value="{$list.account}" warning="Account cann't be empty" >
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">Contact NO.:<span class="red">*</span></label>
+				    <div class="controls">
+				    <input type="text"  value="{$list.phone}" name="phone" id="phone">
+				    </div>
+				    </div>	
+				        
+				    <div class="control-group">
+				    <label class="control-label">Email:<span class="red">*</span></label>
+				    <div class="controls">
+				    <input type="text"  value="{$list.email}" name="email" id="email">
+				    </div>
+				    </div>
+	                 <div class="control-group">
+				    <label class="control-label">Status:</label>
+				    <div class="controls">
+				      <input type="radio" id="status1" name="status" value="1" <if condition="$list['status'] neq '0'">checked="checked"</if> /><span class="help-inline">Yes</span> <input type="radio" id="status1" name="status" value="0"  <if condition="$list['status'] eq '0'">checked="checked"</if>/><span class="help-inline">No</span>
+				    </div>
+				    </div>
+				     <div class="control-group">
+				    <label class="control-label">Course:<span class="red">*</span></label>
+				    <div class="controls">
+				       <volist name="courses" id="vo">
+				         <input type="checkbox" id="courses{$i}" name="courses[]" value="{$vo.id}" <?php if(strpos($list['courses'],$vo['id'])!==false){?>checked='checked'<?php }?>/><span class="help-inline">{$vo.etitle}</span>&nbsp;&nbsp;
+				       </volist>
+				    </div>
+				    </div>
+					<div class="control-group">
+				    <label class="control-label">Course Code:<span class="red">*</span></label>
+				    <div class="controls">
+				       <volist name="coursescode" id="vod">
+				         <input type="checkbox" id="coursescode{$i}" name="coursescode[]" value="{$vod.id}" <?php if(strpos($list['coursescode'],$vod['id'])!==false){?>checked='checked'<?php }?>/><span class="help-inline">{$vod.etitle}</span>&nbsp;&nbsp;
+				       </volist>
+				    </div>
+				    </div>
+					
+				    <input type="hidden" id="id" name="id" value="{$list.id}" />
+				    <div class="control-group">
+				    <div class="controls">
+				    <button type="submit" class="btn">Submit</button>
+				    </div>
+				    </div>
+				    </form>
+	          
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2014</p>
+      </footer>
+
+    </div>
+<script src="__JS__/jquery-1.8.2.min.js"></script>
+<script src="__JS__/jquery.form.js"></script>
+<script src="__JS__/CheckForm.js"></script>
+<script src="__JS__/common.js"></script>
+<script>
+jQuery(function(){
+	commonAjaxSubmit('',"#myForm");
+});
+</script>    
+</body>
+</html>

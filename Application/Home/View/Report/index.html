@@ -1,0 +1,45 @@
+<include file="Common:head"/>
+<link  rel="stylesheet" type="text/css" href="__CSS__/report.css"/>
+	<div id="box">
+<!-- Header starts -->
+<include file="Common:header"/>
+<!-- Header ends -->
+
+<div class="banners">
+          <div class="containerwraper">
+             <img src="{:SITE_PATH}Public/Img/Achievement/banner.jpg" />
+          </div>
+   </div>
+
+   <!-- page-main -->
+   <div id="pagemain" class="container">
+      <div class="containerwraper achievementwraper">
+           <div class="contentwraper">
+              <div class="rightColumn">
+                    <div class="achievementlist">
+                        <div class="newslist">
+			                <volist name="list" id="vo">
+								        <div class="news <if condition="$i eq 1">first</if>">
+				                   <div class="textwraper">
+				                      <div class="date">{$vo.date|date="Y-m-d",###}</div>
+				                      <div class="title"><a href="javascript:void(0);">{$vo.title}</a></div>
+				                      <div class="pdf"><a href="{:SITE_PATH}{$vo.pdf}" target="_blank"><img src="{:SITE_PATH}Public/Img/Achievement/pdf.jpg" width="30" /></a></div>
+				                   </div>
+				                </div>
+			                </volist>
+			          	</div>                        
+                        <div class="pagination pagination-right">
+                        <ul>
+                          {$show}
+                       </ul>
+                   </div>
+                    </div>
+              </div>
+           </div>
+      </div>
+   </div>
+<!-- Footer starts -->
+<include file="Common:footer"/>
+<!-- Footer ends -->
+</body>
+</html> 

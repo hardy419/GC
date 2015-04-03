@@ -1,0 +1,28 @@
+.container{width:1160px;}
+.achievementwraper{background:url(../Img/Achievement/bg.jpg) center top;height:1160px;overflow:hidden;padding-bottom:200px;}
+.achievementwraper .contentwraper{padding-top:100px;padding-left:120px;font-size:0px;height:100%;}
+.leftColumn,.rightColumn,.achievementlist,.achievement{vertical-align:top;display:inline-block; _zoom:1;*display:inline;}
+.leftColumn{width:167px;border-right:1px dotted #bbbbbb;min-height:100px;height:100%;}
+.rightColumn{width:784px;}
+.achievementlist{font-size:0px;}
+.achievement{margin:0px 6px 24px 24px;width:230px;}
+.achievement a{color:#252525;font-size:15px;letter-spacing: 1px;line-height:24px;}
+.achievement .name{margin:5px 5px 0px 5px;}
+.achievement .author{margin:0px 5px;}
+
+.sectionlist .section{margin-bottom:26px;padding-left:20px;}
+.sectionlist .active{background:url(../Img/Achievement/arrow.jpg) no-repeat left center;}
+.sectionlist .section a{width:107px;height:24px;display:block;background:url(../Img/Achievement/nav.jpg) no-repeat left top;}
+.sectionlist .section a.student{background-position:left 0px;}
+.sectionlist .section a.work{background-position:left -48px;}
+.sectionlist .section a.child{background-position:left bottom;}
+.newslist{margin-left:15px;font-size: 14px;width: 720px;}
+.newslist .news .date{padding-left:20px;color:#ff6600;margin-top:-6px;line-height:24px;background:url(../Img/News/arrow.jpg) no-repeat left center;width: 150px;float: left;}
+.newslist .news .title{width: 500px;float: left;}
+.newslist .news{border-bottom: 1px dotted #bbbbbb;height: 30px;margin: 20px 0;}
+.newslist .news .title a{color:#666666;font-size:15px;letter-spacing: 1px;line-height:14px;font-weight:bold;}
+.newslist .news .pdf{width:30px;float: left;}
+
+.clear{clear: both;}
+
+.sectionlist .active a{background:url(../Img/Achievement/navhover.jpg) no-repeat left top;}

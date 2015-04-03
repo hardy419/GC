@@ -1,0 +1,41 @@
+<include file="Common:head"/><link  rel="stylesheet" type="text/css" href="__CSS__/news.css"/>
+	<div id="box">
+<!-- Header starts -->
+<include file="Common:header"/>
+<!-- Header ends -->
+   <div class="banners">
+          <div class="containerwraper">
+             <img src="{:SITE_PATH}Public/Img/News/banner.jpg" />
+          </div>
+   </div>
+
+<div id="pagemain" class="container">
+      <div class="containerwraper newswraper">
+           <div class="contentwraper">
+               <div class="newslist">
+	                <volist name="newslist" id="vo">
+						<div class="news first">
+		                   <div class="img"><a href="{:U('detail',array('id'=>$vo['id']))}"><img src="{:SITE_PATH}Uploads/{$vo.pic}" width="153" /></a></div>
+		                   <div class="textwraper">
+		                      <div class="date">{$vo.date|date="Y-m-d",###}</div>
+		                      <div class="title"><a href="{:U('detail',array('id'=>$vo['id']))}">{$vo.title}</a></div>
+		                      <div class="text">{$vo.content|html_entity_decode|strip_tags|mb_substr=###,"0","50","utf-8"}</div>
+		                   </div>
+		                </div>
+	                </volist>
+
+	            <div class="pagination pagination-right">
+                        <ul>
+                          {$show}
+                       </ul>
+                   </div>
+	           </div>
+           </div>
+      </div>
+   </div>
+
+<!-- Footer starts -->
+<include file="Common:footer"/>
+<!-- Footer ends -->
+</body>
+</html> 
