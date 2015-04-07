@@ -1,104 +1,87 @@
 <include file="Common:head"/>
-	<div id="box">
+<div style="width: 1040px; margin: 0px auto; font-family:Arial; ">
 <!-- Header starts -->
 <include file="Common:header"/>
 <!-- Header ends -->
-   <div class="banners">
-          <div class="containerwraper">
-             <img src="{:SITE_PATH}Public/Img/Index/banner.jpg" />
-             <div class="bannerswraper">
-                <div class="bannerbox">
-                       <img src="{:SITE_PATH}Public/Img/Index/bannerbg.png" />
-                       <div class="bannerlist" style="overflow:hidden;">
-                            <div class="banner"><img src="{:SITE_PATH}Public/Img/Index/banner-img.png" /></div>
-                            <div class="banner"><img src="{:SITE_PATH}Public/Img/Index/banner-img.png" /></div>
-                            <div class="banner"><img src="{:SITE_PATH}Public/Img/Index/banner-img.png" /></div>
-                            <div class="banner"><img src="{:SITE_PATH}Public/Img/Index/banner-img.png" /></div>
-                       </div>
-                </div>
-             </div>
-          </div>
-   </div>
-   
-<div id="homewraper" class="container">
-        <div class="containerwraper">
-             <div id="news">
-                 <div class="newswraper">
-                        <div class="newslist">
-                             <volist name="newslist" id="vo">
-                             <div class="news first">
-                                <div class="date">{$vo.date|date="Y-m-d",###}</div>
-                                <div class="title"><a href="javascript:void(0);"> {$vo.title}</a></div>
-                                <div class="text"> {$vo.content|html_entity_decode=###|strip_tags|mb_substr=###,"0","30","utf-8"}</div>
-                             </div>
-                              <if condition="$i lt 3"><div class="line"></div></if>
-                            </volist>
-                        </div>
-                 </div>
-                 <div class="more"><a href="{:U('News/index')}"><img src="{:SITE_PATH}Public/Img/Index/more.png" /></a></div>
-             </div>
-             <div id="works">
-                 <div class="head">
-                        <div class="title"><img src="{:SITE_PATH}Public/Img/Index/studentbg.png" /></div>
-                        <div class="more"><a href="{:U('Achievement/work')}"><img src="{:SITE_PATH}Public/Img/Index/more.png" /></a></div>
-                 </div>
-                  <div class="workslist">
-                       <volist name="student" id="vo">
-                         <div class="work">
-                              <div class="img"><a href="javascript:void(0);"><img src="{:SITE_PATH}Uploads/{$vo.pic}" width="173" /></a></div>
-                              <div class="name"><a href="javascript:void(0);">{$vo.name}</a></div>
-                              <div class="infor">{$vo.title|mb_substr=###,"0","50","utf-8"}</div>
-                         </div>
-                        </volist>
-                  </div>
-             </div>
-             
-             <div class="rightcolumn">
-                  <div id="award">
-                   <div class="awardslist">
-                           <div class="awardwraper">
-                                 <div class="title">第14屆 星星河 2014</div>
-                                 <div class="text">
-                                    <dl>
-                                      <dt>特等獎</dt><dt>徐碧彤</dt>	
-                                    </dl>
-                                    <dl>  
-									  <dt>一等獎 </dt><dt>鄧穎潼</dt>
-									</dl>
-                                    <dl>  
-									  <dt>二等獎 </dt><dt>鄺靜祈</dt>
-                                    </dl>
-                                 </div>
-                           </div>
-                           <div class="line"></div>
-                           <div class="awardwraper">
-                                 <div class="title">第14屆 星星河 2014</div>
-                                 <div class="text">
-                                    <dl>
-                                      <dt>特等獎</dt><dt>徐碧彤</dt>	
-                                    </dl>
-                                    <dl>  
-									  <dt>一等獎 </dt><dt>鄧穎潼</dt>
-									</dl>
-                                    <dl>
-									  <dt>二等獎 </dt><dt>鄺靜祈</dt>
-                                    </dl>
-                                 </div>
-                           </div>
-                   </div>
-                   <div class="more"><a href="javascript:void(0);"><img src="{:SITE_PATH}Public/Img/Index/more.png" /></a></div>
-                  </div>
-                  <div id="contact">
-                     <div class="title">兩點水工作室(九龍總校)</div>
-                     <div class="text">
-						<p>電話：2355 7700</p>
-						<p>電郵：vkids2001@gmail.com</p>
-						<p>地址：九龍界限街144號僑園sG座1樓</p>
-                     </div>
-                  </div>
-             </div>
+<!-- banner -->
+<div class="banner">
+	<ul class="banner_u" style="left:0;position: relative;">
+		<li><img src="{:SITE_PATH}Public/Img/GC/banner1.jpg" /></li>
+		<li><img src="{:SITE_PATH}Public/Img/GC/banner2.jpg" /></li>
+		<li><img src="{:SITE_PATH}Public/Img/GC/banner3.jpg" /></li>
+		<li><img src="{:SITE_PATH}Public/Img/GC/banner1.jpg" /></li>
+		<li><img src="{:SITE_PATH}Public/Img/GC/banner2.jpg" /></li>
+	</ul>
+</div>
+<div class="banner_btn">
+	<ul>
+		<li><img s='1' src="{:SITE_PATH}Public/Img/GC/img_s.png" /></li>
+		<li><img s='2' src="{:SITE_PATH}Public/Img/GC/img_e.png" /></li>
+		<li><img s='3' src="{:SITE_PATH}Public/Img/GC/img_e.png" /></li>
+		<li><img s='4' src="{:SITE_PATH}Public/Img/GC/img_e.png" /></li>
+		<li><img s='5' src="{:SITE_PATH}Public/Img/GC/img_e.png" /></li>				
+	</ul>
+</div>
+<!-- Contents -->
+<div class="contents">
+    <!-- Services Section -->
+    <div id="section-services">
+        <p><b class="section">&nbsp;&nbsp;Services</b></p>
+        <div class="scrollable">
+            <a id="left_arrow-a" href=""><img src="{:SITE_PATH}Public/Img/GC/left_arrow.png" /></a>
+            <ul id="services-pic">
+                <li>
+                    <a href=""><img src="{:SITE_PATH}Public/Img/GC/service_pic1.jpg" /></a>
+                    <h3>Media Awareness</h3>
+                    <h4><i>Event title description</i></h4>
+                    <p>Every brand is different. GC creates insightful analysis on the brand of clients to define their brand positioning and target consumers.</p>
+                    <a href=""><img src="{:SITE_PATH}Public/Img/GC/more.png" /></a>
+                </li>
+                <li>
+                    <a href=""><img src="{:SITE_PATH}Public/Img/GC/service_pic2.jpg" /></a>
+                    <h3>Brand Building</h3>
+                    <h4><i>Event title description</i></h4>
+                    <p>Every brand is different. GC creates insightful analysis on the brand of clients to define their brand positioning and target consumers.</p>
+                    <a href=""><img src="{:SITE_PATH}Public/Img/GC/more.png" /></a>
+                </li>
+                <li>
+                    <a href=""><img src="{:SITE_PATH}Public/Img/GC/service_pic3.jpg" /></a>
+                    <h3>Event Management</h3>
+                    <h4><i>Event title description</i></h4>
+                    <p>Every brand is different. GC creates insightful analysis on the brand of clients to define their brand positioning and target consumers.</p>
+                    <a href=""><img src="{:SITE_PATH}Public/Img/GC/more.png" /></a>
+                </li>
+            </ul>
+            <a id="right_arrow-a" href=""><img src="{:SITE_PATH}Public/Img/GC/right_arrow.png" /></a>
         </div>
-   </div>
+    </div>
+    <!-- About GC Section -->
+    <div id="section-about_gc">
+        <p><b class="section">&nbsp;&nbsp;About GC</b></p>
+        <p>Established in 2014. GC Communications "GC", is a full-service event management and media marketing company based in Hong Kong.</p>
+        <p>GC offers both traditional PR &amp; marketing services like event management, media awareness, brand building, and joint promotions, and online marketing service like Facebook optimization, community management, and iPhone/iPad/Facebook applications, online topics seeding and online buzz words tracking.</p>
+        <a href=""><img src="{:SITE_PATH}Public/Img/GC/more.png" /></a>
+    </div>
+    <!-- News & Event Section -->
+    <div id="section-news_event">
+        <p><b class="section">&nbsp;&nbsp;News &amp; Event</b></p>
+        <b>have trouble running an event? Leave it to GC team of expert event planner who had hosted</b>
+        <ul>
+            <li>
+                <a href=""><img src="{:SITE_PATH}Public/Img/GC/brand.jpg" /></a>
+                <p>Every brand is different. GC creates...</p>
+                <div style="clear:both"></div>
+            </li>
+            <li>
+                <a href=""><img src="{:SITE_PATH}Public/Img/GC/brand.jpg" /></a>
+                <p>Every brand is different. GC creates...</p>
+                <div style="clear:both"></div>
+            </li>
+        </ul>
+        <a href=""><img src="{:SITE_PATH}Public/Img/GC/more.png" /></a>
+    </div>
+    <div style="clear:both"></div>
+</div>
 <!-- Footer starts -->
 <include file="Common:footer"/>
 <!-- Footer ends -->
@@ -118,6 +101,27 @@
 	    });
    });
    
-</scipt>
+</script>
+<script>
+var img_s_path="{:SITE_PATH}Public/Img/GC/img_s.png";
+var img_e_path="{:SITE_PATH}Public/Img/GC/img_e.png";
+var menu_home_image="{:SITE_PATH}Public/Img/GC/menu_home.png";
+var menu_news_event="{:SITE_PATH}Public/Img/GC/menu_news_event.png";
+var menu_about_gc="{:SITE_PATH}Public/Img/GC/menu_about_gc.png";
+var menu_services="{:SITE_PATH}Public/Img/GC/menu_services.png";
+var menu_gc_projects="{:SITE_PATH}Public/Img/GC/menu_gc_projects.png";
+var menu_contact_us="{:SITE_PATH}Public/Img/GC/menu_contact_us.png";
+var menuc_home_image="{:SITE_PATH}Public/Img/GC/menuc_home.png";
+var menuc_news_event="{:SITE_PATH}Public/Img/GC/menuc_news_event.png";
+var menuc_about_gc="{:SITE_PATH}Public/Img/GC/menuc_about_gc.png";
+var menuc_services="{:SITE_PATH}Public/Img/GC/menuc_services.png";
+var menuc_gc_projects="{:SITE_PATH}Public/Img/GC/menuc_gc_projects.png";
+var menuc_contact_us="{:SITE_PATH}Public/Img/GC/menuc_contact_us.png";
+$(document).ready(function (){linum=$(".banner_u li").length;w=1040*linum;$(".banner_u").css("width",w+"px");linums=$(".banner_btn li").length;w=20*linums;$(".banner_btn ul").css("width",w+"px");setTimeout(autopaly,5E3);$(".banner_btn li img").click(function(){var a=$(this).attr("s");cliplay(a)});
+function autopaly(){linum=$(".banner_u li").length;w=1040*linum;1<$(".banner_u li").length&&(ml=parseInt($(".banner_u").css("left")),0>=ml&&0==ml%1040&&(ml==-1*(w-1040)?$(".banner_u").animate({left:"0px"},"slow"):$(".banner_u").animate({left:ml-1040+"px"},"slow"),playbtn((ml-2080)/-1040>linum?"1":(ml-2080)/-1040)));setTimeout(autopaly,5E3)}function cliplay(a){$(".banner_u").animate({left:-1040*(a-1)+"px"},"slow");playbtn(a)}
+function playbtn(a){var b=$(".banner_btn li");$(b).each(function(b){$(this).find("img").attr("s")==a?$(this).find("img").attr("src",img_s_path):$(this).find("img").attr("src",img_e_path)})};
+function clear_menuc(){$("#menu_home-image").attr('src',menu_home_image);$("#menu_news_event-image").attr('src',menu_news_event);$("#menu_about_gc-image").attr('src',menu_about_gc);$("#menu_services-image").attr('src',menu_services);$("#menu_gc_projects-image").attr('src',menu_gc_projects);$("#menu_contact_us-image").attr('src',menu_contact_us);};
+(function init(){clear_menuc();$("#menu_home-image").attr("src",menuc_home_image);$("#menu_home-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_home_image)});$("#menu_news_event-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_news_event)});$("#menu_about_gc-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_about_gc)});$("#menu_services-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_services)});$("#menu_gc_projects-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_gc_projects)});$("#menu_contact_us-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_contact_us)});})();});
+</script>
 </body>
 </html>
