@@ -1,43 +1,68 @@
 body, div, ul, li, span, a{margin:0px;padding:0px;}
-ul, ol, li {list-style: outside none none;}
-.banner{overflow: hidden;width: 1040px;}
-.banner li {float: left; width: 1040px;}
+hr{color:rgb(250, 160,20);}
+.banner{position:relative; left:-100px; width:1100px; overflow: hidden;}
+.banner li {float: left; width: 1100px;}
+.banner_u {list-style: outside none none;}
 
-.banner_btn{ width: 1040px;}
+.banner_btn{ width: 100%;}
 
-.banner_btn ul {float: right;width: 100px;margin-right: 20px;}
+.banner_btn ul {list-style: outside none none;float: right;width: 100px;margin-right: 20px;}
 .banner_btn li {float: left;width: 20px;}
 .banner_btn li img { cursor: pointer;}
 
-.header {width:100%; height:25px; background-color:rgb(95,91,90); color:rgb(240,240,240); font-size:14px;}
-.header-div {float:right; margin:3px 10px auto 20px;}
+.header {position:relative; left:-100px; width:1100px; height:25px; background-color:rgb(95,91,90); color:rgb(240,240,240); font-size:14px;}
+.header-div {float:right; margin:3px 20px auto 10px;}
+.header-div:first-child {margin-right:80px;}
 .header-div a:link {font-style:italic; color:rgb(240,240,240);}
 .header-div a:visited {font-style:italic; color:rgb(240,240,240);}
 
-.navigator {width:100%; height:90px;}
-.logo-div {width:20%; float:left;}
-.menu-div {width:760px; margin-top:40px; float:right;}
-.menu-u   {float:right;}
+.navigator {width:950px; height:90px;}
+.logo-div {width:100px; float:left;}
+.menu-div {width:850px; margin-top:40px; float:right;}
+.menu-u   {list-style: outside none none; float:right;}
 .menu-u li {float: left;}
 .menu-u li img { cursor: pointer;}
 
 .contents {margin-top:30px;}
 
-.section {border-left: 4px solid rgb(254,168,21); font-size:18px; font-weight:200;}
+.section {border-left: 6px solid rgb(254,168,21); font-size:18px; font-weight:200;}
 #left_arrow-a,#right_arrow-a {float: left; margin-top: 40px;}
-#services-pic {float:left;}
-#services-pic li {float:left; width:320px; margin: auto 5px;}
+#services-pic {list-style: outside none none; float:left;}
+#services-pic li {float:left; width:200px; margin: auto 20px;}
 #services-pic li h3 {color:rgb(254,168,21);}
 
-#section-about_gc {width:600px; float:left;margin:30px 25px 30px 0px;}
+#section-about_gc {width:400px; float:left;margin:30px 25px 30px 0px;}
 #section-about_gc>a>img {margin-top:20px;}
 
 #section-news_event {width:360px; float:right;margin:30px 0px 30px 25px;}
 #section-news_event>a>img {margin-top:50px;}
+#section-news_event ul {list-style: outside none none;}
 #section-news_event ul li {}
 #section-news_event ul li a {float:left;margin:30px 0px 0px;}
-#section-news_event ul li p {float:left;margin:30px 0px 0px 20px;}
+#section-news_event ul li p {width:200px; float:left;margin:30px 0px 0px 20px;}
 
-.footer {width:100%; height:130px; background-color:rgb(95,91,90);margin-top:30px;}
+p {font-size:13px; font-family:simsun;}
+.intro-title {border-left: 8px solid rgb(254,168,21); padding-left:10px; font-size:24px; font-weight:800; color:#646464;}
+#intro img {float:left; margin:30px 30px 20px 0px;}
+#intro-text {float:left; width:620px; margin:30px 0px 20px 0px;}
+#intro-text p {position:relative; left:16px; }
+
+#details {}
+#details>ul {list-style: outside none none;}
+#details>ul>li {margin:30px 0px 0px;}
+.detail-title {font-style:italic; font-size:18px; color:#484848; font-weight:400; margin:20px auto 30px auto;}
+.detail-li-left {width:30%;}
+.detail-li-middle {width:36%;}
+.detail-li-right {width:30%;}
+.detail-li-left,.detail-li-middle {float:left;}
+.detail-li-right {float:right;}
+.detail-title+ul {list-style:none outside url('../Img/GC/list_style_image.png');}
+.detail-title+ul li {font-size:13px; font-weight:300; margin:10px 0px 0px 0px;}
+
+.footer {position:relative; left:-100px; width:1100px; height:130px; background-color:rgb(95,91,90);margin-top:30px;}
 .footer>div {padding-top:30px; text-align:center; color:rgb(240,240,240);}
 .footer img {position:relative; top:5px;}
+
+.footer2 {position:relative; left:-100px; width:1100px; height:50px; margin-top:80px;}
+.footer2 div:first-child {height:20px; background-color:rgb(244,165,0);}
+.footer2 div:last-child {height:30px; background-color:rgb(252,215,144);}
