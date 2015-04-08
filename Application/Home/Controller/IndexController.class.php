@@ -9,6 +9,6 @@ class IndexController extends BaseController {
     	$this->assign('student',$student);
     	$this->assign('banners',json_encode($banners));
     	$this->assign('newslist',$newslist);
-        $this->display('index3');
+        $this->display('index');
     }
 }
