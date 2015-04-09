@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015 年 04 月 03 日 07:27
+-- 生成日期: 2015 年 04 月 09 日 10:01
 -- 服务器版本: 5.5.24-log
 -- PHP 版本: 5.3.13
 
@@ -31,33 +31,23 @@ USE `gc_db`;
 CREATE TABLE IF NOT EXISTS `gc_bannerlist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `pic` varchar(60) CHARACTER SET utf8 NOT NULL,
   `sid` int(11) NOT NULL,
-  `created` int(11) NOT NULL,
-  `link` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `tag` varchar(60) CHARACTER SET utf8 NOT NULL,
-  `type` varchar(255) CHARACTER SET utf8 NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+  `url` varchar(255) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sid` (`sid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
 
 --
 -- 转存表中的数据 `gc_bannerlist`
 --
 
-INSERT INTO `gc_bannerlist` (`id`, `title`, `pic`, `sid`, `created`, `link`, `tag`, `type`) VALUES
-(10, 'banner-8', '/bannerlist/20150206/b_54d48c566198f.jpg', 5, 0, '', '', 'banner'),
-(11, 'banner-9', '/bannerlist/20150206/b_54d48c6e0bd5b.jpg', 4, 0, '', '', 'banner'),
-(12, 'banner-10', '/bannerlist/20150206/b_54d48c7e715e8.jpg', 3, 0, '', '', 'banner'),
-(13, 'banner-11', '/bannerlist/20150206/b_54d48c8ee93c0.jpg', 2, 0, '', '', 'banner'),
-(14, 'banner-12', '/bannerlist/20150206/b_54d48c97981e5.jpg', 1, 0, '', '', 'banner'),
-(15, 'banner-1', '/bannerlist/20150211/b_54daed081daf1.jpg', 1, 0, '', '', 'about'),
-(16, 'banner-2', '/bannerlist/20150211/b_54daed20b29e0.jpg', 2, 0, '', '', 'about'),
-(17, 'banner-3', '/bannerlist/20150211/b_54daedec458a6.jpg', 17, 0, '', '', 'about'),
-(18, 'banner-4', '/bannerlist/20150211/b_54daee0adfcaf.jpg', 18, 0, '', '', 'about'),
-(19, 'banner-5', '/bannerlist/20150211/b_54daee1b60dc0.jpg', 19, 0, '', '', 'about'),
-(20, 'banner-6', '/bannerlist/20150211/b_54daee2d4daba.jpg', 20, 0, '', '', 'about'),
-(21, 'banner-7', '/bannerlist/20150211/b_54daee3adcd05.jpg', 21, 0, '', '', 'about'),
-(22, '123', '/bannerlist/20150320/b_550bbd152b8ab.png', 22, 0, '', '', 'banner');
+INSERT INTO `gc_bannerlist` (`id`, `title`, `sid`, `url`) VALUES
+(1, 'Banner for who we are page', 90002, 'Public/Img/GC/banner_whoweare.png'),
+(2, 'Banner for what we do page', 90003, 'Public/Img/GC/banner_whatwedo.png'),
+(3, 'Banner for client list page', 90004, 'Public/Img/GC/banner_clientlist.png'),
+(4, 'Banner for contact us', 90005, 'Public/Img/GC/banner_contactus.png'),
+(5, 'Banner for test page id#2', 2, 'Public/Img/GC/banner_clientlist.png'),
+(23, 'Banner for test page#4', 4, 'Public/Img/GC/client_logo1.png');
 
 -- --------------------------------------------------------
 
@@ -350,14 +340,17 @@ CREATE TABLE IF NOT EXISTS `gc_idea` (
   `content` text NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `gc_idea`
 --
 
 INSERT INTO `gc_idea` (`id`, `title`, `content`, `status`) VALUES
-(1, '教學理念1', '&lt;div class=&quot;text&quot;&gt;\r\n	&lt;p&gt;\r\n		爸爸媽媽為甚麼要讓小朋友去學「畫畫」呢？\r\n	&lt;/p&gt;\r\n&lt;br /&gt;\r\n	&lt;p&gt;\r\n		為了訓練子女多角度思考？培養他們的藝術美感？增強他們的表達能力及自信心？訓練他們的小肌肉？為學校的功課做準備？……\r\n	&lt;/p&gt;\r\n&lt;br /&gt;\r\n	&lt;p&gt;\r\n		若我們以小朋友的角度去看，會發現他們大部份都喜歡接觸色彩；喜愛用顏色去描繪所看見的事物；會滿心歡喜的與家人分享自己的畫作；喜歡將畫中的得意故事向老師同學一一道來。每一個作品，對小孩來說，就像一本圖冊，有說不完的故事。但很多時候，父母會忽略了子女的聲音，著眼點只放在作品上。\r\n	&lt;/p&gt;\r\n&lt;br /&gt;\r\n	&lt;p&gt;\r\n		有家長會問：「我的孩子很喜歡畫畫，很有天份，可不可以儘早教他深一點的繪畫技巧？」可能父母會認為，小朋友的畫只要畫得真，能夠在畫中運用所學的技巧，就可以畫出一幅好畫。但我們覺得，畫得真，畫得有技巧，但裡面沒有小朋友的感受，沒有小朋友的故事，沒有小朋友的靈魂，那麼繪畫只會變成空洞的東西。\r\n	&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;h4&gt;\r\n	我們的信念是 ─ 繪畫對小朋友的價值，不止限於美與不美，繪畫是他們表達感受的溝通媒介，是健康成長的好伙伴。\r\n&lt;/h4&gt;\r\n&lt;div class=&quot;leftColumn&quot;&gt;\r\n	&lt;div class=&quot;text&quot;&gt;\r\n		&lt;p&gt;\r\n			藝術創作並不孤獨，它可以令關係密切的人更加了解對方；它可以令不相識的人惺惺相惜。當看見小朋友拿著起自己的創作，面露滿足的笑容，或者興奮得手舞足蹈，藝術的力量已超出作品本身，它讓我們感受到小朋友的情緒，它讓我們觸碰小小生命的靈魂。父母有時會想，怎樣與子女溝通，但原來在視覺藝術世界中，小孩已經不知不覺與大人們說話了。\r\n		&lt;/p&gt;\r\n		&lt;p&gt;\r\n			所以，父母及老師擔當的角色，並不只教導，而是陪在小朋友左右，用心去引發他們、鼓勵他們、聆聽他們，從中引發他們對藝術的興趣，鼓勵他們作多方面的嘗試。讓他們相信利用自己的小手掌，都可以發揮出大力量；聆聽他們的分享，進入幼小的內心世界，變為子女成長路上的知心友。\r\n		&lt;/p&gt;\r\n	&lt;/div&gt;\r\n	&lt;h4&gt;\r\n		擁有靈魂及個人風格的作品，才是最感動人及富有藝術價值。\r\n	&lt;/h4&gt;\r\n	&lt;div class=&quot;text&quot;&gt;\r\n		只要用「心」創造， 繪畫必定是最「美」的。就讓我們一起陪伴可愛的小孩，啟發他們、鼓勵他們，以自己的力量完成腦海中的意念，在藝術創作的路上快樂成長。\r\n	&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;div class=&quot;rightColumn&quot;&gt;\r\n	&lt;img src=&quot;http://localhost/vkids/Public/Img/Idea/idea.jpg&quot; /&gt; \r\n&lt;/div&gt;', 1);
+(1, '教學理念1', '&lt;div class=&quot;text&quot;&gt;\n	&lt;p&gt;\n		爸爸媽媽為甚麼要讓小朋友去學「畫畫」呢？\n	&lt;/p&gt;\n&lt;br /&gt;\n	&lt;p&gt;\n		為了訓練子女多角度思考？培養他們的藝術美感？增強他們的表達能力及自信心？訓練他們的小肌肉？為學校的功課做準備？……\n	&lt;/p&gt;\n&lt;br /&gt;\n	&lt;p&gt;\n		若我們以小朋友的角度去看，會發現他們大部份都喜歡接觸色彩；喜愛用顏色去描繪所看見的事物；會滿心歡喜的與家人分享自己的畫作；喜歡將畫中的得意故事向老師同學一一道來。每一個作品，對小孩來說，就像一本圖冊，有說不完的故事。但很多時候，父母會忽略了子女的聲音，著眼點只放在作品上。\n	&lt;/p&gt;\n&lt;br /&gt;\n	&lt;p&gt;\n		有家長會問：「我的孩子很喜歡畫畫，很有天份，可不可以儘早教他深一點的繪畫技巧？」可能父母會認為，小朋友的畫只要畫得真，能夠在畫中運用所學的技巧，就可以畫出一幅好畫。但我們覺得，畫得真，畫得有技巧，但裡面沒有小朋友的感受，沒有小朋友的故事，沒有小朋友的靈魂，那麼繪畫只會變成空洞的東西。\n	&lt;/p&gt;\n&lt;/div&gt;\n&lt;h4&gt;\n	我們的信念是 ─ 繪畫對小朋友的價值，不止限於美與不美，繪畫是他們表達感受的溝通媒介，是健康成長的好伙伴。\n&lt;/h4&gt;\n&lt;div class=&quot;leftColumn&quot;&gt;\n	&lt;div class=&quot;text&quot;&gt;\n		&lt;p&gt;\n			藝術創作並不孤獨，它可以令關係密切的人更加了解對方；它可以令不相識的人惺惺相惜。當看見小朋友拿著起自己的創作，面露滿足的笑容，或者興奮得手舞足蹈，藝術的力量已超出作品本身，它讓我們感受到小朋友的情緒，它讓我們觸碰小小生命的靈魂。父母有時會想，怎樣與子女溝通，但原來在視覺藝術世界中，小孩已經不知不覺與大人們說話了。\n		&lt;/p&gt;\n		&lt;p&gt;\n			所以，父母及老師擔當的角色，並不只教導，而是陪在小朋友左右，用心去引發他們、鼓勵他們、聆聽他們，從中引發他們對藝術的興趣，鼓勵他們作多方面的嘗試。讓他們相信利用自己的小手掌，都可以發揮出大力量；聆聽他們的分享，進入幼小的內心世界，變為子女成長路上的知心友。\n		&lt;/p&gt;\n	&lt;/div&gt;\n	&lt;h4&gt;\n		擁有靈魂及個人風格的作品，才是最感動人及富有藝術價值。\n	&lt;/h4&gt;\n	&lt;div class=&quot;text&quot;&gt;\n		只要用「心」創造， 繪畫必定是最「美」的。就讓我們一起陪伴可愛的小孩，啟發他們、鼓勵他們，以自己的力量完成腦海中的意念，在藝術創作的路上快樂成長。\n	&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=&quot;rightColumn&quot;&gt;\n	&lt;img src=&quot;http://localhost/vkids/Public/Img/Idea/idea.jpg&quot; /&gt; \n&lt;/div&gt;', 1),
+(2, '1234', '&lt;p&gt;\r\n	&amp;lt;h1&amp;gt;ahahahaha...&amp;lt;/h1&amp;gt;\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&amp;lt;p&amp;gt;hahahahahahahahahahah&amp;lt;/p&amp;gt;\r\n&lt;/p&gt;', 1),
+(3, 'test', '&lt;h1&gt;Hardy&lt;/h1&gt;\r\n&lt;p&gt;Test..&lt;/p&gt;\r\n', 1),
+(4, 'test2', '1234', 1);
 
 -- --------------------------------------------------------
 
@@ -551,7 +544,7 @@ CREATE TABLE IF NOT EXISTS `gc_user` (
 --
 
 INSERT INTO `gc_user` (`id`, `account`, `login_count`, `last_login_time`, `password`, `status`, `nickname`, `last_login_ip`) VALUES
-(1, 'admin', '126', '1427780086', 'b59c67bf196a4758191e42f76670ceba', 1, '', '127.0.0.1');
+(1, 'admin', '131', '1428571790', 'b59c67bf196a4758191e42f76670ceba', 1, '', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -574,7 +567,7 @@ CREATE TABLE IF NOT EXISTS `gc_userb` (
 --
 
 INSERT INTO `gc_userb` (`id`, `user`, `pass`, `created`, `current`, `last`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', '2012-10-11 16:22:02', '2014-12-24 07:28:41', '2014-11-25 07:32:38');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', '2012-10-11 08:22:02', '2014-12-23 23:28:41', '2014-11-24 23:32:38');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

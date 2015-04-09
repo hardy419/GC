@@ -1,0 +1,149 @@
+<include file="Common:header" />
+<body>
+<style>
+.form-horizontal label{font-size:12px;}
+.form-horizontal .control-label{width:50px;}
+.form-horizontal .controls{margin-left:60px;}
+.form-horizontal .control-group{margin-bottom:10px;}
+ input[type="file"]{width:140px;}
+ input[type="text"]{border-radius:0px;height:20px;line-height:20px;}
+ .error{color:red;}
+ .row-fluid .span3{height:300px;overflow:hidden;}
+ .thumbnail>img {height:100px;}
+</style>
+<div class="container">
+      <div class="row">
+        <div class="span3">
+         <include file="Common:menu" />
+        </div><!--/span-->
+        <div class="span9">
+                    <ul class="breadcrumb">
+				    <li><a href="#">Home</a> <span class="divider">/</span></li>
+				    <li><a href="#">Image Management</a> <span class="divider">/</span></li>
+				    <li class="active">Image Management</li>
+				    </ul>
+				<legend>Image Management</legend>	
+                <div class="row-fluid">
+                   <div class="span8">
+                            <ul class="thumbnails">
+                              <volist name="list" id="vo">
+                                <if condition="$i%4 eq 1">
+                                 <li class="span3" style="margin-left:0px;">
+                                <else/>
+							    <li class="span3">
+							    </if>
+							    <div class="thumbnail">
+							     
+							    <img src="{$vo.url}" style="width:100%;max-height:120px;" >
+							    <b>{$vo.filename}</b>
+                                <p>Copy image url:</p><i>{$vo.refurl}</i>
+							    <p><a class="btn" href="javascript:void(0);" onclick="edit('{$vo.filename}');">Edit</a> <a class="btn" id="delete" href="#" onclick="del('{:U('delImage',array('filename'=>$vo['filename']))}')">Delete</a></p>
+							    </div>
+							    </li>
+							 </volist>
+						    </ul>
+						     <div class="pagination pagination-right">
+					              <ul>
+					                {$show}
+					             </ul>
+					         </div>
+                   </div>
+                   <div class="span4">
+                   
+					<legend>Upload image:</legend>
+                    <form method="post" action="{:U('saveImage')}" enctype="multipart/form-data">
+                        <input type="file" name="image_file" /><br/><br/>
+                        <input type="submit" value="Upload" />
+                    </form>
+                   
+                   </div>
+                </div>
+	           
+	          
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+      <footer>
+        <p>&copy; Company 2014</p>
+      </footer>
+
+    </div>
+<script src="__JS__/jquery-1.8.2.min.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/jquery.form.js"></script>
+<script src="__JS__/CheckForm.js"></script>
+<script src="__JS__/jquery-ui.min.js"></script>
+<script src="__JS__/jquery.fileupload.js"></script>
+<script src="__JS__/common.js"></script>    
+<script>
+var tool={
+		uploadMovie:function(url,btn,input,msg){
+			jQuery(btn).fileupload({
+			    url: url,
+			    dataType: 'json',
+			    done: function (e, data) {
+			    	jQuery.each(data.result.files, function (index, file) {
+			    		
+			        	if(file.error){
+			        		alert(file.error);
+			        	}else
+			        	   jQuery(input).val(file.name);
+			        });
+			    },
+			    progressall: function (e, data) {
+			        var progress = parseInt(data.loaded / data.total * 100, 10);
+			         $(msg).html('upload:'+progress + '%');
+			    }
+			}).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
+		},
+		removeMovie:function(obj){
+			jQuery(obj).val("");
+		}
+};	
+jQuery(function(){
+	var url='__URL__/uploadPic/model/{$type}list';
+	tool.uploadMovie(url,"#fileupload_pic1",'#pic1',"#word_pic1");
+	tool.uploadMovie(url,"#fileupload_pic2",'#pic2',"#word_pic2");
+	tool.uploadMovie(url,"#fileupload_pic3",'#pic3',"#word_pic3");
+	tool.uploadMovie(url,"#fileupload_pic4",'#pic4',"#word_pic4");
+	commonAjaxSubmit('',"#myForm");
+	commonAjaxSubmit('',"#editForm");
+});
+  function edit(id){
+	  var url="__URL__/getPhoto/type/{$type}/id/"+id;
+	  $.get(url,function(data){
+		  data=eval("("+data+")");
+		  var id=data['id'];
+		  var sid=data['sid'];
+		  var title=data['title'];
+		  var path="{:SITE_PATH}/Uploads/"
+		  var img=path+data['pic'];
+		  jQuery("#id").val(id);
+		  jQuery("#sid").val(sid);
+		  jQuery("#title").val(title);
+		  <if condition="$type eq 'studentphotos'">
+		  jQuery("#name").val(data['name']);
+		  </if>
+		  jQuery("#file").attr('src',img);
+		  $('#myModal').modal('show')
+	  });
+  }
+  function del(url){
+	  if(url=='') return false;
+      if(window.confirm('Are you sure to delete this record?')){	  
+		  $.get(url,function(responseText){
+			    var info=responseText['info'];
+		        var status=responseText['status'];
+		        var url=responseText['url'];
+		        if(status==1){
+		        //alert(info)
+		        window.location.reload();
+		        }
+		  });
+		  return true;
+	  }
+  }
+</script>   
+</body>
+</html>
