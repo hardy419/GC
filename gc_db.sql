@@ -17,16 +17,18 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- 数据库: `vkids_db`
+-- 数据库: `gc_db`
 --
+CREATE DATABASE IF NOT EXISTS `gc_db`;
+USE `gc_db`;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_bannerlist`
+-- 表的结构 `gc_bannerlist`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_bannerlist` (
+CREATE TABLE IF NOT EXISTS `gc_bannerlist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
   `pic` varchar(60) CHARACTER SET utf8 NOT NULL,
@@ -39,10 +41,10 @@ CREATE TABLE IF NOT EXISTS `vk_bannerlist` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
--- 转存表中的数据 `vk_bannerlist`
+-- 转存表中的数据 `gc_bannerlist`
 --
 
-INSERT INTO `vk_bannerlist` (`id`, `title`, `pic`, `sid`, `created`, `link`, `tag`, `type`) VALUES
+INSERT INTO `gc_bannerlist` (`id`, `title`, `pic`, `sid`, `created`, `link`, `tag`, `type`) VALUES
 (10, 'banner-8', '/bannerlist/20150206/b_54d48c566198f.jpg', 5, 0, '', '', 'banner'),
 (11, 'banner-9', '/bannerlist/20150206/b_54d48c6e0bd5b.jpg', 4, 0, '', '', 'banner'),
 (12, 'banner-10', '/bannerlist/20150206/b_54d48c7e715e8.jpg', 3, 0, '', '', 'banner'),
@@ -60,10 +62,10 @@ INSERT INTO `vk_bannerlist` (`id`, `title`, `pic`, `sid`, `created`, `link`, `ta
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_childlist`
+-- 表的结构 `gc_childlist`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_childlist` (
+CREATE TABLE IF NOT EXISTS `gc_childlist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `date` int(10) NOT NULL,
@@ -75,10 +77,10 @@ CREATE TABLE IF NOT EXISTS `vk_childlist` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- 转存表中的数据 `vk_childlist`
+-- 转存表中的数据 `gc_childlist`
 --
 
-INSERT INTO `vk_childlist` (`id`, `title`, `date`, `pdf`, `status`, `orders`) VALUES
+INSERT INTO `gc_childlist` (`id`, `title`, `date`, `pdf`, `status`, `orders`) VALUES
 (1, '孩子之聲 第一期_001', 1385827200, './Uploads/document/5518be6fb2f78.pdf', 1, 1),
 (2, '孩子之聲 第一期_002', 1385827200, './Uploads/document/5518bfd25a2f6.pdf', 1, 2),
 (3, '孩子之聲 第二期_001', 1393603200, './Uploads/document/5518c06b6e7a3.pdf', 1, 3),
@@ -91,10 +93,10 @@ INSERT INTO `vk_childlist` (`id`, `title`, `date`, `pdf`, `status`, `orders`) VA
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_content`
+-- 表的结构 `gc_content`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_content` (
+CREATE TABLE IF NOT EXISTS `gc_content` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content_cn` text CHARACTER SET utf8 NOT NULL,
   `content_tw` text CHARACTER SET utf8 NOT NULL,
@@ -109,10 +111,10 @@ CREATE TABLE IF NOT EXISTS `vk_content` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_cooplist`
+-- 表的结构 `gc_cooplist`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_cooplist` (
+CREATE TABLE IF NOT EXISTS `gc_cooplist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
@@ -125,10 +127,10 @@ CREATE TABLE IF NOT EXISTS `vk_cooplist` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- 转存表中的数据 `vk_cooplist`
+-- 转存表中的数据 `gc_cooplist`
 --
 
-INSERT INTO `vk_cooplist` (`id`, `title`, `content`, `status`, `date`, `sid`, `pid`, `pdf`) VALUES
+INSERT INTO `gc_cooplist` (`id`, `title`, `content`, `status`, `date`, `sid`, `pid`, `pdf`) VALUES
 (1, '嘉年華藝術創作攤位-與九龍英基小學合作', '&lt;p&gt;\r\n	今次活動我們兩點水工作室於九龍英基小學開放日嘉年華擺設了藝術創作攤位,看看以下的照片,便知道當天熱鬧的情況。\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	此外, 我們感謝九龍英基小學的邀請, 讓我們與孩子們渡過一個開心的週末!\r\n&lt;/p&gt;', 1, '1426262400', 0, 0, ''),
 (2, '24.01.2015-19.02.2015 利是封義賣活動-與Angles for Orphans合辦', '&lt;p&gt;\r\n	是次義賣活動我們與慈善機構Angles for Orphans合作, 我們將學生設計的多款利是封作義賣，並將行動的收益捐給峇里島和柬埔寨有需要的孩子,希望將利是代表的祝福傳給當地孩子. 我們在 此感謝各位捐款人士的支持, 亦感謝Angles for Orphans 讓我們有機會幫助峇里島和柬埔寨有需要的孩子.\r\n&lt;/p&gt;', 1, '1427644800', 0, 0, ''),
 (3, '24-25.02.2015 春之頌日營-與朗研社, 奧褔兒童音樂及思卓言語及吞嚥治療中心合辦', '是次活動我們與3間隸屬於不同專業範疇(嬰幼兒教育, 音樂及言語發展)的機構合作舉辦以春天為主題的日營, 讓孩子們 透過 多元化遊戲活動渡過一個充實愉快的春節假期 .&lt;br /&gt;\r\n我們在此感謝朗研社的劉琼玉姑娘, 促成是次4間機構的合作, 亦感謝奧褔兒童音樂及思卓言語及吞嚥治療中心的導師們, 你們所構思的活動令我們大開眼界, 亦令日營生色不少!', 1, '1427731200', 0, 0, ''),
@@ -138,10 +140,10 @@ INSERT INTO `vk_cooplist` (`id`, `title`, `content`, `status`, `date`, `sid`, `p
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_coopphotoslist`
+-- 表的结构 `gc_coopphotoslist`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_coopphotoslist` (
+CREATE TABLE IF NOT EXISTS `gc_coopphotoslist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `pic` varchar(255) NOT NULL,
@@ -153,10 +155,10 @@ CREATE TABLE IF NOT EXISTS `vk_coopphotoslist` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=84 ;
 
 --
--- 转存表中的数据 `vk_coopphotoslist`
+-- 转存表中的数据 `gc_coopphotoslist`
 --
 
-INSERT INTO `vk_coopphotoslist` (`id`, `title`, `pic`, `sid`, `status`, `pid`, `date`) VALUES
+INSERT INTO `gc_coopphotoslist` (`id`, `title`, `pic`, `sid`, `status`, `pid`, `date`) VALUES
 (1, '小朋友當日都把自己喜愛的元素加在油畫板上', '/coopphoto/20150331/551a09f4dde12.jpg', 4, 1, 1, 1427770808),
 (2, '', '/coopphoto/20150331/551a0a1adf371.jpg', 5, 1, 1, 1427770815),
 (3, '', '/coopphoto/20150331/551a0a1ccb0ea.jpg', 6, 1, 1, 1427770829),
@@ -244,10 +246,10 @@ INSERT INTO `vk_coopphotoslist` (`id`, `title`, `pic`, `sid`, `status`, `pid`, `
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_courseinfo`
+-- 表的结构 `gc_courseinfo`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_courseinfo` (
+CREATE TABLE IF NOT EXISTS `gc_courseinfo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `age` varchar(255) DEFAULT NULL,
@@ -262,10 +264,10 @@ CREATE TABLE IF NOT EXISTS `vk_courseinfo` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
--- 转存表中的数据 `vk_courseinfo`
+-- 转存表中的数据 `gc_courseinfo`
 --
 
-INSERT INTO `vk_courseinfo` (`id`, `title`, `age`, `fit`, `content`, `time`, `color`, `cid`, `status`, `sid`) VALUES
+INSERT INTO `gc_courseinfo` (`id`, `title`, `age`, `fit`, `content`, `time`, `color`, `cid`, `status`, `sid`) VALUES
 (1, '學前兒童藝術課程', 'Age:2.5', '合適對象：2-3歲', '&lt;p&gt;\r\n	課程內容：\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	-  訓練漸進式線條技巧，勾勒圖畫的雛型\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	-  培養對色彩的認知及敏感度\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	-  加入手工元素，訓練小手肌肉\r\n&lt;/p&gt;', './Uploads/document/551912b293fac.png', '#06aef5', 1, 1, 90),
 (2, '幼兒故事繪畫課程', '', '合適對象：2.5-3歲', '&lt;p&gt;\r\n	培育目標：\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	-  引導孩子以多種色彩繪畫，培養對顏色的敏感度。\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	-  讓孩子掌握各類線條繪畫方法，增強手眼協調能力。\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	-  鼓勵孩子使用不同物料繪畫，探索創作的可能性。\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	-  以撕、貼、搓、揉、拍等創作方式，訓練小肌肉。\r\n&lt;/p&gt;\r\n&lt;br /&gt;\r\n&lt;p&gt;\r\n	課程內容：\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	課程包含繪畫及手工拼貼畫，以塑膠彩、水彩為創作媒介，以水彩筆、海綿、牙刷為繪畫物料，教授小朋友以簡單線條或塗鴉的方法，運用豐富色彩，畫出故事裡的人物、動物或事物。\r\n&lt;/p&gt;', '', '#06aef5', 2, 1, 90),
 (3, '兒童創意藝術課程', 'Grade 1', '合適對象：幼稚園學生', '&lt;p&gt;\r\n	課程內容：\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	-&amp;nbsp;&amp;nbsp;以故事為本，引發興趣及創作動力\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	-&amp;nbsp;&amp;nbsp;訓練觀察力，學習繪畫人物、物件及環境空間的技巧\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	-&amp;nbsp;&amp;nbsp;運用不同的藝術媒介，如粉彩、塑膠彩、水彩、手工材料等，讓作品更多樣化\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	-&amp;nbsp;&amp;nbsp;進一步提高手部的靈活度\r\n&lt;/p&gt;', './Uploads/document/55191f420658a.png', '#090', 1, 1, 80),
@@ -284,10 +286,10 @@ INSERT INTO `vk_courseinfo` (`id`, `title`, `age`, `fit`, `content`, `time`, `co
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_courselist`
+-- 表的结构 `gc_courselist`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_courselist` (
+CREATE TABLE IF NOT EXISTS `gc_courselist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
@@ -296,10 +298,10 @@ CREATE TABLE IF NOT EXISTS `vk_courselist` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- 转存表中的数据 `vk_courselist`
+-- 转存表中的数据 `gc_courselist`
 --
 
-INSERT INTO `vk_courselist` (`id`, `title`, `content`, `status`) VALUES
+INSERT INTO `gc_courselist` (`id`, `title`, `content`, `status`) VALUES
 (1, '兒童故事繪畫課程', '&lt;div class=&quot;teacher&quot;&gt;\r\n	&lt;div class=&quot;photo&quot;&gt;\r\n		&lt;img src=&quot;http://localhost/vkids/Public/Img/Course/vivian.jpg&quot; /&gt; \r\n	&lt;/div&gt;\r\n	&lt;div class=&quot;desc&quot;&gt;\r\n		&lt;div class=&quot;infor&quot;&gt;\r\n			藝術課程策劃：Vivian姐姐\r\n		&lt;/div&gt;\r\n		&lt;div class=&quot;introduction&quot;&gt;\r\n			香港理工大學設計系學士學位畢業，曾修畢清華大學心理諮詢與輔導課程 及 香港感覺運動學會感覺運動師資證書課程。現正修讀輔導學學士課程。Vivian姐姐為資深兒童藝術教育工作者，擁有十二年兒童視覺藝術教學經驗，過去曾為多間藝術培育機構、幼稚園及青年機構等，開辦適合不同年齡小朋友的藝術課程。\r\nVivian姐姐曾獲亞洲電視兒童台邀請，擔任藝術環節的主持，亦曾為《砵砵子兒童雙周刊》撰寫手工藝專欄。更曾獲香港理工大學「創新我未來」計劃邀請，擔任「互動科技探索及概念原型法」課程策劃及導師。\r\n		&lt;/div&gt;\r\n	&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;div class=&quot;group&quot;&gt;\r\n	&lt;img src=&quot;http://localhost/vkids/Public/Img/Course/group.jpg&quot; /&gt; \r\n&lt;/div&gt;', 1),
 (2, '兒童故事繪畫課程', '&lt;div class=&quot;description&quot;&gt;\r\n	小孩喜愛看圖畫，看圖書，更喜愛聽故事。本課程結合故事及繪畫，導師會演說一系列自創插圖故事，主題包括大自然景象、動物世界、生活常識、節日及人物等，與孩子分享知識之餘，亦與他們產生互動，鼓勵表達個人的意見及想法。這樣，故事插圖、真實圖片及對答更能引發觀察、想像及創意，成為小孩們創作的靈感泉源，在圖畫中表達一個嶄新的故事。\r\n&lt;/div&gt;', 1),
 (3, '兒童中級繪畫技巧課程', '&lt;div class=&quot;description&quot;&gt;\r\n	本課程為幼稚園高班(K.3)而設計，結合線條訓練及塑膠彩畫學習。課程前半期，針對學生小一面試的繪圖部份，學習繪畫各種有關香港及日常生活的人物及事物，並加插想像畫的訓練，讓學生為面試作好準備。而課程後半期，會以塑膠彩畫為主，學生集中以油畫板及塑膠彩創作，在油畫架上繪圖，配合循序漸進的教學內容，為將來的小學視藝課程打好根基。\r\n&lt;/div&gt;', 1),
@@ -310,10 +312,10 @@ INSERT INTO `vk_courselist` (`id`, `title`, `content`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_documentlist`
+-- 表的结构 `gc_documentlist`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_documentlist` (
+CREATE TABLE IF NOT EXISTS `gc_documentlist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
   `pdf` varchar(60) CHARACTER SET utf8 NOT NULL,
@@ -324,10 +326,10 @@ CREATE TABLE IF NOT EXISTS `vk_documentlist` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
--- 转存表中的数据 `vk_documentlist`
+-- 转存表中的数据 `gc_documentlist`
 --
 
-INSERT INTO `vk_documentlist` (`id`, `title`, `pdf`, `created`, `sid`, `pid`) VALUES
+INSERT INTO `gc_documentlist` (`id`, `title`, `pdf`, `created`, `sid`, `pid`) VALUES
 (5, '课程一', './Uploads/document/54acdaaa379b7.pdf', 1420560000, 0, 1),
 (6, '课程二', './Uploads/document/54acdd75db999.pdf', 1420560000, 0, 1),
 (7, '1111', '', 1421856000, 0, 2),
@@ -339,10 +341,10 @@ INSERT INTO `vk_documentlist` (`id`, `title`, `pdf`, `created`, `sid`, `pid`) VA
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_idea`
+-- 表的结构 `gc_idea`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_idea` (
+CREATE TABLE IF NOT EXISTS `gc_idea` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
@@ -351,19 +353,19 @@ CREATE TABLE IF NOT EXISTS `vk_idea` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `vk_idea`
+-- 转存表中的数据 `gc_idea`
 --
 
-INSERT INTO `vk_idea` (`id`, `title`, `content`, `status`) VALUES
+INSERT INTO `gc_idea` (`id`, `title`, `content`, `status`) VALUES
 (1, '教學理念1', '&lt;div class=&quot;text&quot;&gt;\r\n	&lt;p&gt;\r\n		爸爸媽媽為甚麼要讓小朋友去學「畫畫」呢？\r\n	&lt;/p&gt;\r\n&lt;br /&gt;\r\n	&lt;p&gt;\r\n		為了訓練子女多角度思考？培養他們的藝術美感？增強他們的表達能力及自信心？訓練他們的小肌肉？為學校的功課做準備？……\r\n	&lt;/p&gt;\r\n&lt;br /&gt;\r\n	&lt;p&gt;\r\n		若我們以小朋友的角度去看，會發現他們大部份都喜歡接觸色彩；喜愛用顏色去描繪所看見的事物；會滿心歡喜的與家人分享自己的畫作；喜歡將畫中的得意故事向老師同學一一道來。每一個作品，對小孩來說，就像一本圖冊，有說不完的故事。但很多時候，父母會忽略了子女的聲音，著眼點只放在作品上。\r\n	&lt;/p&gt;\r\n&lt;br /&gt;\r\n	&lt;p&gt;\r\n		有家長會問：「我的孩子很喜歡畫畫，很有天份，可不可以儘早教他深一點的繪畫技巧？」可能父母會認為，小朋友的畫只要畫得真，能夠在畫中運用所學的技巧，就可以畫出一幅好畫。但我們覺得，畫得真，畫得有技巧，但裡面沒有小朋友的感受，沒有小朋友的故事，沒有小朋友的靈魂，那麼繪畫只會變成空洞的東西。\r\n	&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;h4&gt;\r\n	我們的信念是 ─ 繪畫對小朋友的價值，不止限於美與不美，繪畫是他們表達感受的溝通媒介，是健康成長的好伙伴。\r\n&lt;/h4&gt;\r\n&lt;div class=&quot;leftColumn&quot;&gt;\r\n	&lt;div class=&quot;text&quot;&gt;\r\n		&lt;p&gt;\r\n			藝術創作並不孤獨，它可以令關係密切的人更加了解對方；它可以令不相識的人惺惺相惜。當看見小朋友拿著起自己的創作，面露滿足的笑容，或者興奮得手舞足蹈，藝術的力量已超出作品本身，它讓我們感受到小朋友的情緒，它讓我們觸碰小小生命的靈魂。父母有時會想，怎樣與子女溝通，但原來在視覺藝術世界中，小孩已經不知不覺與大人們說話了。\r\n		&lt;/p&gt;\r\n		&lt;p&gt;\r\n			所以，父母及老師擔當的角色，並不只教導，而是陪在小朋友左右，用心去引發他們、鼓勵他們、聆聽他們，從中引發他們對藝術的興趣，鼓勵他們作多方面的嘗試。讓他們相信利用自己的小手掌，都可以發揮出大力量；聆聽他們的分享，進入幼小的內心世界，變為子女成長路上的知心友。\r\n		&lt;/p&gt;\r\n	&lt;/div&gt;\r\n	&lt;h4&gt;\r\n		擁有靈魂及個人風格的作品，才是最感動人及富有藝術價值。\r\n	&lt;/h4&gt;\r\n	&lt;div class=&quot;text&quot;&gt;\r\n		只要用「心」創造， 繪畫必定是最「美」的。就讓我們一起陪伴可愛的小孩，啟發他們、鼓勵他們，以自己的力量完成腦海中的意念，在藝術創作的路上快樂成長。\r\n	&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;div class=&quot;rightColumn&quot;&gt;\r\n	&lt;img src=&quot;http://localhost/vkids/Public/Img/Idea/idea.jpg&quot; /&gt; \r\n&lt;/div&gt;', 1);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_newslist`
+-- 表的结构 `gc_newslist`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_newslist` (
+CREATE TABLE IF NOT EXISTS `gc_newslist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pic` varchar(255) CHARACTER SET utf8 NOT NULL,
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
@@ -375,10 +377,10 @@ CREATE TABLE IF NOT EXISTS `vk_newslist` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
--- 转存表中的数据 `vk_newslist`
+-- 转存表中的数据 `gc_newslist`
 --
 
-INSERT INTO `vk_newslist` (`id`, `pic`, `title`, `content`, `status`, `date`, `sid`) VALUES
+INSERT INTO `gc_newslist` (`id`, `pic`, `title`, `content`, `status`, `date`, `sid`) VALUES
 (4, '/newslist/20150331/551a1a7c60e06.jpg', 'Easter Workshops 2015 ( 1, 2, 9, 10 April)', '一年一度嘅Easter Workshops 正式開始接受報名啦!&lt;br /&gt;', 1, '1427817600', 4),
 (5, '/newslist/20150331/551a34ddf0967.jpg', '第34屆中國-日本國際書畫大賽結果', '&lt;p&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;恭喜&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;各位得&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;獎同學&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;!&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;你們用心的創作被&lt;em&gt;&lt;span style=&quot;color:black;&quot;&gt;國際比賽的評審&lt;/span&gt;&lt;/em&gt;肯定&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;,&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;導師們也感到很高興&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;!&lt;/span&gt;&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:windowtext;&quot;&gt;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;鄧珮珊&lt;/span&gt;&lt;/em&gt;&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt; &lt;/span&gt;&lt;/em&gt;&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt;&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;Tang Pui Shan Rainie&lt;/span&gt;&lt;/em&gt;&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/em&gt;&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt;&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;金&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;溫浠婷&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Wan Hei Ting&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;銀&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;馬穎褆&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Ma Wing Tai Lavinia&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;銀&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;區逸懿&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Au Yet Yi&lt;/span&gt;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;陳霈澄&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Chan Pui Tsing Sofie&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;銀&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;陳享知&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Chan Han Gi Angie&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;銀&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;龔俊豪&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Kung Jun Hao Duncan&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;銀&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;陳浩嫣&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Chen Annika Brandy&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;銀&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;梁紫晞&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Leung Tsz Hei, Angelina&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;銀&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;梁紫晴&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Leung Tsz Ching, Annice&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;銀&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;鄧穎潼&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Tang Wing Tung Cherry&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;銀&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:black;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/em&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;洪仲研&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Hong Chung Yin Cayden&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;銅&lt;span&gt;&lt;/span&gt;&lt;/span&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;林嘉希&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Lam Kar Hei&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;銅&lt;span&gt;&lt;/span&gt;&lt;/span&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;鄭曉澄&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Cheng Calista Hiu Ching&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;銅&lt;span&gt;&lt;/span&gt;&lt;/span&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;朱蔚蕎&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Chu Wai Kiu&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;銅&lt;span&gt;&lt;/span&gt;&lt;/span&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;薛贊辰&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Sit Jensen&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;銅&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;/span&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;何臻羲&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Brandon Angelo Ho&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;銅&lt;span&gt;&lt;/span&gt;&lt;/span&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;何臻晟&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Anjay Angelo Ho&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;銅&lt;span&gt;&lt;/span&gt;&lt;/span&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;陳樂欣&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Chan Lok Yan&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;銅&lt;span&gt;&lt;/span&gt;&lt;/span&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;方游&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Charmaine Fong&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;優秀&lt;span&gt;&lt;/span&gt;&lt;/span&gt; \r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;凌哲&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Lin Chit Isaac&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;優秀&lt;span&gt;&lt;/span&gt;&lt;/span&gt; \r\n&lt;/p&gt;\r\n&lt;br /&gt;', 1, '1426262400', 5),
 (6, '/newslist/20150331/551a3f0e1e1e2.JPG', '2015當代青少年及兒童藝術節- 新春繪畫比賽結果', '&lt;p&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;恭喜&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;各位得&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;獎同學&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;!&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;你們每位同學的作品均滿載喜氣洋洋的新年氣氛&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;,&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;令人也想置身其中呢&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;!&lt;/span&gt;&lt;em&gt;&lt;span style=&quot;font-family:華康海報體W12;color:windowtext;&quot;&gt;&lt;/span&gt;&lt;/em&gt;\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&amp;nbsp;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;楊韻笙&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Yeung Wan Sang Ria&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;兒童畫 &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;幼兒&lt;span&gt;A&lt;/span&gt;組 &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;冠軍&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;張冬愛&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Teresa Cheung&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;兒童畫 &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;幼兒&lt;span&gt;B&lt;/span&gt;組 &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;冠軍&lt;span&gt; &lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&amp;nbsp;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;董貝婧&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Karis Kathleen Tung &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;兒童畫 &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;幼兒&lt;span&gt;A&lt;/span&gt;組 &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;亞軍&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;黃皓信 &lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Wong Ho Chun&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;兒童畫 &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;幼兒&lt;span&gt;B&lt;/span&gt;組 &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;亞軍&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;虞康立 &lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Yu Hong Lap &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;水&lt;span&gt;,&lt;/span&gt;粉&lt;span&gt;,&lt;/span&gt;彩 兒童&lt;span&gt;A&lt;/span&gt;組 &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;亞軍&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&amp;nbsp;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;朱皓頤&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Chu Ho Yee&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt; Chloe &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;兒童畫 &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;幼兒&lt;span&gt;A&lt;/span&gt;組&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;季軍&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;溫浠婷&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Wan Hei Ting&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;兒童畫 &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;幼兒&lt;span&gt;A&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;季軍&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;李柏賢&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Lee Pak Yin Ansen&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;兒童畫 &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;幼兒&lt;span&gt;B&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;季軍&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;陳俙而 &lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Chan Hay Yee Jessy &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;水&lt;span&gt;,&lt;/span&gt;粉&lt;span&gt;,&lt;/span&gt;彩 幼兒&lt;span&gt;A&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;季軍&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;楊梓淇&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Yeung Tsz Ki&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;水&lt;span&gt;,&lt;/span&gt;粉&lt;span&gt;,&lt;/span&gt;彩 幼兒&lt;span&gt;A&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;季軍&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;彭珞怡&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Pang Lok Yi Chloe&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;油畫 &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;兒童&lt;span&gt;A&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;季軍&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&amp;nbsp;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;周正淳&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Chow Jason&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;兒童畫&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;幼兒&lt;span&gt;A&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;優異&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;陳明毅&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;Linus\r\nChan&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;兒童畫&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;幼兒&lt;span&gt;B&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;優異&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;朱仲頤&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Chu Chung Yee&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt; Victoria&lt;span&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;兒童畫&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;幼兒&lt;span&gt;B&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;優異&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;陳梓業&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Chan Tsz Yip Matthew&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;兒童畫&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;兒童&lt;span&gt;A&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;優異&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;楊心攸 &lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Yeung Sum Yau&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;水&lt;span&gt;,&lt;/span&gt;粉&lt;span&gt;,&lt;/span&gt;彩 幼兒&lt;span&gt;A&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;優異&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;林嘉希 &lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Lam Kar Hei &lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;水&lt;span&gt;,&lt;/span&gt;粉&lt;span&gt;,&lt;/span&gt;彩 幼兒&lt;span&gt;A&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;優異&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;高懿雅 &lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Ko Yi Nga Ashley &lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;水&lt;span&gt;,&lt;/span&gt;粉&lt;span&gt;,&lt;/span&gt;彩 幼兒&lt;span&gt;A&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;優異&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;李琳禧&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Lee Lam Hei Jade&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;水&lt;span&gt;,&lt;/span&gt;粉&lt;span&gt;,&lt;/span&gt;彩 幼兒&lt;span&gt;A&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;優異&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;何紫悅&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Ho Tze Yuet &lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;水&lt;span&gt;,&lt;/span&gt;粉&lt;span&gt;,&lt;/span&gt;彩 幼兒&lt;span&gt;A&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;優異&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;朱蔚蕎&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Chu Wai Kiu&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt; &lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;水&lt;span&gt;,&lt;/span&gt;粉&lt;span&gt;,&lt;/span&gt;彩 幼兒&lt;span&gt;B&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;優異&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;黃敏妍&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Wong Man Yin Madelene&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;水&lt;span&gt;,&lt;/span&gt;粉&lt;span&gt;,&lt;/span&gt;彩 兒童&lt;span&gt;A&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;優異&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;伍穎謙&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;Ng Wing Him &lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;水&lt;span&gt;,&lt;/span&gt;粉&lt;span&gt;,&lt;/span&gt;彩 兒童&lt;span&gt;A&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;優異&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;\r\n&lt;p style=&quot;text-align:justify;&quot;&gt;\r\n	&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;麥凱淇 &lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;Mak Hoi Ki&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family:華康海報體W12;&quot;&gt;水&lt;span&gt;,&lt;/span&gt;粉&lt;span&gt;,&lt;/span&gt;彩 兒童&lt;span&gt;A&lt;/span&gt;組&lt;span&gt;&lt;span&gt;&amp;nbsp; &lt;/span&gt;&lt;/span&gt;優異&lt;span&gt;&lt;/span&gt;&lt;/span&gt;\r\n&lt;/p&gt;', 1, '1426262400', 6),
@@ -387,10 +389,10 @@ INSERT INTO `vk_newslist` (`id`, `pic`, `title`, `content`, `status`, `date`, `s
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_newsphotoslist`
+-- 表的结构 `gc_newsphotoslist`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_newsphotoslist` (
+CREATE TABLE IF NOT EXISTS `gc_newsphotoslist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
   `pic` varchar(255) CHARACTER SET utf8 NOT NULL,
@@ -401,10 +403,10 @@ CREATE TABLE IF NOT EXISTS `vk_newsphotoslist` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
--- 转存表中的数据 `vk_newsphotoslist`
+-- 转存表中的数据 `gc_newsphotoslist`
 --
 
-INSERT INTO `vk_newsphotoslist` (`id`, `title`, `pic`, `sid`, `status`, `pid`) VALUES
+INSERT INTO `gc_newsphotoslist` (`id`, `title`, `pic`, `sid`, `status`, `pid`) VALUES
 (5, '在鳥語花的季節', '/newsphotoslist/20150331/551a32f607990.jpg', 99, 1, 4),
 (6, '輕黏土恐龍音樂盒加上朱古力蛋製作創新又好玩！', '/newsphotoslist/20150331/551a33451ae66.jpg', 6, 1, 4),
 (7, '還有兩面Hero cushion ，一次過抱走心口發光的Iron Man 和Captain America ！', '/newsphotoslist/20150331/551a335261fad.jpg', 7, 1, 4),
@@ -419,10 +421,10 @@ INSERT INTO `vk_newsphotoslist` (`id`, `title`, `pic`, `sid`, `status`, `pid`) V
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_reportlist`
+-- 表的结构 `gc_reportlist`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_reportlist` (
+CREATE TABLE IF NOT EXISTS `gc_reportlist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `date` int(10) NOT NULL,
@@ -434,19 +436,19 @@ CREATE TABLE IF NOT EXISTS `vk_reportlist` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `vk_reportlist`
+-- 转存表中的数据 `gc_reportlist`
 --
 
-INSERT INTO `vk_reportlist` (`id`, `title`, `date`, `pdf`, `status`, `orders`) VALUES
+INSERT INTO `gc_reportlist` (`id`, `title`, `date`, `pdf`, `status`, `orders`) VALUES
 (1, '報章報導', 1427644800, './Uploads/document/5518f59ef26cc.pdf', 1, 3);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_studentlist`
+-- 表的结构 `gc_studentlist`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_studentlist` (
+CREATE TABLE IF NOT EXISTS `gc_studentlist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
   `pic` varchar(60) CHARACTER SET utf8 NOT NULL,
@@ -457,19 +459,19 @@ CREATE TABLE IF NOT EXISTS `vk_studentlist` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `vk_studentlist`
+-- 转存表中的数据 `gc_studentlist`
 --
 
-INSERT INTO `vk_studentlist` (`id`, `title`, `pic`, `sid`, `status`, `link`) VALUES
+INSERT INTO `gc_studentlist` (`id`, `title`, `pic`, `sid`, `status`, `link`) VALUES
 (1, 'test', '', 0, 1, '');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_studentphotoslist`
+-- 表的结构 `gc_studentphotoslist`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_studentphotoslist` (
+CREATE TABLE IF NOT EXISTS `gc_studentphotoslist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
   `pic` varchar(60) CHARACTER SET utf8 NOT NULL,
@@ -481,10 +483,10 @@ CREATE TABLE IF NOT EXISTS `vk_studentphotoslist` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
 
 --
--- 转存表中的数据 `vk_studentphotoslist`
+-- 转存表中的数据 `gc_studentphotoslist`
 --
 
-INSERT INTO `vk_studentphotoslist` (`id`, `title`, `pic`, `sid`, `pid`, `name`, `created`) VALUES
+INSERT INTO `gc_studentphotoslist` (`id`, `title`, `pic`, `sid`, `pid`, `name`, `created`) VALUES
 (1, '國際兒童繪畫比賽 - 金獎', '/studentphotoslist/20150326/55139ece57a9a.jpg', 99, 1, '陳大文', 0),
 (2, '世界兒童繪畫比賽 - 銀獎', '/studentphotoslist/20150326/5513a208261b5.jpg', 98, 1, '陳大文', 0),
 (3, '「信心存摺」繪畫比賽 - 銀獎', '/studentphotoslist/20150326/5513a2238b63b.jpg', 97, 1, '陳大文', 0),
@@ -529,10 +531,10 @@ INSERT INTO `vk_studentphotoslist` (`id`, `title`, `pic`, `sid`, `pid`, `name`, 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_user`
+-- 表的结构 `gc_user`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_user` (
+CREATE TABLE IF NOT EXISTS `gc_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `account` varchar(50) NOT NULL,
   `login_count` varchar(50) NOT NULL,
@@ -545,19 +547,19 @@ CREATE TABLE IF NOT EXISTS `vk_user` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `vk_user`
+-- 转存表中的数据 `gc_user`
 --
 
-INSERT INTO `vk_user` (`id`, `account`, `login_count`, `last_login_time`, `password`, `status`, `nickname`, `last_login_ip`) VALUES
+INSERT INTO `gc_user` (`id`, `account`, `login_count`, `last_login_time`, `password`, `status`, `nickname`, `last_login_ip`) VALUES
 (1, 'admin', '126', '1427780086', 'b59c67bf196a4758191e42f76670ceba', 1, '', '127.0.0.1');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `vk_userb`
+-- 表的结构 `gc_userb`
 --
 
-CREATE TABLE IF NOT EXISTS `vk_userb` (
+CREATE TABLE IF NOT EXISTS `gc_userb` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `user` varchar(255) NOT NULL,
   `pass` char(32) NOT NULL,
@@ -568,10 +570,10 @@ CREATE TABLE IF NOT EXISTS `vk_userb` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `vk_userb`
+-- 转存表中的数据 `gc_userb`
 --
 
-INSERT INTO `vk_userb` (`id`, `user`, `pass`, `created`, `current`, `last`) VALUES
+INSERT INTO `gc_userb` (`id`, `user`, `pass`, `created`, `current`, `last`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', '2012-10-11 16:22:02', '2014-12-24 07:28:41', '2014-11-25 07:32:38');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
