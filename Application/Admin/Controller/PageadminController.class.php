@@ -3,7 +3,7 @@ namespace Admin\Controller;
 use Think\Controller;
 class PageadminController extends BaseController{
     public function index(){
-        $list=M('idea')->order('`id`' . 'desc')->select();
+        $list=M('page')->order('`id`' . 'desc')->select();
         $this->assign('list',$list);
         $current=cookie('current');
         cookie('current',null);
@@ -13,7 +13,7 @@ class PageadminController extends BaseController{
     }
     public function add(){
         $id=I('get.id');
-        $name=D('idea');
+        $name=D('page');
         $list=$name->where(array('id'=>$id))->find();
         
         
@@ -21,7 +21,7 @@ class PageadminController extends BaseController{
         $this->display();
     }
     public function save(){
-        $db=D('idea');
+        $db=D('page');
         $id=isset($_POST['id'])?I('post.id'):'';
         if(!$db->create()){
             $this->error($db->getError(),$jump);

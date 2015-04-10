@@ -3,13 +3,13 @@ namespace Admin\Controller;
 use Think\Controller;
 class BanneradminController extends BaseController{
     public function index(){
-        $list=M('bannerlist')->order('`sid`' . 'asc')->select();
+        $list=M('banner')->order('`sid`' . 'asc')->select();
         $this->assign('list',$list);
         $this->display();
     }
     public function add(){
         $id=I('get.id');
-        $name=M('bannerlist');
+        $name=M('banner');
         $list=$name->where(array('id'=>$id))->find();
         
         
@@ -17,7 +17,7 @@ class BanneradminController extends BaseController{
         $this->display();
     }
     public function save(){
-        $db=M('bannerlist');
+        $db=M('banner');
         $id=isset($_POST['id'])?I('post.id'):'';
         if(!$db->create()){
             $this->error($db->getError(),$jump);

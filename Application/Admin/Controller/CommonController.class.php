@@ -61,7 +61,7 @@ class CommonController extends Controller {
           }else{
           
              if($authInfo['password']!=md5($_POST['password'])){
-                $this->error('Password not correct！');
+                $this->error('Account or Password not correct！');
              }
             $loginMarked=md5(C('AUTH_TOKEN'));
             $_SESSION[$loginMarked]=$authInfo['id'];
