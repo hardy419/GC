@@ -3,26 +3,12 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends BaseController {
     public function index(){
-        $this->display();
-    }
-    public function index2(){
-        $refurl = M('banner')->where(array('sid'=>'90002'))->getField('url');
-        $this->assign('refurl',$refurl);
-        $this->display();
-    }
-    public function index3(){
-        $refurl = M('banner')->where(array('sid'=>'90003'))->getField('url');
-        $this->assign('refurl',$refurl);
-        $this->display();
-    }
-    public function index4(){
-        $refurl = M('banner')->where(array('sid'=>'90004'))->getField('url');
-        $this->assign('refurl',$refurl);
-        $this->display();
-    }
-    public function index5(){
-        $refurl = M('banner')->where(array('sid'=>'90005'))->getField('url');
-        $this->assign('refurl',$refurl);
+        $bannerlist = M('banner')->where(array('sid'=>array('in',array('80001','80002','80003','80004','80005'))))->field('url')->select();
+        $this->assign('refurl1', $bannerlist[0]['url']);
+        $this->assign('refurl2', $bannerlist[1]['url']);
+        $this->assign('refurl3', $bannerlist[2]['url']);
+        $this->assign('refurl4', $bannerlist[3]['url']);
+        $this->assign('refurl5', $bannerlist[4]['url']);
         $this->display();
     }
 }

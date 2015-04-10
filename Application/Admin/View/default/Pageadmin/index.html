@@ -33,8 +33,8 @@
 	                    <td>{$vo.id}</td>
 	                    <td>{$vo.title}</td>
 	                    <td>
-	                    <a href="{:U('Pageadmin/photos')}">Photos</a>&nbsp;&nbsp;
-	                    <a href="{:U('Pageadmin/edit')}">Edit</a>&nbsp;&nbsp;<a href="{:SITE_PATH}index.php/Pageview/index/id/{$vo.id}">View</a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="del('{:U('Pageadmin/del')}');">Delete</a></td>
+	                    <a href="{:SITE_PATH}admin.php/Banneradmin/add/sid/{$vo.id}">Change Banner</a>&nbsp;&nbsp;
+	                    <a href="{:SITE_PATH}admin.php/Pageadmin/add/id/{$vo.id}">Edit</a>&nbsp;&nbsp;<a href="{:SITE_PATH}index.php/Pageview/index/id/{$vo.id}">View</a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="del('{:SITE_PATH}admin.php/Pageadmin/del/id/{$vo.id}');">Delete</a></td>
 	                   
 	                </tr>
 	                </volist>

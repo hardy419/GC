@@ -2,11 +2,7 @@
 <include file="Common:header"/>
 <!-- Contents -->
 <div class="contents">
-    <div class="containerwraper ideawraper">
-       <div class="contentwraper">
-            {$list.content|html_entity_decode=###}
-       </div>
-    </div>
+    {$list.content|html_entity_decode=###}
 </div>
 <include file="Common:footer2"/>
 <script>

@@ -3,7 +3,7 @@ namespace Admin\Controller;
 use Think\Controller;
 class ImgadminController extends BaseController{
     private $sitePath = SITE_PATH;
-    private $uploadDir = 'Public/Img/GC';
+    private $uploadDir = 'Public/Img/GC/banners';
     public function index(){
         $list = array();
         if ($dir = opendir('./'.$this->uploadDir)) {
@@ -24,5 +24,10 @@ class ImgadminController extends BaseController{
             $this->error('Action Failure');
         }
         $this->success('Action Success');
+    }
+
+    public function delImage() {
+        if (unlink('./'.$this->uploadDir.'/'.I('get.filename')))$this->success('Delete Success');
+        else $this->error('Delete Failure');
     }
 }

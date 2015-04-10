@@ -37,7 +37,7 @@
 							    <img src="{$vo.url}" style="width:100%;max-height:120px;" >
 							    <b>{$vo.filename}</b>
                                 <p>Copy image url:</p><i>{$vo.refurl}</i>
-							    <p><a class="btn" href="javascript:void(0);" onclick="edit('{$vo.filename}');">Edit</a> <a class="btn" id="delete" href="#" onclick="del('{:U('delImage',array('filename'=>$vo['filename']))}')">Delete</a></p>
+							    <p><a class="btn" id="delete" href="#" onclick="del('{:U('delImage',array('filename'=>$vo['filename'],'secure'=>'1'))}')">Delete</a></p>
 							    </div>
 							    </li>
 							 </volist>
@@ -69,5 +69,22 @@
       </footer>
 
     </div>
+<script>
+  function del(url){
+	  if(url=='') return false;
+      if(window.confirm('Are you sure to delete this file?')){	  
+		  $.get(url,function(responseText){
+			    var info=responseText['info'];
+		        var status=responseText['status'];
+		        var url=responseText['url'];
+		        if(status==1){
+		        alert(info)
+		        window.location.href=url;
+		        } else alert(info);
+		  });
+		  return true;
+	  }
+  }
+</script>   
 </body>
 </html>

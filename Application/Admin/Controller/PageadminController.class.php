@@ -36,4 +36,9 @@ class PageadminController extends BaseController{
         if ($query)$this->success('Action Success',U('index'));
         else $this->error('Action Failure',$jump);
     }
+    public function del(){
+        $query=M('page')->where(array('id'=>I('get.id')))->delete();
+        if ($query)$this->success('Delete Success');
+        else $this->error('Delete Failure');
+    }
 }

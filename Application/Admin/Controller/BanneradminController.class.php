@@ -8,11 +8,17 @@ class BanneradminController extends BaseController{
         $this->display();
     }
     public function add(){
-        $id=I('get.id');
+        $id=I('get.id', -1);
         $name=M('banner');
-        $list=$name->where(array('id'=>$id))->find();
-        
-        
+        if (-1 == $id) {
+            $list=$name->where(array('sid'=>I('get.sid')))->find();
+            if (null === $list) {
+                $list['sid'] = I('get.sid');
+            }
+        }
+        else {
+            $list=$name->where(array('id'=>$id))->find();
+        }
         $this->assign('list',$list);
         $this->display();
     }
@@ -29,7 +35,12 @@ class BanneradminController extends BaseController{
                     $db->where(array('id'=>$query));
                 }
             }
-        if ($query)$this->success('Action Success',U('index'));
+        if ($query)$this->success('Action Success',U('Pageadmin/index'));
         else $this->error('Action Failure',$jump);
+    }
+    public function del(){
+        $query=M('banner')->where(array('id'=>I('get.id')))->delete();
+        if ($query)$this->success('Delete Success');
+        else $this->error('Delete Failure');
     }
 }
