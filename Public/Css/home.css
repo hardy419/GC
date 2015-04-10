@@ -26,15 +26,16 @@ hr{color:rgb(250, 160,20);}
 .contents {margin-top:30px;}
 
 .section {border-left: 6px solid rgb(254,168,21); font-size:22px; font-weight:600;}
+#section-services .scrollable {width:1050px;}
 #left_arrow-a,#right_arrow-a {float: left; margin-top: 40px;}
 #services-pic {list-style: outside none none; float:left;}
-#services-pic li {float:left; width:200px; margin: auto 20px;}
+#services-pic li {float:left; width:260px; margin: auto 10px;}
 #services-pic li h3 {color:rgb(254,168,21);}
 
-#section-about_gc {width:400px; float:left;margin:30px 25px 30px 0px;}
+#section-about_gc {width:500px; float:left;margin:30px 25px 30px 0px;}
 #section-about_gc>a>img {margin-top:20px;}
 
-#section-news_event {width:360px; float:right;margin:30px 0px 30px 25px;}
+#section-news_event {width:310px; float:right;margin:30px 0px 30px 25px;}
 #section-news_event>a>img {margin-top:50px;}
 #section-news_event ul {list-style: outside none none;}
 #section-news_event ul li {}
