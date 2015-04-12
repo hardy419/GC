@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `gc_banner` (
   `url` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `sid` (`sid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
 -- 转存表中的数据 `gc_banner`
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `gc_catagory` (
   `name` varchar(32) CHARACTER SET utf8 NOT NULL,
   `type` enum('項目','備用1','備用2') CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `gc_catagory`

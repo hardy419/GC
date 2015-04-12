@@ -3,11 +3,11 @@
 <!-- banner -->
 <div class="banner">
 	<ul class="banner_u" style="left:0;position: relative;">
-		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT}" src="{:SITE_PATH}{$refurl1}" /></li>
-		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT}" src="{:SITE_PATH}{$refurl2}" /></li>
-		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT}" src="{:SITE_PATH}{$refurl3}" /></li>
-		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT}" src="{:SITE_PATH}{$refurl4}" /></li>
-		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT}" src="{:SITE_PATH}{$refurl5}" /></li>
+		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT_MAIN}" src="{:SITE_PATH}{$refurl1}" /></li>
+		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT_MAIN}" src="{:SITE_PATH}{$refurl2}" /></li>
+		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT_MAIN}" src="{:SITE_PATH}{$refurl3}" /></li>
+		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT_MAIN}" src="{:SITE_PATH}{$refurl4}" /></li>
+		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT_MAIN}" src="{:SITE_PATH}{$refurl5}" /></li>
 	</ul>
 </div>
 <div class="banner_btn">
@@ -29,22 +29,22 @@
             <ul id="services-pic">
                 <li>
                     <a href=""><img src="{:SITE_PATH}Public/Img/GC/service_pic1.jpg" /></a>
-                    <h3>Media Awareness</h3>
-                    <h4><i>Event title description</i></h4>
+                    <p class="yellow-title">Media Awareness</p>
+                    <p class="title-desc"><i>Event title description</i></p>
                     <p>Every brand is different. GC creates insightful analysis on the brand of clients to define their brand positioning and target consumers.</p>
                     <a href=""><img src="{:SITE_PATH}Public/Img/GC/more.png" /></a>
                 </li>
                 <li>
                     <a href=""><img src="{:SITE_PATH}Public/Img/GC/service_pic2.jpg" /></a>
-                    <h3>Brand Building</h3>
-                    <h4><i>Event title description</i></h4>
+                    <p class="yellow-title">Brand Building</p>
+                    <p class="title-desc"><i>Event title description</i></p>
                     <p>Every brand is different. GC creates insightful analysis on the brand of clients to define their brand positioning and target consumers.</p>
                     <a href=""><img src="{:SITE_PATH}Public/Img/GC/more.png" /></a>
                 </li>
                 <li>
                     <a href=""><img src="{:SITE_PATH}Public/Img/GC/service_pic3.jpg" /></a>
-                    <h3>Event Management</h3>
-                    <h4><i>Event title description</i></h4>
+                    <p class="yellow-title">Event Management</p>
+                    <p class="title-desc"><i>Event title description</i></p>
                     <p>Every brand is different. GC creates insightful analysis on the brand of clients to define their brand positioning and target consumers.</p>
                     <a href=""><img src="{:SITE_PATH}Public/Img/GC/more.png" /></a>
                 </li>
@@ -66,12 +66,12 @@
         <ul>
             <li>
                 <a href=""><img src="{:SITE_PATH}Public/Img/GC/brand.jpg" /></a>
-                <p>Every brand is different. GC creates...</p>
+                <p>Every brand is different. GC creates insightful analysis on the brand of clients to define their brand</p>
                 <div style="clear:both"></div>
             </li>
             <li>
                 <a href=""><img src="{:SITE_PATH}Public/Img/GC/brand.jpg" /></a>
-                <p>Every brand is different. GC creates...</p>
+                <p>Every brand is different. GC creates insightful analysis on the brand of clients to define their brand</p>
                 <div style="clear:both"></div>
             </li>
         </ul>
@@ -97,28 +97,14 @@
    
 </script>
 <script>
-var banner_width=1100;
+var banner_width={:BANNER_WIDTH};
 var img_s_path="{:SITE_PATH}Public/Img/GC/img_s.png";
 var img_e_path="{:SITE_PATH}Public/Img/GC/img_e.png";
-var menu_home_image="{:SITE_PATH}Public/Img/GC/menu_home.png";
-var menu_whoweare="{:SITE_PATH}Public/Img/GC/menu_whoweare.png";
-var menu_whatwedo="{:SITE_PATH}Public/Img/GC/menu_whatwedo.png";
-var menu_smartchoice="{:SITE_PATH}Public/Img/GC/menu_smartchoice.png";
-var menu_portfolio="{:SITE_PATH}Public/Img/GC/menu_portfolio.png";
-var menu_clientlist="{:SITE_PATH}Public/Img/GC/menu_clientlist.png";
-var menu_contact_us="{:SITE_PATH}Public/Img/GC/menu_contact_us.png";
-var menuc_home_image="{:SITE_PATH}Public/Img/GC/menuc_home.png";
-var menuc_whoweare="{:SITE_PATH}Public/Img/GC/menuc_whoweare.png";
-var menuc_whatwedo="{:SITE_PATH}Public/Img/GC/menuc_whatwedo.png";
-var menuc_smartchoice="{:SITE_PATH}Public/Img/GC/menuc_smartchoice.png";
-var menuc_portfolio="{:SITE_PATH}Public/Img/GC/menuc_portfolio.png";
-var menuc_clientlist="{:SITE_PATH}Public/Img/GC/menuc_clientlist.png";
-var menuc_contact_us="{:SITE_PATH}Public/Img/GC/menuc_contact_us.png";
 $(document).ready(function (){linum=$(".banner_u li").length;w=banner_width*linum;$(".banner_u").css("width",w+"px");linums=$(".banner_btn li").length;w=20*linums;$(".banner_btn ul").css("width",w+"px");setTimeout(autopaly,5E3);$(".banner_btn li img").click(function(){var a=$(this).attr("s");cliplay(a)});
 function autopaly(){linum=$(".banner_u li").length;w=banner_width*linum;1<$(".banner_u li").length&&(ml=parseInt($(".banner_u").css("left")),0>=ml&&0==ml%banner_width&&(ml==-1*(w-banner_width)?$(".banner_u").animate({left:"0px"},"slow"):$(".banner_u").animate({left:ml-banner_width+"px"},"slow"),playbtn((ml-banner_width*2)/-banner_width>linum?"1":(ml-banner_width*2)/-banner_width)));setTimeout(autopaly,5E3)}function cliplay(a){$(".banner_u").animate({left:-banner_width*(a-1)+"px"},"slow");playbtn(a)}
 function playbtn(a){var b=$(".banner_btn li");$(b).each(function(b){$(this).find("img").attr("s")==a?$(this).find("img").attr("src",img_s_path):$(this).find("img").attr("src",img_e_path)})};
-function clear_menuc(){$("#menu_home-image").attr('src',menu_home_image);$("#menu_whoweare-image").attr('src',menu_whoweare);$("#menu_whatwedo-image").attr('src',menu_whatwedo);$("#menu_smartchoice-image").attr('src',menu_smartchoice);$("#menu_portfolio-image").attr('src',menu_portfolio);$("#menu_clientlist-image").attr('src',menu_clientlist);$("#menu_contact_us-image").attr('src',menu_contact_us);};
-(function init(){clear_menuc();$("#menu_home-image").attr("src",menuc_home_image);$("#menu_home-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_home_image)});$("#menu_whoweare-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_whoweare)});$("#menu_whatwedo-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_whatwedo)});$("#menu_smartchoice-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_smartchoice)});$("#menu_portfolio-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_portfolio)});$("#menu_clientlist-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_clientlist)});$("#menu_contact_us-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_contact_us)});})();});
+function clear_menuc(){$("#menu-home-div").css('background-color','#ffffff');$("#menu-whoweare-div").css('background-color','#ffffff');$("#menu-whatwedo-div").css('background-color','#ffffff');$("#menu-smartchoice-div").css('background-color','#ffffff');$("#menu-portfolio-div").css('background-color','#ffffff');$("#menu-clientlist-div").css('background-color','#ffffff');$("#menu-contactus-div").css('background-color','#ffffff');$("#menu-home-a").css('color','#646464');$("#menu-whoweare-a").css('color','#646464');$("#menu-whatwedo-a").css('color','#646464');$("#menu-smartchoice-a").css('color','#646464');$("#menu-portfolio-a").css('color','#646464');$("#menu-clientlist-a").css('color','#646464');$("#menu-contactus-a").css('color','#646464');};
+(function init(){clear_menuc();$("#menu-home-div").css('background-color','#faa815');$("#menu-home-a").css('color','#f0f0f0');$("#menu-home-div").mouseover(function(){clear_menuc();$("#menu-home-div").css('background-color','#faa815');$("#menu-home-a").css('color','#f0f0f0');});$("#menu-whoweare-div").mouseover(function(){clear_menuc();$("#menu-whoweare-div").css('background-color','#faa815');$("#menu-whoweare-a").css('color','#f0f0f0');});$("#menu-whatwedo-div").mouseover(function(){clear_menuc();$("#menu-whatwedo-div").css('background-color','#faa815');$("#menu-whatwedo-a").css('color','#f0f0f0');});$("#menu-smartchoice-div").mouseover(function(){clear_menuc();$("#menu-smartchoice-div").css('background-color','#faa815');$("#menu-smartchoice-a").css('color','#f0f0f0');});$("#menu-portfolio-div").mouseover(function(){clear_menuc();$("#menu-portfolio-div").css('background-color','#faa815');$("#menu-portfolio-a").css('color','#f0f0f0');});$("#menu-clientlist-div").mouseover(function(){clear_menuc();$("#menu-clientlist-div").css('background-color','#faa815');$("#menu-clientlist-a").css('color','#f0f0f0');});$("#menu-contactus-div").mouseover(function(){clear_menuc();$("#menu-contactus-div").css('background-color','#faa815');$("#menu-contactus-a").css('color','#f0f0f0');});})();});
 </script>
 </body>
 </html>
