@@ -14,14 +14,27 @@ class ListController extends BaseController{
             $pid=0;
         }
 
-        $this->_select($tname,$map,'id','desc');
+        if('banner'==$type) {
+            $sort = 'asc';
+        }
+        else {
+            $sort = 'desc';
+        }
+
+        $this->_select($tname,$map,'id',$sort);
         $this->assign('type',$type);
         $this->assign('pid',$pid);
         $current=cookie('current');
         cookie('current',null);
         $this->assign('current',$current);
         cookie("__CURRENTURL__",__SELF__);
-        $this->display();
+
+        if('page' == $type) {
+            $this->display();
+        }
+        else {
+            $this->display('view'.$type);
+        }
     }
     public function category(){
         $type=I('get.type');
@@ -54,7 +67,7 @@ class ListController extends BaseController{
         $pid=I('get.pid',0);
         $this->assign('pid',$pid);
         $type=I('get.type');
-        if(!in_array($type,array('banner','catagory','page','project','projectPhoto')))$this->error('',U('Index/index'));
+        if(!in_array($type,array('catagory','project','projectPhoto')))$this->error('',U('Index/index'));
         $this->assign('type',$type);
         $tname=$type;
         if(!empty($id)){
@@ -213,12 +226,6 @@ class ListController extends BaseController{
             $order=$_REQUEST['_order'];
         }else{
             $order=!empty($order)?$order:$model->getPK();
-        }
-
-        if(isset($_REQUEST['_sort'])){
-            $sort=$_REQUEST['_sort']?'asc':'desc';
-        }else{
-            $sort=!empty($asc)?'asc':'desc';
         }
 
         $count=$model->where($map)->count();

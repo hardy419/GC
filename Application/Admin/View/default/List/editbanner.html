@@ -20,18 +20,30 @@
 				    </div>
 				    </div>
 				    <div class="control-group">
-				    <label class="control-label">Image URL: (Copy image URL from Image Management)</label>
+				    <label class="control-label">Banner Image:</label>
 				    <div class="controls">
-				    <input type="text" id="image-url" name="url" check="Require" warning="Image URL cann't be empty" value="{$list.url}" >
+				    <input type="text" id="image-url" name="url" value="{$list.url}" ><span id="upload-progress" class="help-inline"></span>
 				    </div>
 				    </div>
+				    <div class=" control-group">
+		                   <label class="control-label"></label>
+		                   <div class="controls fileinput-button">
+		                     <span class="fileinput-button"><span>Click Here To Upload</span><input id="fileupload" type="file" name="files" class="input" ></span>
+		                     <span class=" iconshadow" ><i class="icon-remove" onClick="tool.removeMovie('#time')"></i></span>
+		                     <span class="help-text"><span class="label label-important">Max File Size:<?php echo C(ATTACHSIZE)/1024/1024;?>M</span></span>
+		                   </div>
+		                </div>
 
+                    <if condition="$list['id'] neq ''">
+                    <input type="hidden" id="sid" name="sid" value="{$list.sid}" />
+                    <else/>
 				    <div class="control-group">
 				    <label class="control-label">Page ID:</label>
 				    <div class="controls">
 				    <input type="text" id="page-id" name="sid" check="Require" warning="Page ID cann't be empty" value="{$list.sid}" >
 				    </div>
 				    </div>
+                    </if>
 				    <input type="hidden" id="id" name="id" value="{$list.id}" />
                     <input type="hidden" id="type" name="type" value="{$type}" />
 				    <div class="control-group">
@@ -51,7 +63,8 @@
 <script src="__JS__/jquery-1.8.2.min.js"></script>
 <script src="__JS__/jquery.form.js"></script>
 <script src="__JS__/CheckForm.js"></script>
-<script src="__JS__/bootstrap-datepicker.js"></script>
+<script src="__JS__/jquery-ui.min.js"></script>
+<script src="__JS__/jquery.fileupload.js"></script>
 <script src="__JS__/common.js"></script>
 <script>
 KindEditor.ready(function(K) {
@@ -59,6 +72,35 @@ KindEditor.ready(function(K) {
 					allowFileManager : true,
 					urlType : 'domain'
 	});
+});
+var tool={
+		uploadMovie:function(url,btn,input,msg){
+			jQuery(btn).fileupload({
+			    url: url,
+			    dataType: 'json',
+			    done: function (e, data) {
+			    	jQuery.each(data.result.files, function (index, file) {
+			    		
+			        	if(file.error){
+			        		alert(file.error);
+			        	}else
+			        	   jQuery(input).val(file.name);
+			        });
+			    },
+			    progressall: function (e, data) {
+			        var progress = parseInt(data.loaded / data.total * 100, 10);
+			         $(msg).html('upload:'+progress + '%');
+			    }
+			}).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
+		},
+		removeMovie:function(obj){
+			jQuery(obj).val("");
+		}
+};	
+jQuery(function(){
+	//var url='__URL__/uploadPdf';
+	var url='__URL__/uploadPic/model/banners';
+	tool.uploadMovie(url,"#fileupload",'#image-url',"#upload-progress");
 });
 </script>
 </body>

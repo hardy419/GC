@@ -11,29 +11,22 @@
 				    <li><a href="#">{$type|ucfirst} Management</a> <span class="divider">/</span></li>
 				    <li class="active">{$type|ucfirst} Management</li>
 				    </ul>
-				    <if condition="$type neq 'page'">
-                    <p>
-					 <form >
-					       <div class="input-append">
-						    <a class="btn" href="{:U('edit',array('type'=>$type,'pid'=>$pid))}">Add {$type|ucfirst}</a>
-						    </div>
-					 </form>
-					</p>
-                    </if>
 				<legend>{$type|ucfirst} Management</legend>	
                 <table class="table table-striped">
 	              <thead>
 	                <tr>
-	                    <th>Title</th>
+	                    <th>Image</th>
+	                    <th>Description</th>
 	                    <th>Action</th>
 	                </tr>
 	              </thead>
 	              <tbody>
 	               <volist name="list" id="vo">
 	                <tr <if condition="$current eq $vo['id']">class="warning"</if>>
+	                    <td><img style="width:320px;height:60px;" src="{:SITE_PATH}{$vo.url}"></img></td>
 	                    <td>{$vo.title}</td>
 	                    <td>
-	                    <a href="{:U('edit',array('id'=>$vo['id'],'type'=>$type,'pid'=>$pid))}">Edit</a>&nbsp;&nbsp;<a href="{:SITE_PATH}index.php/Pageview/index/id/{$vo.id}">View</a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="del('{:U('del',array('id'=>$vo['id'],'type'=>$type))}');">Delete</a></td>
+	                    <a href="{:U('edit',array('id'=>$vo['id'],'type'=>$type,'pid'=>$pid))}">Edit</a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="del('{:U('del',array('id'=>$vo['id'],'type'=>$type))}');">Delete</a></td>
 	                </tr>
 	                </volist>
 	              </tbody>
