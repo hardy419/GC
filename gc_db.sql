@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015 年 04 月 13 日 08:15
+-- 生成日期: 2015 年 04 月 13 日 15:19
 -- 服务器版本: 5.5.24-log
 -- PHP 版本: 5.3.13
 
@@ -19,7 +19,6 @@ SET time_zone = "+00:00";
 --
 -- 数据库: `gc_db`
 --
-DROP DATABASE IF EXISTS `gc_db`;
 CREATE DATABASE `gc_db`;
 USE `gc_db`;
 
@@ -113,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `gc_project` (
   `preview` varchar(256) NOT NULL,
   `images` varchar(4096) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- 转存表中的数据 `gc_project`
@@ -123,7 +122,15 @@ INSERT INTO `gc_project` (`id`, `title`, `cid`, `description`, `preview`, `image
 (1, '工程1', 1, '工程1描述', 'Public/Img/GC/brand.jpg', 'Public/Img/GC/brand.jpg|Public/Img/GC/bulb.png|add'),
 (2, '工程2', 1, '工程2描述', 'Public/Img/GC/client_logo2.png', 'Public/Img/GC/client_logo1.png|Public/Img/GC/client_logo2.png|Public/Img/GC/client_logo3.png|Public/Img/GC/client_logo4.png|Public/Img/GC/client_logo5.png|Public/Img/GC/client_logo6.png'),
 (5, 'TEST2', 2, 'ahaha', 'Public/Img/GC/client_logo12.png', 'Public/Img/GC/client_logo12.png|Public/Img/GC/client_logo11.png|hahahahah'),
-(7, 'Project3', 3, 'catagory3test', 'Public/Img/GC/client_logo5.png', 'Public/Img/GC/client_logo5.png');
+(7, 'Project3', 3, 'catagory3test', 'Public/Img/GC/client_logo5.png', 'Public/Img/GC/client_logo5.png'),
+(8, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
+(9, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
+(10, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
+(11, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
+(12, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
+(13, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
+(14, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
+(15, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg');
 
 -- --------------------------------------------------------
 
@@ -171,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `gc_userb` (
 --
 
 INSERT INTO `gc_userb` (`id`, `user`, `pass`, `created`, `current`, `last`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', '2012-10-11 08:22:02', '2014-12-23 23:28:41', '2014-11-24 23:32:38');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', '2012-10-11 00:22:02', '2014-12-23 15:28:41', '2014-11-24 15:32:38');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
