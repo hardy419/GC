@@ -2,8 +2,31 @@
 <include file="Common:header"/>
 <!-- Contents -->
 <div class="contents">
+    <style>
+    ul {padding:0px;}
+
+    .intro-title {border-left: 8px solid rgb(254,168,21); padding-left:7px; font-size:24px; font-weight:800; color:#646464;}
+    #intro img {float:left; margin:30px 20px 20px 0px;}
+    #intro-text {float:left; width:720px; margin:30px 0px 20px 0px;}
+    #intro-text p {position:relative; left:16px; text-align:justify;line-height:1.2;}
+
+    #details {}
+    #details>ul {list-style: outside none none;}
+    #details>ul>li {margin-bottom:20px;}
+    .detail-title {font-style:italic; font-size:18px; color:#484848; font-weight:400; margin:20px auto 10px 16px;}
+    .detail-li-left {width:30%;}
+    .detail-li-middle {width:36%;}
+    .detail-li-right {width:30%;}
+    .detail-li-left,.detail-li-middle {float:left;}
+    .detail-li-right {float:right;}
+    .detail-title+ul {list-style:none outside url('/gc/Public/Img/GC/list_style_image.png');}
+    .detail-title+ul li {font-size:13px; font-weight:300; margin:10px 0px 0px 0px; position:relative; left:16px;}
+    .detail-title+ul li ul {clear:both;}
+    .detail-title+ul li ul li {float:left;}
+    </style>
+
     <div id="intro">
-        <img src="{:SITE_PATH}Public/Img/GC/bulb.png"></img>
+        <img src="/gc/Public/Img/GC/bulb.png"></img>
         <div id="intro-text">
             <div class="intro-title">WHO WE ARE</div>
             <p>GC is a public relations firm that provides marketing solution for corporate and clients.  Our scope of service include corporate communication, event planning, media relations and social media marketing etc.  We pledge to provide all-rounded public relations services.</p>
@@ -86,23 +109,9 @@
 </div>
 <include file="Common:footer2"/>
 <script>
-var menu_home_image="{:SITE_PATH}Public/Img/GC/menu_home.png";
-var menu_whoweare="{:SITE_PATH}Public/Img/GC/menu_whoweare.png";
-var menu_whatwedo="{:SITE_PATH}Public/Img/GC/menu_whatwedo.png";
-var menu_smartchoice="{:SITE_PATH}Public/Img/GC/menu_smartchoice.png";
-var menu_portfolio="{:SITE_PATH}Public/Img/GC/menu_portfolio.png";
-var menu_clientlist="{:SITE_PATH}Public/Img/GC/menu_clientlist.png";
-var menu_contact_us="{:SITE_PATH}Public/Img/GC/menu_contact_us.png";
-var menuc_home_image="{:SITE_PATH}Public/Img/GC/menuc_home.png";
-var menuc_whoweare="{:SITE_PATH}Public/Img/GC/menuc_whoweare.png";
-var menuc_whatwedo="{:SITE_PATH}Public/Img/GC/menuc_whatwedo.png";
-var menuc_smartchoice="{:SITE_PATH}Public/Img/GC/menuc_smartchoice.png";
-var menuc_portfolio="{:SITE_PATH}Public/Img/GC/menuc_portfolio.png";
-var menuc_clientlist="{:SITE_PATH}Public/Img/GC/menuc_clientlist.png";
-var menuc_contact_us="{:SITE_PATH}Public/Img/GC/menuc_contact_us.png";
 $(document).ready(function (){
-function clear_menuc(){$("#menu_home-image").attr('src',menu_home_image);$("#menu_whoweare-image").attr('src',menu_whoweare);$("#menu_whatwedo-image").attr('src',menu_whatwedo);$("#menu_smartchoice-image").attr('src',menu_smartchoice);$("#menu_portfolio-image").attr('src',menu_portfolio);$("#menu_clientlist-image").attr('src',menu_clientlist);$("#menu_contact_us-image").attr('src',menu_contact_us);};
-(function init(){clear_menuc();$("#menu_home-image").attr("src",menuc_home_image);$("#menu_home-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_home_image)});$("#menu_whoweare-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_whoweare)});$("#menu_whatwedo-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_whatwedo)});$("#menu_smartchoice-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_smartchoice)});$("#menu_portfolio-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_portfolio)});$("#menu_clientlist-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_clientlist)});$("#menu_contact_us-image").mouseover(function(){clear_menuc();$(this).attr("src",menuc_contact_us)});})();});
+function clear_menuc(){$("#menu-home-div").css('background-color','#ffffff');$("#menu-whoweare-div").css('background-color','#ffffff');$("#menu-whatwedo-div").css('background-color','#ffffff');$("#menu-smartchoice-div").css('background-color','#ffffff');$("#menu-portfolio-div").css('background-color','#ffffff');$("#menu-clientlist-div").css('background-color','#ffffff');$("#menu-contactus-div").css('background-color','#ffffff');$("#menu-home-a").css('color','#646464');$("#menu-whoweare-a").css('color','#646464');$("#menu-whatwedo-a").css('color','#646464');$("#menu-smartchoice-a").css('color','#646464');$("#menu-portfolio-a").css('color','#646464');$("#menu-clientlist-a").css('color','#646464');$("#menu-contactus-a").css('color','#646464');};
+(function init(){clear_menuc();$("#menu-home-div").css('background-color','#faa815');$("#menu-home-a").css('color','#f0f0f0');$("#menu-home-div").mouseover(function(){clear_menuc();$("#menu-home-div").css('background-color','#faa815');$("#menu-home-a").css('color','#f0f0f0');});$("#menu-whoweare-div").mouseover(function(){clear_menuc();$("#menu-whoweare-div").css('background-color','#faa815');$("#menu-whoweare-a").css('color','#f0f0f0');});$("#menu-whatwedo-div").mouseover(function(){clear_menuc();$("#menu-whatwedo-div").css('background-color','#faa815');$("#menu-whatwedo-a").css('color','#f0f0f0');});$("#menu-smartchoice-div").mouseover(function(){clear_menuc();$("#menu-smartchoice-div").css('background-color','#faa815');$("#menu-smartchoice-a").css('color','#f0f0f0');});$("#menu-portfolio-div").mouseover(function(){clear_menuc();$("#menu-portfolio-div").css('background-color','#faa815');$("#menu-portfolio-a").css('color','#f0f0f0');});$("#menu-clientlist-div").mouseover(function(){clear_menuc();$("#menu-clientlist-div").css('background-color','#faa815');$("#menu-clientlist-a").css('color','#f0f0f0');});$("#menu-contactus-div").mouseover(function(){clear_menuc();$("#menu-contactus-div").css('background-color','#faa815');$("#menu-contactus-a").css('color','#f0f0f0');});})();});
 </script>
 </body>
 </html>

@@ -5,11 +5,11 @@ return array(
 	//'配置项'=>'配置值'
 	'TMPL_PARSE_STRING'  =>array(
 		
-				'__JS__' => '/gc/Public/Js', // 增加新的JS类库路径替换规则
+				'__JS__' => SITE_PATH.'Public/Js', // 增加新的JS类库路径替换规则
 		
-				'__CSS__' => '/gc/Public/Css', // 增加新的css类库路径替换规
+				'__CSS__' => SITE_PATH.'Public/Css', // 增加新的css类库路径替换规
 		
-				'__IMG__' => '/gc/Public/Img/', // 增加新的img类库路径替换
+				'__IMG__' => SITE_PATH.'Public/Img/', // 增加新的img类库路径替换
 		
 				'__UPLOAD__' => './Uploads', // 增加新的上传路径替换规则
 	)
