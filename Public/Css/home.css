@@ -6,7 +6,7 @@ hr{color:rgb(250, 160,20);}
 
 .banner_btn{ width: 100%;}
 
-.banner_btn ul {list-style: outside none none;float: right;width: 100px;margin-right: 10px;}
+.banner_btn ul {list-style: outside none none;float: right;width: 100px;margin-right: 10px;margin-top:5px;}
 .banner_btn li {float: left;width: 20px;}
 .banner_btn li img { cursor: pointer;}
 

@@ -14,12 +14,7 @@ class ListController extends BaseController{
             $pid=0;
         }
 
-        if('banner'==$type) {
-            $sort = 'asc';
-        }
-        else {
-            $sort = 'desc';
-        }
+        $sort = 'desc';
 
         $this->_select($tname,$map,'id',$sort);
         $this->assign('type',$type);
@@ -67,13 +62,27 @@ class ListController extends BaseController{
         $pid=I('get.pid',0);
         $this->assign('pid',$pid);
         $type=I('get.type');
-        if(!in_array($type,array('banner','catagory','page','project','projectPhoto')) || (empty($id) && !in_array($type,array('catagory','project','projectPhoto'))))$this->error('',U('Index/index'));
+        if(!in_array($type,array('banner','catagory','page','project','projectPhoto')) || (empty($id) && !in_array($type,array('banner','catagory','project','projectPhoto'))))$this->error('',U('Index/index'));
         $this->assign('type',$type);
         $tname=$type;
         if(!empty($id)){
             $this->_edit($tname,$id);
             $this->display('edit'.$type);
         }else{
+            if('banner' == $type) {
+                // Searching for the smallest id number available for new banner
+                $mainbanners = M('banner')->where('sid >= 80001 AND sid < 90000')->getField('sid', true);
+                $temp_sid = 80001;
+                do {
+                    if (!in_array ($temp_sid, $mainbanners)) {
+                        break;
+                    }
+                    else {
+                        ++$temp_sid;
+                    }
+                }while($temp_sid < 90000);
+                $this->assign('sid', $temp_sid);
+            }
             $this->display('edit'.$type);
         }
     }
@@ -345,14 +354,15 @@ class ListController extends BaseController{
         if ($query)$this->success('Delete Success',$jump);
         else $this->error('Delete Failure',$jump);
     }
-    public function delNews(){
+    public function delBanner(){
         $type=I('get.type');
-        if(!in_array($type,array('news')))$this->error('',U('Index/index'));
-        $this->assign('type',$type);
+        if(!in_array($type,array('banner')))$this->error('',U('Index/index'));
         $tname=$type;
-        $id=isset($_GET['id'])?I('get.id'):'';
+        $id=I('get.id','');
+        $sid=M($tname)->where(array('id'=>$id))->getField('sid');
         $jump=cookie('__CURRENTURL__');
-        if(empty($id))$this->error('Delete Failure',$jump);
+        if(empty($id) || ($sid < 80001 || $sid >= 90000))$this->error('Delete Failure',$jump);
+        
         $query=M($tname)->where(array('id'=>$id))->delete();
         if ($query)$this->success('Delete Success',$jump);
         else $this->error('Delete Failure',$jump);

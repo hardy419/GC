@@ -11,6 +11,13 @@
 				    <li><a href="#">{$type|ucfirst} Management</a> <span class="divider">/</span></li>
 				    <li class="active">{$type|ucfirst} Management</li>
 				    </ul>
+                    <p>
+					 <form >
+					       <div class="input-append">
+						    <a class="btn" href="{:U('edit',array('type'=>$type,'pid'=>$pid))}">Add Banner For Main Page</a>
+						    </div>
+					 </form>
+					</p>
 				<legend>{$type|ucfirst} Management</legend>	
                 <table class="table table-striped">
 	              <thead>
@@ -26,7 +33,8 @@
 	                    <td><img style="width:320px;height:60px;" src="{:SITE_PATH}{$vo.url}"></img></td>
 	                    <td>{$vo.title}</td>
 	                    <td>
-	                    <a href="{:U('edit',array('id'=>$vo['id'],'type'=>$type,'pid'=>$pid))}">Edit</a>&nbsp;&nbsp;</td>
+	                    <a href="{:U('edit',array('id'=>$vo['id'],'type'=>$type,'pid'=>$pid))}">Edit</a>&nbsp;&nbsp;
+                        <if condition="($vo['sid'] egt 80001) AND ($vo['sid'] lt 90000)"><a href="javascript:void(0);" onclick="del('{:U('delBanner',array('id'=>$vo['id'],'type'=>$type))}');">Delete</a></if></td>
 	                </tr>
 	                </volist>
 	              </tbody>
@@ -52,7 +60,7 @@
 <script>
   function del(url){
 	  if(url=='') return false;
-      if(window.confirm('Are you sure to delete this record?')){	  
+      if(window.confirm('Delete this banner?')){	  
 		  $.get(url,function(responseText){
 			    var info=responseText['info'];
 		        var status=responseText['status'];

@@ -12,11 +12,11 @@
 				    <li class="active">{$type|ucfirst} Management</li>
 				    </ul>
 				<legend><if condition="$list['id'] neq ''">Edit<else/>Add</if> {$type|ucfirst}</legend>	
-                    <form class="form-horizontal" id="myForm" method="post" action="{:U('save')}" onsubmit="editor.sync();myForm.submit();">
+                    <form class="form-horizontal" id="myForm" method="post" action="{:U('save')}" onsubmit="myForm.submit();">
 				    <div class="control-group">
 				    <label class="control-label">Title(Optional):</label>
 				    <div class="controls">
-				    <input type="text" id="title" name="title" check="Require" warning="Title cann't be empty" value="{$list.title}" >
+				    <input type="text" id="title" name="title" check="Require" warning="Title cann't be empty" value=<if condition="$list['id'] eq ''">"Banner for home page"<else/>"{$list.title}"</if> / >
 				    </div>
 				    </div>
 				    <div class="control-group">
@@ -35,14 +35,17 @@
 		                </div>
 
                     <if condition="$list['id'] neq ''">
-                    <input type="hidden" id="sid" name="sid" value="{$list.sid}" />
+					<input type="hidden" id="sid" name="sid" value="{$list.sid}" />
                     <else/>
-				    <div class="control-group">
-				    <label class="control-label">Page ID:</label>
+					<input type="hidden" id="sid" name="sid" value="{$sid}" />
+				    <!--<div class="control-group">
+				    <label class="control-label">For which page:</label>
 				    <div class="controls">
-				    <input type="text" id="page-id" name="sid" check="Require" warning="Page ID cann't be empty" value="{$list.sid}" >
+				    <select id="sid" name="sid">
+						<option value="{$sid}" selected="selected">Main Page</option>
+					</select>
 				    </div>
-				    </div>
+				    </div>-->
                     </if>
 				    <input type="hidden" id="id" name="id" value="{$list.id}" />
                     <input type="hidden" id="type" name="type" value="{$type}" />
@@ -59,7 +62,6 @@
       <hr>
 
     </div>
-<script src="__JS__/kindeditor/kindeditor.js"></script>
 <script src="__JS__/jquery-1.8.2.min.js"></script>
 <script src="__JS__/jquery.form.js"></script>
 <script src="__JS__/CheckForm.js"></script>
@@ -67,12 +69,6 @@
 <script src="__JS__/jquery.fileupload.js"></script>
 <script src="__JS__/common.js"></script>
 <script>
-KindEditor.ready(function(K) {
-	editor1 = K.create('#content', {
-					allowFileManager : true,
-					urlType : 'domain'
-	});
-});
 var tool={
 		uploadMovie:function(url,btn,input,msg){
 			jQuery(btn).fileupload({

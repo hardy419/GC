@@ -5,36 +5,39 @@
     <style>
     ul {padding:0px;}
 
-    .intro-title {border-left: 8px solid rgb(254,168,21); padding-left:7px; font-size:24px; font-weight:800; color:#646464;}
+    .intro-title {border-left: 8px solid rgb(254,168,21); padding-left:7px; font-size:24px; font-weight:600; color:#646464;}
 
-    #contact-div {float:left; width:48%; margin-left:8px;}
+    #contact-div {float:left; width:450px; margin-left:20px;}
     #contact-div .intro-title {margin-bottom:30px;}
     #contact-div tr {margin-bottom:20px;}
     #contact-div tr td {font-size:16px; font-style:italic; color:#323232; font-weight:300; vertical-align:top;}
     #contact-div tr td:first-child {width:20%;}
     #contact-div tr td:last-child {width:80%;}
 
-    #info-div  {float:right; width:460px; border-left: 2px solid rgb(254,168,21); padding-left:60px;}
+    #info-div  {float:right; width:500px; border-left: 1px solid rgb(254,168,21); padding-left:45px;}
+    .info-text-div {width:340px;margin-right:160px;}
     #info-div p {font-size:16px; font-style:italic; color:#323232; font-weight:300; margin:5px auto;}
-    #info-div img {margin-top:20px;}
+    #info-div img {margin-top:20px; width:420px;height:300px; border:2px solid #c0c0c0; padding:10px;}
     </style>
 
     <div id="contact-div">
         <div class="intro-title">CONTACT US</div>
         <form name="contact" action="#" method="GET">
-            <table cellspacing="10">
+            <table cellspacing="12">
                 <tr><td>Name:</td><td><input type="text" name="name"></input></td></tr>
                 <tr><td>Email:</td><td><input type="text" name="email"></input></td></tr>
                 <tr><td>Phone:</td><td><input type="text" name="phone"></input></td></tr>
-                <tr><td>Message:</td><td><textarea name="message" rows="6" cols="35"></textarea></td></tr>
+                <tr><td>Message:</td><td><textarea name="message" rows="10" cols="35"></textarea></td></tr>
             </table>
         </form>
     </div>
     <div id="info-div">
-        <p>Tel  :  2898 8283</p>
-        <p>Fax  :  3914 6999</p>
-        <p>Email  :  info@gccomhk.com</p>
-        <p>Address  :  Rm B10, 1/F, King Yip Factory Bldg, 59 King Yip St., Kwun Tong, Hong Kong</p>
+        <div class="info-text-div">
+            <p>Tel  :  2898 8283</p>
+            <p>Fax  :  3914 6999</p>
+            <p>Email  :  info@gccomhk.com</p>
+            <p>Address  :  Rm B10, 1/F, King Yip Factory Bldg, 59 King Yip St., Kwun Tong, Hong Kong</p>
+        </div>
         <img src="/gc/Public/Img/GC/contact_map.png"></img>
     </div>
     <div style="clear:both;"></div>

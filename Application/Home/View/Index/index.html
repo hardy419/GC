@@ -3,20 +3,17 @@
 <!-- banner -->
 <div class="banner">
 	<ul class="banner_u" style="left:0;position: relative;">
-		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT_MAIN}" src="{:SITE_PATH}{$refurl1}" /></li>
-		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT_MAIN}" src="{:SITE_PATH}{$refurl2}" /></li>
-		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT_MAIN}" src="{:SITE_PATH}{$refurl3}" /></li>
-		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT_MAIN}" src="{:SITE_PATH}{$refurl4}" /></li>
-		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT_MAIN}" src="{:SITE_PATH}{$refurl5}" /></li>
+		<volist name='refurl' id='vo'>
+		<li><img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT_MAIN}" src="{:SITE_PATH}{$vo}" /></li>
+		</volist>
 	</ul>
 </div>
 <div class="banner_btn">
 	<ul>
 		<li><img s='1' src="{:SITE_PATH}Public/Img/GC/img_s.png" /></li>
-		<li><img s='2' src="{:SITE_PATH}Public/Img/GC/img_e.png" /></li>
-		<li><img s='3' src="{:SITE_PATH}Public/Img/GC/img_e.png" /></li>
-		<li><img s='4' src="{:SITE_PATH}Public/Img/GC/img_e.png" /></li>
-		<li><img s='5' src="{:SITE_PATH}Public/Img/GC/img_e.png" /></li>				
+		<volist name='refurl' id='vo' offset='1'>
+		<li><img s='{$i+1}' src="{:SITE_PATH}Public/Img/GC/img_e.png" /></li>
+		</volist>
 	</ul>
 </div>
 <!-- Contents -->
