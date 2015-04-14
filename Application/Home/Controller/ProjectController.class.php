@@ -10,8 +10,8 @@ class ProjectController extends BaseController {
         $projmodelmap = array('cid'=>$cid);
         $count = $projmodel->where($projmodelmap)->count();
         $p=new \Org\Util\Page($count,6);
-        $p->setConfig('prev', '«');
-        $p->setConfig('next', '»');
+        $p->setConfig('prev', '<img src="'.SITE_PATH.'Public/Img/GC/prev_button.png"></img>');
+        $p->setConfig('next', '<img src="'.SITE_PATH.'Public/Img/GC/next_button.png"></img>');
         $p->setConfig('last', 'the last Page');
         $p->setConfig('first', 'the first Page');
         $p->setConfig('theme','%upPage% %first%  %prePage% %linkPage%  %downPage%  %nextPage% %end%');
