@@ -1,5 +1,5 @@
 body {letter-spacing:0px !important;}
-.section {padding-left:8px;}
+.section {border-left: 6px solid rgb(254,168,21); font-size:22px; font-weight:600;padding-left:8px;color:#323232;}
 
 .sidebar-nav {width:300px;float:left;}
 .sidebar-nav-li {font-size:18px; font-weight:400; color:#646464;}

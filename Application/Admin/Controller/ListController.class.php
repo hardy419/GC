@@ -29,7 +29,7 @@ class ListController extends BaseController{
         $this->assign('current',$current);
         cookie("__CURRENTURL__",__SELF__);
 
-        if('page' == $type) {
+        if('banner' != $type) {
             $this->display();
         }
         else {
@@ -67,7 +67,7 @@ class ListController extends BaseController{
         $pid=I('get.pid',0);
         $this->assign('pid',$pid);
         $type=I('get.type');
-        if(!in_array($type,array('catagory','project','projectPhoto')))$this->error('',U('Index/index'));
+        if(!in_array($type,array('banner','catagory','page','project','projectPhoto')) || (empty($id) && !in_array($type,array('catagory','project','projectPhoto'))))$this->error('',U('Index/index'));
         $this->assign('type',$type);
         $tname=$type;
         if(!empty($id)){
@@ -372,7 +372,7 @@ class ListController extends BaseController{
     }
     public function del(){
         $type=I('get.type');
-        if(!in_array($type,array('banner','catagory','page','project','projectPhoto')))$this->error('',U('Index/index'));
+        if(!in_array($type,array('catagory','project','projectPhoto')))$this->error('',U('Index/index'));
         $tname=$type;
         $id=I('get.id','');
         $jump=cookie('__CURRENTURL__');

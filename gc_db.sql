@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015 年 04 月 13 日 15:19
+-- 生成日期: 2015 年 04 月 14 日 05:52
 -- 服务器版本: 5.5.24-log
 -- PHP 版本: 5.3.13
 
@@ -47,10 +47,10 @@ INSERT INTO `gc_banner` (`id`, `title`, `sid`, `url`) VALUES
 (3, 'Banner for home page 3', 80003, 'Public/Img/GC/banners/banner3.jpg'),
 (4, 'Banner for home page 4', 80004, 'Public/Img/GC/banners/banner1.jpg'),
 (5, 'Banner for home page 5', 80005, 'Public/Img/GC/banners/banner2.jpg'),
-(6, 'Banner for page "who we are"', 4, 'Public/Img/GC/banners/banner_whoweare.png'),
-(7, 'Banner for page "what we do"', 3, 'Public/Img/GC/banners/banner_whatwedo.png'),
-(8, 'Banner for page "client list"', 2, 'Public/Img/GC/banners/banner_clientlist.png'),
-(9, 'Banner for page "contact us"', 1, 'Public/Img/GC/banners/banner_contactus.png');
+(6, 'Banner for page who we are', 4, 'Public/Img/GC/banners/banner_whoweare.png'),
+(7, 'Banner for page what we do', 3, 'Public/Img/GC/banners/banner_whatwedo.png'),
+(8, 'Banner for page client list', 2, 'Public/Img/GC/banners/banner_clientlist.png'),
+(9, 'Banner for page contact us', 1, 'Public/Img/GC/banners/banner_contactus.png');
 
 -- --------------------------------------------------------
 
@@ -63,16 +63,17 @@ CREATE TABLE IF NOT EXISTS `gc_catagory` (
   `name` varchar(32) NOT NULL,
   `type` enum('項目','備用1','備用2') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- 转存表中的数据 `gc_catagory`
 --
 
 INSERT INTO `gc_catagory` (`id`, `name`, `type`) VALUES
-(1, '類別1', '項目'),
-(2, '類別2', '項目'),
-(3, '類別3', '項目');
+(1, 'Catagory1', '項目'),
+(2, 'Catagory2', '項目'),
+(3, 'Catagory3', '項目'),
+(6, 'Catagory test', '');
 
 -- --------------------------------------------------------
 
@@ -155,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `gc_user` (
 --
 
 INSERT INTO `gc_user` (`id`, `account`, `login_count`, `last_login_time`, `password`, `status`, `nickname`, `last_login_ip`) VALUES
-(1, 'admin', '148', '1428904755', 'b59c67bf196a4758191e42f76670ceba', 1, '', '127.0.0.1');
+(1, 'admin', '150', '1428990690', 'b59c67bf196a4758191e42f76670ceba', 1, '', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -178,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `gc_userb` (
 --
 
 INSERT INTO `gc_userb` (`id`, `user`, `pass`, `created`, `current`, `last`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', '2012-10-11 00:22:02', '2014-12-23 15:28:41', '2014-11-24 15:32:38');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', '2012-10-10 16:22:02', '2014-12-23 07:28:41', '2014-11-24 07:32:38');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
