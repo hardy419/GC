@@ -36,7 +36,7 @@
 	                    <td>{$vo.date}</td>
 	                    <td>
 	                    <a href="{:U('edit',array('id'=>$vo['id'],'type'=>$type,'pid'=>$pid))}">Edit</a>&nbsp;&nbsp;
-                        <a href="{:U('edit',array('id'=>$vo['id'],'type'=>$type,'pid'=>$pid))}">Photos</a>&nbsp;&nbsp;
+                        <a href="{:U('photos',array('pid'=>$vo['id'],'type'=>$type.'photo'))}">Photos</a>&nbsp;&nbsp;
                         <a href="javascript:void(0);" onclick="del('{:U('del',array('id'=>$vo['id'],'type'=>$type))}');">Delete</a></td>
 	                </tr>
 	                </volist>

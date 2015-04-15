@@ -2,6 +2,8 @@
 <include file="Common:header"/>
 <link rel="stylesheet" type="text/css" href="__CSS__/project.css" />
 <link rel="stylesheet" type="text/css" href="__CSS__/base.css" />
+<link  rel="stylesheet" type="text/css" href="__CSS__/lightbox.css"/>
+<script src="__JS__/lightbox.min.js"></script>
 <!-- Contents -->
 <div class="contents">
     <div class="sidebar-nav">
@@ -13,22 +15,38 @@
         </ul>
     </div>
     <div class="project-preview">
+        <if condition="$pid eq ''">
         <ul>
             <volist name="list" id="vo" mod="3"><eq name="mod" value="2">
             <li class='li-eol'>
-                <a href="{:U('index',array('cid'=>$vo['id']))}"><img src="{:SITE_PATH}{$vo.preview}"></img></a>
+                <a href="{:U('photos',array('pid'=>$vo['id']))}"><img src="{:SITE_PATH}{$vo.preview}"></img></a>
                 <div>{$vo.title}</div>
                 <div>{$vo.description}</div>
             </li>
             <div style="clear:both;"></div>
             <else/>
             <li class='li-not-eol'>
-                <a href="{:U('index',array('cid'=>$vo['id']))}"><img src="{:SITE_PATH}{$vo.preview}"></img></a>
+                <a href="{:U('photos',array('pid'=>$vo['id']))}"><img src="{:SITE_PATH}{$vo.preview}"></img></a>
                 <div>{$vo.title}</div>
                 <div>{$vo.description}</div>
             </li>
             </eq></volist>
         </ul>
+        <else/>
+        <img src="{:SITE_PATH}{$preview}"></img>
+        <ul>
+            <volist name="photolist" id="vo" mod="3"><eq name="mod" value="2">
+            <li class='li-eol'>
+                <a href="{:SITE_PATH}Uploads/{$vo.pic|substr=1}" data-lightbox="photos" data-title="Project Photos"><img class="projectphoto-img" src="{:SITE_PATH}Uploads/{$vo.pic|substr=1}"></img></a>
+            </li>
+            <div style="clear:both;"></div>
+            <else/>
+            <li class='li-not-eol'>
+                <a href="{:SITE_PATH}Uploads/{$vo.pic|substr=1}" data-lightbox="photos" data-title="Project Photos"><img class="projectphoto-img" src="{:SITE_PATH}Uploads/{$vo.pic|substr=1}"></img></a>
+            </li>
+            </eq></volist>
+        </ul>
+        </if>
         <div style="clear:both;"></div>
         <div class="pagination pagination-right">
             <ul>

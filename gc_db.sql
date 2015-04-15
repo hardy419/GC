@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015 年 04 月 15 日 07:53
+-- 生成日期: 2015 年 04 月 15 日 10:00
 -- 服务器版本: 5.5.24-log
 -- PHP 版本: 5.3.13
 
@@ -113,25 +113,41 @@ CREATE TABLE IF NOT EXISTS `gc_project` (
   `preview` varchar(256) NOT NULL,
   `images` varchar(4096) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
 -- 转存表中的数据 `gc_project`
 --
 
 INSERT INTO `gc_project` (`id`, `title`, `cid`, `date`, `description`, `preview`, `images`) VALUES
-(1, '工程1', 1, '0000-00-00', '工程1描述', 'Public/Img/GC/brand.jpg', 'Public/Img/GC/brand.jpg|Public/Img/GC/bulb.png|add'),
-(2, '工程2', 1, '0000-00-00', '工程2描述', 'Public/Img/GC/client_logo2.png', 'Public/Img/GC/client_logo1.png|Public/Img/GC/client_logo2.png|Public/Img/GC/client_logo3.png|Public/Img/GC/client_logo4.png|Public/Img/GC/client_logo5.png|Public/Img/GC/client_logo6.png'),
-(5, 'TEST2', 3, '2015-04-01', 'EDIT PROJECT TEST', './Uploads/project/20150415/552e0226e2008.jpg', 'Public/Img/GC/client_logo12.png|Public/Img/GC/client_logo11.png|hahahahah'),
-(7, 'Project3', 3, '0000-00-00', 'catagory3test', 'Public/Img/GC/client_logo5.png', 'Public/Img/GC/client_logo5.png'),
-(8, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
-(9, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
-(10, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
-(11, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
-(12, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
-(13, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
-(14, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
-(15, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg');
+(1, '工程1', 2, '2012-07-02', '工程1描述', 'Public/Img/GC/brand.jpg', 'Public/Img/GC/brand.jpg|Public/Img/GC/bulb.png|add'),
+(18, 'Media Awareness', 1, '2015-04-15', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `gc_projectphoto`
+--
+
+CREATE TABLE IF NOT EXISTS `gc_projectphoto` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `pic` varchar(255) NOT NULL,
+  `sid` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `pid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- 转存表中的数据 `gc_projectphoto`
+--
+
+INSERT INTO `gc_projectphoto` (`id`, `title`, `pic`, `sid`, `status`, `pid`) VALUES
+(3, '', '/projectphoto/20150415/552e25985dd46.jpg', 3, 1, 1),
+(6, '', '/projectphoto/20150415/552e34303b0ed.jpg', 6, 1, 18),
+(7, 'TEST2', '/projectphoto/20150415/552e3434336ab.jpg', 7, 1, 18),
+(8, 'TEST1', '/projectphoto/20150415/552e343730607.jpg', 8, 1, 18);
 
 -- --------------------------------------------------------
 

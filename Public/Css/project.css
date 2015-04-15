@@ -10,7 +10,7 @@ body {letter-spacing:0px !important;}
 .project-preview {width:670px;float:right;}
 .project-preview>ul {list-style: outside none none;}
 .project-preview>ul>li {width:185px;float:left;}
-.project-preview img {width:185px;height:113px;}
+.project-preview li img {width:185px;height:113px;}
 .li-not-eol {margin:5px 45px 20px 0px;}
 .li-eol {margin:5px 0px 20px 0px;}
 .project-preview a {text-decoration:none;}
@@ -21,5 +21,7 @@ body {letter-spacing:0px !important;}
 .project-preview .pagination .active a {color:#c0c0c0;}
 .project-preview .pagination ul {margin-right:20px;}
 .project-preview .pagination img {width:16px; height:16px;}
+
+.project-preview>img {width:500px; height:360px; margin-bottom:30px;}
 
 .footer {height:100px;}

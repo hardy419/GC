@@ -5,7 +5,7 @@ class ListController extends BaseController{
     public function index(){
         $type=I('get.type');
         $pid=I('get.pid');
-        if(!in_array($type,array('banner','catagory','page','project','projectPhoto'))) $this->error('',U('Index/index'));
+        if(!in_array($type,array('banner','catagory','page','project','projectphoto'))) $this->error('',U('Index/index'));
         $tname=$type;
         $map=array();
         if(!empty($pid)&&is_numeric($pid)){
@@ -55,11 +55,12 @@ class ListController extends BaseController{
         if(empty($pid)||!is_numeric($pid)){
             $this->error('invalid action',$jump);
         }
-        if(!in_array($type,array('newsphotos','tutorsphotos','casephotos','studentphotos'))) $this->error('',U('Index/index'));
+        if(!in_array($type,array('projectphoto','tutorsphotos','casephotos','studentphotos'))) $this->error('',U('Index/index'));
         $tname=$type;
         $this->_select($tname,array('pid'=>$pid),'sid','desc');
         $this->assign('type',$type);
         cookie("__CURRENTURL__",__SELF__);
+        cookie('current',$pid);
         $this->display();
     }
 
@@ -68,7 +69,7 @@ class ListController extends BaseController{
         $pid=I('get.pid',0);
         $this->assign('pid',$pid);
         $type=I('get.type');
-        if(!in_array($type,array('banner','catagory','page','project','projectPhoto')) || (empty($id) && !in_array($type,array('banner','catagory','project','projectPhoto'))))$this->error('',U('Index/index'));
+        if(!in_array($type,array('banner','catagory','page','project','projectphoto')) || (empty($id) && !in_array($type,array('banner','catagory','project','projectphoto'))))$this->error('',U('Index/index'));
         $this->assign('type',$type);
         $tname=$type;
 
@@ -78,6 +79,7 @@ class ListController extends BaseController{
             $this->assign('catalist', $catalist);
         }
 
+        cookie('current',$id);
         if(!empty($id)){
             $this->_edit($tname,$id);
             $this->display('edit'.$type);
@@ -119,7 +121,7 @@ class ListController extends BaseController{
 
     public function save(){
         $type=I('post.type');
-        if(!in_array($type,array('banner','catagory','page','project','projectPhoto')))$this->error('',U('Index/index'));
+        if(!in_array($type,array('banner','catagory','page','project','projectphoto')))$this->error('',U('Index/index'));
         $tname=$type;
         $jump=cookie("__CURRENTURL__");
         $db=D($tname);
@@ -158,6 +160,7 @@ class ListController extends BaseController{
                 $query=$db->save();
             }else{
                 $query=$db->add();
+                $id = $query;
             }
             cookie('current',$id);
             if ($query)$this->success('Action Success',$jump);
@@ -401,15 +404,15 @@ class ListController extends BaseController{
                 $count=M('project')->where(array('cid'=>$id))->count();
                 if($count>0)$this->error("Delete Failure. Please delete all projects under this catagory.",$jump);
             break;
-            case 'tutors':
-                $count=M('tutorsphotoslist')->where(array('pid'=>$id))->count();
-                if($count>0)$this->error("Delete Failure,Please delete this Tutors's photos",$jump);
+            case 'project':
+                $count=M('projectphoto')->where(array('pid'=>$id))->count();
+                if($count>0)$this->error("Delete Failure. Please delete this project's photos",$jump);
             break;
         }
     }
     public function del(){
         $type=I('get.type');
-        if(!in_array($type,array('catagory','project','projectPhoto')))$this->error('',U('Index/index'));
+        if(!in_array($type,array('catagory','project','projectphoto')))$this->error('',U('Index/index'));
         $tname=$type;
         $id=I('get.id','');
         $jump=cookie('__CURRENTURL__');
