@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015 年 04 月 14 日 09:44
+-- 生成日期: 2015 年 04 月 15 日 07:53
 -- 服务器版本: 5.5.24-log
 -- PHP 版本: 5.3.13
 
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `gc_catagory` (
   `name` varchar(32) NOT NULL,
   `type` enum('項目','備用1','備用2') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- 转存表中的数据 `gc_catagory`
@@ -72,8 +72,7 @@ CREATE TABLE IF NOT EXISTS `gc_catagory` (
 INSERT INTO `gc_catagory` (`id`, `name`, `type`) VALUES
 (1, 'Catagory1', '項目'),
 (2, 'Catagory2', '項目'),
-(3, 'Catagory3', '項目'),
-(6, 'Catagory test', '');
+(3, 'Catagory3', '項目');
 
 -- --------------------------------------------------------
 
@@ -109,29 +108,30 @@ CREATE TABLE IF NOT EXISTS `gc_project` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `cid` int(11) NOT NULL,
+  `date` date NOT NULL,
   `description` varchar(255) NOT NULL,
   `preview` varchar(256) NOT NULL,
   `images` varchar(4096) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- 转存表中的数据 `gc_project`
 --
 
-INSERT INTO `gc_project` (`id`, `title`, `cid`, `description`, `preview`, `images`) VALUES
-(1, '工程1', 1, '工程1描述', 'Public/Img/GC/brand.jpg', 'Public/Img/GC/brand.jpg|Public/Img/GC/bulb.png|add'),
-(2, '工程2', 1, '工程2描述', 'Public/Img/GC/client_logo2.png', 'Public/Img/GC/client_logo1.png|Public/Img/GC/client_logo2.png|Public/Img/GC/client_logo3.png|Public/Img/GC/client_logo4.png|Public/Img/GC/client_logo5.png|Public/Img/GC/client_logo6.png'),
-(5, 'TEST2', 2, 'ahaha', 'Public/Img/GC/client_logo12.png', 'Public/Img/GC/client_logo12.png|Public/Img/GC/client_logo11.png|hahahahah'),
-(7, 'Project3', 3, 'catagory3test', 'Public/Img/GC/client_logo5.png', 'Public/Img/GC/client_logo5.png'),
-(8, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
-(9, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
-(10, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
-(11, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
-(12, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
-(13, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
-(14, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
-(15, 'Media Awareness', 1, 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg');
+INSERT INTO `gc_project` (`id`, `title`, `cid`, `date`, `description`, `preview`, `images`) VALUES
+(1, '工程1', 1, '0000-00-00', '工程1描述', 'Public/Img/GC/brand.jpg', 'Public/Img/GC/brand.jpg|Public/Img/GC/bulb.png|add'),
+(2, '工程2', 1, '0000-00-00', '工程2描述', 'Public/Img/GC/client_logo2.png', 'Public/Img/GC/client_logo1.png|Public/Img/GC/client_logo2.png|Public/Img/GC/client_logo3.png|Public/Img/GC/client_logo4.png|Public/Img/GC/client_logo5.png|Public/Img/GC/client_logo6.png'),
+(5, 'TEST2', 3, '2015-04-01', 'EDIT PROJECT TEST', './Uploads/project/20150415/552e0226e2008.jpg', 'Public/Img/GC/client_logo12.png|Public/Img/GC/client_logo11.png|hahahahah'),
+(7, 'Project3', 3, '0000-00-00', 'catagory3test', 'Public/Img/GC/client_logo5.png', 'Public/Img/GC/client_logo5.png'),
+(8, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
+(9, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
+(10, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
+(11, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
+(12, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
+(13, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
+(14, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg'),
+(15, 'Media Awareness', 1, '0000-00-00', 'GC Communications provides one-stop public relations solutions for clients, offering', 'Public/Img/GC/project_pic1.jpg', 'Public/Img/GC/project_pic1.jpg|Public/Img/GC/project_pic1.jpg');
 
 -- --------------------------------------------------------
 
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `gc_user` (
 --
 
 INSERT INTO `gc_user` (`id`, `account`, `login_count`, `last_login_time`, `password`, `status`, `nickname`, `last_login_ip`) VALUES
-(1, 'admin', '151', '1428994543', 'b59c67bf196a4758191e42f76670ceba', 1, '', '127.0.0.1');
+(1, 'admin', '155', '1429081092', 'b59c67bf196a4758191e42f76670ceba', 1, '', '127.0.0.1');
 
 -- --------------------------------------------------------
 

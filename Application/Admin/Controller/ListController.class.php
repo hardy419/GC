@@ -16,7 +16,12 @@ class ListController extends BaseController{
 
         $sort = 'desc';
 
-        $this->_select($tname,$map,'id',$sort);
+        if('project' == $type) {
+            $this->_select($tname,$map,'id',$sort,false,'SELECT a.id,a.title,a.date,b.name as catagory FROM gc_project as a LEFT JOIN gc_catagory as b ON a.cid=b.id');
+        }
+        else {
+            $this->_select($tname,$map,'id',$sort);
+        }
         $this->assign('type',$type);
         $this->assign('pid',$pid);
         $current=cookie('current');
@@ -24,7 +29,7 @@ class ListController extends BaseController{
         $this->assign('current',$current);
         cookie("__CURRENTURL__",__SELF__);
 
-        if('banner' != $type) {
+        if('banner' != $type && 'project' != $type) {
             $this->display();
         }
         else {
@@ -57,6 +62,7 @@ class ListController extends BaseController{
         cookie("__CURRENTURL__",__SELF__);
         $this->display();
     }
+
     public function edit(){
         $id=I('get.id','');
         $pid=I('get.pid',0);
@@ -65,10 +71,18 @@ class ListController extends BaseController{
         if(!in_array($type,array('banner','catagory','page','project','projectPhoto')) || (empty($id) && !in_array($type,array('banner','catagory','project','projectPhoto'))))$this->error('',U('Index/index'));
         $this->assign('type',$type);
         $tname=$type;
+
+        if('project' == $type) {
+            // Retrieve the catagory list for selection
+            $catalist = M('catagory')->select();
+            $this->assign('catalist', $catalist);
+        }
+
         if(!empty($id)){
             $this->_edit($tname,$id);
             $this->display('edit'.$type);
         }else{
+
             if('banner' == $type) {
                 // Searching for the smallest id number available for new banner
                 $mainbanners = M('banner')->where('sid >= 80001 AND sid < 90000')->getField('sid', true);
@@ -83,9 +97,11 @@ class ListController extends BaseController{
                 }while($temp_sid < 90000);
                 $this->assign('sid', $temp_sid);
             }
+
             $this->display('edit'.$type);
         }
     }
+
     public function getPhoto(){
         $id=isset($_GET['id'])?I('get.id'):'';
         $type=I('get.type');
@@ -135,8 +151,8 @@ class ListController extends BaseController{
             $fields=$db->getDbFields();
             $date=I('post.date');
             if(in_array('date',$fields)){
-                if(empty($date))$db->date=time();
-                else $db->date=strtotime($date);
+                if(empty($date))$db->date=date('Y-m-d');
+                else $db->date=$date;
             }
             if(!empty($id)){
                 $query=$db->save();
@@ -228,7 +244,7 @@ class ListController extends BaseController{
      * This function returns nothing but sets up pages and cookies,
      * assigns "show","list","listRows","fields"
      ***************************************************/
-    public function _select($tname,$map=array(),$order='',$sort='',$asc=false){
+    public function _select($tname,$map=array(),$order='',$sort='',$asc=false,$query=null){
         $model=D($tname);
          
         if(isset($_REQUEST['_order'])){
@@ -237,7 +253,12 @@ class ListController extends BaseController{
             $order=!empty($order)?$order:$model->getPK();
         }
 
-        $count=$model->where($map)->count();
+        if (null === $query) {
+            $count=$model->where($map)->count();
+        }
+        else {
+            $count=$model->count();
+        }
          
         if ($count>0){
             if(!empty($_REQUEST['listRows'])){
@@ -256,7 +277,13 @@ class ListController extends BaseController{
             $p->setConfig('last', 'the last Page');
             $p->setConfig('first', 'the first Page');
             $p->setConfig('theme','%upPage% %first%  %prePage% %linkPage%  %downPage%  %nextPage% %end%');
-            $list=$model->where($map)->order("`" . $order . "` " . $sort)->limit($p->firstRow.",".$p->listRows)->select();
+            if (null === $query) {
+                $list=$model->where($map)->order("`" . $order . "` " . $sort)->limit($p->firstRow.",".$p->listRows)->select();
+            }
+            else {
+                $query .= " ORDER BY `{$order}` {$sort} LIMIT {$p->firstRow},{$p->listRows}";
+                $list=$model->query($query);
+            }
             $show=$p->show();
             $this->assign("show",$show);
             $this->assign('list',$list);
@@ -370,9 +397,9 @@ class ListController extends BaseController{
 
     public function checkChild($type,$id,$jump){
         switch ($type){
-            case 'programmes':
-                $count=M('documentlist')->where(array('pid'=>$id))->count();
-                if($count>0)$this->error("Delete Failure,Please delete this Programmes's document",$jump);
+            case 'catagory':
+                $count=M('project')->where(array('cid'=>$id))->count();
+                if($count>0)$this->error("Delete Failure. Please delete all projects under this catagory.",$jump);
             break;
             case 'tutors':
                 $count=M('tutorsphotoslist')->where(array('pid'=>$id))->count();
