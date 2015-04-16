@@ -20,7 +20,7 @@ hr{color:rgb(250, 160,20);}
 .navigator {width:100%; height:90px;}
 .logo-div {width:100px; float:left; margin:10px auto 10px 0px;}
 .menu-div {width:850px; margin-top:43px; margin-right:15px; float:right;}
-.menu-u   {list-style: outside none none; float:right; font-size:17px; font-weight:500;}
+.menu-u   {list-style: outside none none; float:right; font-size:17px; font-weight:600;}
 .menu-u a {text-decoration:none; color:#646464;}
 .menu-u li {float: left;}
 #menu-home-div {width:78px; height:36px; text-align:center;}

@@ -3,9 +3,9 @@ namespace Home\Controller;
 use Think\Controller;
 class ProjectController extends BaseController {
     public function index(){
-        $cid = I('get.cid', 1);
         $catamodel = M('catagory');
         $catalist = $catamodel->field('id,name')->select();
+        $cid = I('get.cid', $catalist[0]['id']);
         $projmodel = M('project');
         $projmodelmap = array('cid'=>$cid);
         $count = $projmodel->where($projmodelmap)->count();
@@ -20,7 +20,7 @@ class ProjectController extends BaseController {
         $this->assign("show",$show);
         $this->assign('catalist',$catalist);
         $this->assign('list',$list);
-        $this->assign('refurl','Public/Img/GC/banners/banner_project.png');
+        $this->assign('refurl','Public/Img/GC/banners/banner_clientlist.png');
         $this->display();
     }
     public function photos(){
@@ -45,7 +45,7 @@ class ProjectController extends BaseController {
         $this->assign('photolist',$list);
         $this->assign('preview',$preview);
         $this->assign('pid',$pid);
-        $this->assign('refurl','Public/Img/GC/banners/banner_project.png');
+        $this->assign('refurl','Public/Img/GC/banners/banner_clientlist.png');
         $this->display('index');
     }
 }
