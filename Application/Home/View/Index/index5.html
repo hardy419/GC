@@ -17,17 +17,18 @@
     #info-div  {float:right; width:500px; border-left: 1px solid rgb(254,168,21); padding-left:45px;}
     .info-text-div {width:340px;margin-right:160px;}
     #info-div p {font-size:16px; font-style:italic; color:#323232; font-weight:300; margin:5px auto;}
-    #info-div img {margin-top:20px; width:420px;height:300px; border:2px solid #c0c0c0; padding:10px;}
+    #info-div iframe {margin-top:20px; width:420px;height:300px; border:2px solid #c0c0c0; padding:10px;}
     </style>
 
     <div id="contact-div">
         <div class="intro-title">CONTACT US</div>
-        <form name="contact" action="#" method="GET">
+        <form name="contact" action="{:U('sendmsg')}" method="POST">
             <table cellspacing="12">
                 <tr><td>Name:</td><td><input type="text" name="name"></input></td></tr>
                 <tr><td>Email:</td><td><input type="text" name="email"></input></td></tr>
                 <tr><td>Phone:</td><td><input type="text" name="phone"></input></td></tr>
                 <tr><td>Message:</td><td><textarea name="message" rows="10" cols="35"></textarea></td></tr>
+                <tr><td></td><td><input type="submit" id="submit-btn" value="Submit"></input></td></tr>
             </table>
         </form>
     </div>
@@ -38,7 +39,7 @@
             <p>Email  :  info@gccomhk.com</p>
             <p>Address  :  Rm B10, 1/F, King Yip Factory Bldg, 59 King Yip St., Kwun Tong, Hong Kong</p>
         </div>
-        <img src="/gc/Public/Img/GC/contact_map.png"></img>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.1821086101577!2d114.2261956!3d22.3089515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404014524f85ce9%3A0x1910c94cec866b8c!2z6aaZ5riv6KeA5aGY5pWs5qWt6KGXNTnomZ_mlazmpa3lt6Xlu6DlpKflu4g!5e0!3m2!1szh-CN!2sus!4v1429235842623" width="420" height="300" frameborder="0"></iframe>
     </div>
     <div style="clear:both;"></div>
 </div>
