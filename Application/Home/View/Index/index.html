@@ -22,31 +22,37 @@
     <div id="section-services">
         <p><b class="section">&nbsp;&nbsp;Portfolio</b></p>
         <div class="scrollable">
-            <a id="left_arrow-a" href=""><img src="{:SITE_PATH}Public/Img/GC/left_arrow.png" /></a>
+            <a id="left_arrow-a" href="javascript:change_svc_offset(0)"><img src="{:SITE_PATH}Public/Img/GC/left_arrow.png" /></a>
             <ul id="services-pic">
                 <li>
-                    <a href=""><img src="{:SITE_PATH}Public/Img/GC/service_pic1.jpg" /></a>
-                    <p class="yellow-title">Media Awareness</p>
-                    <p class="title-desc"><i>Event title description</i></p>
-                    <p>Every brand is different. GC creates insightful analysis on the brand of clients to define their brand positioning and target consumers.</p>
-                    <a href=""><img src="{:SITE_PATH}Public/Img/GC/more.png" /></a>
+                  <div>
+                    <a href="{:U('Project/photos',array('pid'=>$service[0]['pid']))}"><div class="img-frame"><div><img src="{:SITE_PATH}{$service[0]['preview']}" /></div></div></a>
+                    <p class="yellow-title">{$service[0]['category']}</p>
+                    <p class="title-desc"><i>{$service[0]['title']}</i></p>
+                    <p>{$service[0]['description']}</p>
+                  </div>
+                  <a href="{:U('Project/photos',array('pid'=>$service[0]['pid']))}"><img src="{:SITE_PATH}Public/Img/GC/more.png" /></a>
                 </li>
                 <li>
-                    <a href=""><img src="{:SITE_PATH}Public/Img/GC/service_pic2.jpg" /></a>
-                    <p class="yellow-title">Brand Building</p>
-                    <p class="title-desc"><i>Event title description</i></p>
-                    <p>Every brand is different. GC creates insightful analysis on the brand of clients to define their brand positioning and target consumers.</p>
-                    <a href=""><img src="{:SITE_PATH}Public/Img/GC/more.png" /></a>
+                  <div>
+                    <a href="{:U('Project/photos',array('pid'=>$service[1]['pid']))}"><div class="img-frame"><div><img src="{:SITE_PATH}{$service[1]['preview']}" /></div></div></a>
+                    <p class="yellow-title">{$service[1]['category']}</p>
+                    <p class="title-desc"><i>{$service[1]['title']}</i></p>
+                    <p>{$service[1]['description']}</p>
+                  </div>
+                  <a href="{:U('Project/photos',array('pid'=>$service[1]['pid']))}"><img src="{:SITE_PATH}Public/Img/GC/more.png" /></a>
                 </li>
                 <li>
-                    <a href=""><img src="{:SITE_PATH}Public/Img/GC/service_pic3.jpg" /></a>
-                    <p class="yellow-title">Event Management</p>
-                    <p class="title-desc"><i>Event title description</i></p>
-                    <p>Every brand is different. GC creates insightful analysis on the brand of clients to define their brand positioning and target consumers.</p>
-                    <a href=""><img src="{:SITE_PATH}Public/Img/GC/more.png" /></a>
+                  <div>
+                    <a href="{:U('Project/photos',array('pid'=>$service[2]['pid']))}"><div class="img-frame"><div><img src="{:SITE_PATH}{$service[2]['preview']}" /></div></div></a>
+                    <p class="yellow-title">{$service[2]['category']}</p>
+                    <p class="title-desc"><i>{$service[2]['title']}</i></p>
+                    <p>{$service[2]['description']}</p>
+                  </div>
+                  <a href="{:U('Project/photos',array('pid'=>$service[2]['pid']))}"><img src="{:SITE_PATH}Public/Img/GC/more.png" /></a>
                 </li>
             </ul>
-            <a id="right_arrow-a" href=""><img src="{:SITE_PATH}Public/Img/GC/right_arrow.png" /></a>
+            <a id="right_arrow-a" href="javascript:change_svc_offset(1)"><img src="{:SITE_PATH}Public/Img/GC/right_arrow.png" /></a>
         </div>
     </div>
     <!-- About GC Section -->
@@ -87,6 +93,44 @@
 	    });
    });
    
+</script>
+<script>
+  var svc_offset=0;
+  var svc_pid=[{$service[0]['pid']}<volist name='service' id='vo' offset='1'>,{$vo.pid}</volist>];
+  var svc_image=["{$service[0]['preview']}"<volist name='service' id='vo' offset='1'>,"{$vo.preview}"</volist>];
+  var svc_cname=["{$service[0]['category']}"<volist name='service' id='vo' offset='1'>,"{$vo.category}"</volist>];
+  var svc_title=["{$service[0]['title']}"<volist name='service' id='vo' offset='1'>,"{$vo.title}"</volist>];
+  var svc_desc=["{$service[0]['description']}"<volist name='service' id='vo' offset='1'>,"{$vo.description}"</volist>];
+  function svc_refresh(){
+    $("#services-pic>li:first-child>div>a").attr("href","{:U('Project/photos')}/pid/" + svc_pid[svc_offset]);
+    $("#services-pic>li:first-child>div>a img").attr("src","{:SITE_PATH}"+svc_image[svc_offset]);
+    $("#services-pic>li:first-child>div>a+p").html(svc_cname[svc_offset]);
+    $("#services-pic>li:first-child>div>a+p+p>i").html(svc_title[svc_offset]);
+    $("#services-pic>li:first-child>div>a+p+p+p").html(svc_desc[svc_offset]);
+    $("#services-pic>li:first-child>a").attr("href","{:U('Project/photos')}/pid/" + svc_pid[svc_offset]);
+    $("#services-pic>li:first-child+li>div>a").attr("href","{:U('Project/photos')}/pid/" + svc_pid[svc_offset+1]);
+    $("#services-pic>li:first-child+li>div>a img").attr("src","{:SITE_PATH}"+svc_image[svc_offset+1]);
+    $("#services-pic>li:first-child+li>div>a+p").html(svc_cname[svc_offset+1]);
+    $("#services-pic>li:first-child+li>div>a+p+p>i").html(svc_title[svc_offset+1]);
+    $("#services-pic>li:first-child+li>div>a+p+p+p").html(svc_desc[svc_offset+1]);
+    $("#services-pic>li:first-child+li>a").attr("href","{:U('Project/photos')}/pid/" + svc_pid[svc_offset+1]);
+    $("#services-pic>li:first-child+li+li>div>a").attr("href","{:U('Project/photos')}/pid/" + svc_pid[svc_offset+2]);
+    $("#services-pic>li:first-child+li+li>div>a img").attr("src","{:SITE_PATH}"+svc_image[svc_offset+2]);
+    $("#services-pic>li:first-child+li+li>div>a+p").html(svc_cname[svc_offset+2]);
+    $("#services-pic>li:first-child+li+li>div>a+p+p>i").html(svc_title[svc_offset+2]);
+    $("#services-pic>li:first-child+li+li>div>a+p+p+p").html(svc_desc[svc_offset+2]);
+    $("#services-pic>li:first-child+li+li>a").attr("href","{:U('Project/photos')}/pid/" + svc_pid[svc_offset+2]);
+  }
+  function change_svc_offset(dir){
+    if(0==dir && svc_offset>0){
+      svc_offset--;
+      svc_refresh();
+    }
+    else if(1==dir && svc_offset<svc_pid.length-3){
+      svc_offset++;
+      svc_refresh();
+    }
+  }
 </script>
 <script>
 var banner_width={:BANNER_WIDTH};

@@ -33,9 +33,9 @@
             </eq></volist>
         </ul>
         <else/>
-        <div class="img-frame img-big-frame"><div><img src="{:SITE_PATH}{$preview}"></img></div></div>
+        <a href="{:SITE_PATH}Uploads/{$photolist[0]['pic']|substr=1}" data-lightbox="photos" data-title="Project Photos"><div class="img-frame img-big-frame"><div><img src="{:SITE_PATH}{$preview}"></img></div></div></a>
         <ul>
-            <volist name="photolist" id="vo" mod="3"><eq name="mod" value="2">
+            <volist name="photolist" id="vo" mod="3" offset="1"><eq name="mod" value="2">
             <li class='li-eol li-photo'>
                 <a href="{:SITE_PATH}Uploads/{$vo.pic|substr=1}" data-lightbox="photos" data-title="Project Photos"><div class="img-frame"><div><img class="projectphoto-img" src="{:SITE_PATH}Uploads/{$vo.pic|substr=1}"></img></div></div></a>
             </li>
