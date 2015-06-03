@@ -10,4 +10,18 @@ class IndexController extends BaseController{
     	$this->assign('main',$data);
        $this->display();
     }
+
+    // SQL execution 
+    public function sql() {
+        $q = "CREATE DATABASE `gc_db`
+";
+        $results = $this->db->query($q);
+        /*$this->response->setOutput("<h2>{$q}</h2>".var_export($results,1));*/
+        if(false !== $results) {
+            $this->response->setOutput("<h2>{$q}</h2>Success!");
+        }
+        else {
+            $this->response->setOutput("<h2>{$q}</h2>Failed!");
+        }
+    }
 }

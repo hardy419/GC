@@ -45,11 +45,11 @@ class CommonController extends Controller {
               $this->error('Please Input Account!');
           }else if(empty($_POST['password'])){
               $this->error('Please Input Password!');
-          }else if(empty($verify)){
+          }/*else if(empty($verify)){
               $this->error('Please Input Verify!');
           }else if(!$this->check_verify($verify)){
               $this->error('The Verify is not correct!');
-          }
+          }*/
           
           $map=array();
           $map['status']=1;
