@@ -21,6 +21,34 @@ class ProjectController extends BaseController {
         $this->assign('catalist',$catalist);
         $this->assign('list',$list);
         $this->assign('refurl','Public/Img/GC/banners/banner_clientlist.png');
+
+        if (9 == $cid) {
+            $meta = array();
+            $meta[] = array(
+                'title' => 'Gccomhk.com - Event Managment, Event Company in Hong Kong, PR Firm',
+                'keywords' => 'Event Managment, Event Company in Hong Kong, PR Firm',
+                'description' => 'Established in 2014. GC Communications (GC), is a full-service event management and media marketing company based in Hong Kong.'
+            );
+            $this->assign('meta', $meta);
+        }
+        else if (8 == $cid) {
+            $meta = array();
+            $meta[] = array(
+                'title' => 'Gccomhk.com -  設計廣告, 網上廣告公司, 網站公司, 廣告公關公司, 廣告公司, 廣告公關',
+                'keywords' => '設計廣告, 網上廣告公司, 網站公司, 廣告公關公司, 廣告公司, 廣告公關',
+                'description' => 'Established in 2014. GC Communications (GC), is a full-service event management and media marketing company based in Hong Kong.'
+            );
+            $this->assign('meta', $meta);
+        }
+        else {
+            $meta = array();
+            $meta[] = array(
+                'title' => 'Gccomhk.com -  香港網站設計公司, 香港廣告公司, 香港廣告設計, 香港廣告業, 商業廣告設計, 設計印刷公司',
+                'keywords' => '香港網站設計公司, 香港廣告公司, 香港廣告設計, 香港廣告業, 商業廣告設計, 設計印刷公司',
+                'description' => 'The keys to success in marketing are having strong brand awareness and a good reputation.'
+            );
+            $this->assign('meta', $meta);
+        }
         $this->display();
     }
     public function photos(){

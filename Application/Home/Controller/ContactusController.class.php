@@ -9,6 +9,14 @@ class ContactusController extends BaseController {
         $refurl = M('banner')->where(array('sid'=>$id))->getField('url');
         $this->assign('list',$list);
         $this->assign('refurl',$refurl);
+
+        $meta = array();
+        $meta[] = array(
+            'title' => 'Gccomhk.com -  網站設計代理, 廣告代理, 廣告印刷公司, 廣告設計公司',
+            'keywords' => '網站設計代理, 廣告代理, 廣告印刷公司, 廣告設計公司',
+            'description' => 'Established in 2014. GC Communications (GC), is a full-service event management and media marketing company based in Hong Kong.'
+        );
+        $this->assign('meta', $meta);
         $this->display('Pageview/index');
     }
     public function sendmsg(){

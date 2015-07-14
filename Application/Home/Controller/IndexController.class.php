@@ -27,6 +27,14 @@ class IndexController extends BaseController {
             }
         }
         $this->assign('service', $service);
+        
+        $meta = array();
+        $meta[] = array(
+            'title' => 'Gccomhk.com -  印刷設計公司, 品牌公關, 活動公關公司, 戶外廣告公司, 平面廣告設計公司, 香港設計公司',
+            'keywords' => '印刷設計公司, 品牌公關, 活動公關公司, 戶外廣告公司, 平面廣告設計公司, 香港設計公司',
+            'description' => 'GC offers both traditional PR & marketing services like event management, media awareness, brand building, and joint promotions, and online marketing service'
+        );
+        $this->assign('meta', $meta);
         $this->display();
     }
 
