@@ -11,7 +11,7 @@
 				    <li><a href="#">{$type|ucfirst} Management</a> <span class="divider">/</span></li>
 				    <li class="active">{$type|ucfirst} Management</li>
 				    </ul>
-				<legend><if condition="$list['id'] neq ''">Edit<else/>Add</if> {$type|ucfirst}</legend>	
+				<legend id="h3-title"><if condition="$list['id'] neq ''">Edit<else/>Add</if> {$type|ucfirst}</legend>	
                     <form class="form-horizontal" id="myForm" method="post" action="{:U('save')}" onsubmit="editor.sync();myForm.submit();" enctype="multipart/form-data">
 				    <div class="control-group">
 				    <label class="control-label">Title:</label>
@@ -20,12 +20,19 @@
 				    </div>
 				    </div>
 
-				    <div class="control-group">
-				    <label class="control-label">Content:</label>
+				    <div class="control-group control-en">
+				    <label class="control-label">Content (Eng):</label>
 				    <div class="controls">
 				     <textarea id="content" name="content" style="width:1100px;height:500px;">{$list.content}</textarea>
 				    </div>
 				    </div>
+				    <div class="control-group control-zh">
+				    <label class="control-label">Content (中):</label>
+				    <div class="controls">
+				     <textarea id="content_chi" name="content_chi" style="width:1100px;height:500px;">{$content_chi}</textarea>
+				    </div>
+				    </div>
+
 				    <div class="control-group">
 				    <label class="control-label">Status:</label>
 				    <div class="controls">
@@ -56,6 +63,10 @@
 <script>
 KindEditor.ready(function(K) {
 	editor1 = K.create('#content', {
+					allowFileManager : true,
+					urlType : 'domain'
+	});
+	editor2 = K.create('#content_chi', {
 					allowFileManager : true,
 					urlType : 'domain'
 	});

@@ -16,8 +16,12 @@ class ListController extends BaseController{
 
         $sort = 'desc';
 
+        if ('page' == $type) {
+            $map['title'] = array ('notlike', '%(Chinese)%');
+        }
+
         if('project' == $type) {
-            $this->_select($tname,$map,'id',$sort,false,'SELECT a.id,a.title,a.date,b.name as catagory FROM gc_project as a LEFT JOIN gc_catagory as b ON a.cid=b.id');
+            $this->_select($tname,$map,'id',$sort,false,'SELECT a.id,a.title_en,a.title_zh,a.date,b.name_en as catagory_en,b.name_zh as catagory_zh FROM gc_project as a LEFT JOIN gc_catagory as b ON a.cid=b.id');
         }
         else {
             $this->_select($tname,$map,'id',$sort);
@@ -77,6 +81,12 @@ class ListController extends BaseController{
             // Retrieve the catagory list for selection
             $catalist = M('catagory')->select();
             $this->assign('catalist', $catalist);
+        }
+
+        if('page' == $type) {
+            // Retrieve the Chinese version of that page as well
+            $chi = M('page')->where(array('id'=>$id+4))->getField('content');
+            $this->assign('content_chi', $chi);
         }
 
         cookie('current',$id);
@@ -156,6 +166,13 @@ class ListController extends BaseController{
                 if(empty($date))$db->date=date('Y-m-d');
                 else $db->date=$date;
             }
+
+            if ('page' == $type) {
+                // Save Chinese version to another table
+                $content_chi = I('post.content_chi', '');
+                M('page')->where(array('id'=>$id+4))->save(array('content'=>$content_chi));
+            }
+
             if(!empty($id)){
                 $query=$db->save();
             }else{

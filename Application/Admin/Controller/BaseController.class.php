@@ -2,6 +2,9 @@
 namespace Admin\Controller;
 use Think\Controller;
 class BaseController extends Controller {
+
+	protected $lang;
+
 	public function __construct(){
 		parent::__construct();
 		$common=new CommonController();
@@ -9,6 +12,9 @@ class BaseController extends Controller {
 		if(!$common->checkStatus()){
 			$this->redirect('Common/login');
 		} 
+
+		$this->lang = I('cookie.lang', 'en');
+		$this->assign ('lang', $this->lang);
 	}
 	public function _upload($module,$cpath,$thumb,$width,$height){
 		$module=$module=""?'file':$module;//δ֪ģ�齫����file�ļ���

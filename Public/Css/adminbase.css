@@ -46,6 +46,19 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 span.error {
   color:red;
 }
+#zh-a,#cn-a,#en-a {
+  padding-right: 8px;
+  position: relative;
+  left: 292px;
+  top: -50px;
+}
+#zh-a,#cn-a,#en-a, #zh-a:hover, #cn-a:hover, #en-a:hover {
+  text-decoration: none;
+  color: #c0c0c0;
+}
+#zh-a.active, #cn-a.active, #en-a.active {
+  color: #ff0000;
+}
 
 #abc-colorPicker .colorPick-close,#color-colorPicker .colorPick-close{position:absolute;right:0;}
 #abc-colorPicker a,#color-colorPicker a,#colorPicker a{border-bottom:1px solid #000;border-left:1px solid #FFF;border-right:1px solid #000;border-top:1px solid #FFF;cursor:pointer;display:block;float:left;height:15px;overflow:hidden;width:15px;}

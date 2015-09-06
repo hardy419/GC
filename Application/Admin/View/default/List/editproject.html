@@ -12,34 +12,51 @@
 				    <li><a href="#">{$type|ucfirst} Management</a> <span class="divider">/</span></li>
 				    <li class="active">{$type|ucfirst} Management</li>
 				    </ul>
-				<legend><if condition="$list['id'] neq ''">Edit<else/>Add</if> {$type|ucfirst}</legend>	
+				<legend id="h3-title"><if condition="$list['id'] neq ''">Edit<else/>Add</if> {$type|ucfirst}</legend>	
                     <form class="form-horizontal" id="myForm" method="post" action="{:U('save')}" onsubmit="myForm.submit();">
-                        <div class="control-group">
+                        <div class="control-group control-en">
                         <label class="control-label">Title:</label>
                         <div class="controls">
-                        <input type="text" id="title" name="title" check="Require" warning="Title cann't be empty" value="{$list.title}" >
+                        <input type="text" id="title_en" name="title_en" check="Require" warning="Title cann't be empty" value="{$list.title_en}" >
                         </div>
                         </div>
-                        <div class="control-group">
-                        <label class="control-label">Catagory :</label>
+                        <div class="control-group control-zh">
+                        <label class="control-label">Title:</label>
                         <div class="controls">
-                        <select id="cid" name="cid" check="Require" warning="Please select a catagory" >
+                        <input type="text" id="title_zh" name="title_zh" check="Require" warning="Title cann't be empty" value="{$list.title_zh}" >
+                        </div>
+                        </div>
+
+                        <div class="control-group">
+                        <label class="control-label">Category :</label>
+                        <div class="controls">
+                        <select id="cid" name="cid" check="Require" warning="Please select a category" >
                         <volist name='catalist' id='vo'>
                             <if condition="$list['cid'] eq $vo['id']">
-                            <option value="{$vo.id}" selected='selected'>{$vo.name}</option>
+                            <option class="control-en" value="{$vo.id}" <if condition="$lang eq 'en'">selected='selected'</if>>{$vo.name_en}</option>
+                            <option class="control-zh" value="{$vo.id}" <if condition="$lang eq 'zh'">selected='selected'</if>>{$vo.name_zh}</option>
                             <else/>
-                            <option value="{$vo.id}">{$vo.name}</option>
+                            <option class="control-en" value="{$vo.id}">{$vo.name_en}</option>
+                            <option class="control-zh" value="{$vo.id}">{$vo.name_zh}</option>
                             </if>
                         </volist>
                         </select>
                         </div>
                         </div>
-                        <div class="control-group">
+
+                        <div class="control-group control-en">
                         <label class="control-label">Description (Optional) :</label>
                         <div class="controls">
-                        <input type="text" id="description" name="description" value="{$list.description}" >
+                        <input type="text" id="description_en" name="description_en" value="{$list.description_en}" >
                         </div>
                         </div>
+                        <div class="control-group control-zh">
+                        <label class="control-label">Description (Optional) :</label>
+                        <div class="controls">
+                        <input type="text" id="description_zh" name="description_zh" value="{$list.description_zh}" >
+                        </div>
+                        </div>
+
                         <div class="control-group">
                         <label class="control-label">Date :</label>
                         <div class="controls">
@@ -85,6 +102,35 @@
 <script src="__JS__/bootstrap-datepicker.js"></script>
 <script src="__JS__/common.js"></script>
 <script>
+function language_switch(){
+  var strCookie=document.cookie; 
+  var arrCookie=strCookie.split("; "); 
+  var lang='en';
+  for(var i=0;i<arrCookie.length;i++){ 
+    var arr=arrCookie[i].split("="); 
+    if("lang"==arr[0]){ 
+      lang=arr[1]; 
+      break; 
+    } 
+  }
+  $('.control-zh,.control-cn,.control-en').css('display','none');
+  $('.control-'+lang).each(function(){
+    if($(this).hasClass('control-inline')){
+      $(this).css('display','inline-block');
+    }
+    else{
+      $(this).css('display','block');
+    }
+  });
+  language_norefresh();
+  $('#zh-a,#en-a').removeClass('active');
+  $('#'+lang+'-a').addClass('active');
+
+  var cid=$('#cid').val();
+  $('#cid').find('option[value="'+cid+'"]').removeAttr('selected');
+  $('#cid').find('option.control-'+lang+'[value="'+cid+'"]').attr('selected','selected');
+}
+
 Date.prototype.Format = function(fmt) 
 { //author: meizz 
   var o = { 

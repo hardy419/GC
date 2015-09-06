@@ -2,6 +2,7 @@
             
             <ul class="nav nav-list">
             <p>Admin：<?php echo $_SESSION['loginUserName'];?>&nbsp;&nbsp;<a href="javascript:void(0);" id="logoutBtn">Logout</a></p>
+            <a id="en-a" <if condition="$lang eq 'en'">class="active"</if> onclick="document.cookie='lang=en';" href="javascript:location.reload();">ENG</a>&nbsp;&nbsp;<a id="zh-a" <if condition="$lang eq 'zh'">class="active"</if> onclick="document.cookie='lang=zh';" href="javascript:location.reload();">中</a>
               <!-- <li class="nav-header">最新消息</li>
               <li <if condition="$type eq 'news'">class="active"</if>><a href="{:U('List/index',array('type'=>'news'))}">最新消息</a></li>
               <li class="nav-header">對外合作</li>
@@ -32,6 +33,35 @@
 </div><!--/.well -->
 <script src="__JS__/jquery-1.8.2.min.js"></script>
 <script>
+
+function language_norefresh(){
+  $('#zh-a,#en-a').attr('href','javascript:(function(){language_switch();})();');
+}
+function language_switch(){
+  var strCookie=document.cookie; 
+  var arrCookie=strCookie.split("; "); 
+  var lang='en';
+  for(var i=0;i<arrCookie.length;i++){ 
+    var arr=arrCookie[i].split("="); 
+    if("lang"==arr[0]){ 
+      lang=arr[1]; 
+      break; 
+    } 
+  }
+  $('.control-zh,.control-cn,.control-en').css('display','none');
+  $('.control-'+lang).each(function(){
+    if($(this).hasClass('control-inline')){
+      $(this).css('display','inline-block');
+    }
+    else{
+      $(this).css('display','block');
+    }
+  });
+  language_norefresh();
+  $('#zh-a,#en-a').removeClass('active');
+  $('#'+lang+'-a').addClass('active');
+}
+
 jQuery(function(){
    jQuery("#logoutBtn").click(function(){
 		$.get('{:U('Common/logout')}',function(responseText){
@@ -44,5 +74,19 @@ jQuery(function(){
 	        } else alert(info);
 	  });
    });
+
+  if($('#h3-title').length>0){
+    $('#zh-a,#en-a').insertAfter('#h3-title');
+    $('#h3-title').css('float', 'left');
+    $('<div style="clear:both"></div>').insertAfter('#zh-a');
+  }
+  else{
+    $('#zh-a,#en-a').css('display','none');
+  }
+
+  // Language zh by default
+  //document.cookie='lang=zh';
+
+  language_switch();
 });
 </script>

@@ -11,12 +11,18 @@
 				    <li><a href="#">{$type|ucfirst} Management</a> <span class="divider">/</span></li>
 				    <li class="active">{$type|ucfirst} Management</li>
 				    </ul>
-				<legend><if condition="$list['id'] neq ''">Edit<else/>Add</if> {$type|ucfirst}</legend>	
+				<legend id="h3-title"><if condition="$list['id'] neq ''">Edit<else/>Add</if> {$type|ucfirst}</legend>	
                     <form class="form-horizontal" id="myForm" method="post" action="{:U('save')}" onsubmit="myForm.submit();" enctype="multipart/form-data">
-				    <div class="control-group">
+				    <div class="control-group control-en">
 				    <label class="control-label">Name:</label>
 				    <div class="controls">
-				    <input type="text" id="name" name="name" check="Require" warning="Catagory name cann't be empty" value="{$list.name}" >
+				    <input type="text" id="name_en" name="name_en" check="Require" warning="Catagory name cann't be empty" value="{$list.name_en}" >
+				    </div>
+				    </div>
+				    <div class="control-group control-zh">
+				    <label class="control-label">Name:</label>
+				    <div class="controls">
+				    <input type="text" id="name_zh" name="name_zh" check="Require" warning="Catagory name cann't be empty" value="{$list.name_zh}" >
 				    </div>
 				    </div>
 

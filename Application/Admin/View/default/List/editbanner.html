@@ -11,7 +11,7 @@
 				    <li><a href="#">{$type|ucfirst} Management</a> <span class="divider">/</span></li>
 				    <li class="active">{$type|ucfirst} Management</li>
 				    </ul>
-				<legend><if condition="$list['id'] neq ''">Edit<else/>Add</if> {$type|ucfirst}</legend>	
+				<legend id="h3-title"><if condition="$list['id'] neq ''">Edit<else/>Add</if> {$type|ucfirst}</legend>	
                     <form class="form-horizontal" id="myForm" method="post" action="{:U('save')}" onsubmit="myForm.submit();">
 				    <div class="control-group">
 				    <label class="control-label">Title(Optional):</label>

@@ -18,7 +18,7 @@
 						    </div>
 					 </form>
 					</p>
-				<legend>{$type|ucfirst} Management</legend>	
+				<legend id="h3-title">{$type|ucfirst} Management</legend>	
                 <table class="table table-striped">
 	              <thead>
 	                <tr>
@@ -31,8 +31,8 @@
 	              <tbody>
 	               <volist name="list" id="vo">
 	                <tr <if condition="$current eq $vo['id']">class="warning"</if>>
-	                    <td>{$vo.title}</td>
-	                    <td>{$vo.catagory}</td>
+	                    <td><span class="control-en">{$vo.title_en}</span><span class="control-zh">{$vo.title_zh}</span></td>
+	                    <td><span class="control-en">{$vo.catagory_en}</span><span class="control-zh">{$vo.catagory_zh}</span></td>
 	                    <td>{$vo.date}</td>
 	                    <td>
 	                    <a href="{:U('edit',array('id'=>$vo['id'],'type'=>$type,'pid'=>$pid))}">Edit</a>&nbsp;&nbsp;

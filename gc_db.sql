@@ -58,7 +58,8 @@ INSERT INTO `gc_banner` (`id`, `title`, `sid`, `url`) VALUES
 
 CREATE TABLE IF NOT EXISTS `gc_catagory` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
+  `name_en` varchar(32) NOT NULL,
+  `name_zh` varchar(32) NOT NULL,
   `type` enum('項目','備用1','備用2') NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
@@ -109,10 +110,12 @@ INSERT INTO `gc_page` (`id`, `title`, `content`, `status`) VALUES
 
 CREATE TABLE IF NOT EXISTS `gc_project` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
+  `title_en` varchar(255) NOT NULL,
+  `title_zh` varchar(255) NOT NULL,
   `cid` int(11) NOT NULL,
   `date` date NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `description_en` varchar(255) NOT NULL,
+  `description_zh` varchar(255) NOT NULL,
   `preview` varchar(256) NOT NULL,
   `images` varchar(4096) NOT NULL,
   PRIMARY KEY (`id`)
