@@ -13,7 +13,18 @@
 <link  rel="stylesheet" type="text/css" href="__CSS__/home.css"/>
 <script src="__JS__/jquery-1.8.2.min.js"></script>
 <script>
-function change_lang(l){document.cookie='gc_lang='+l;location.reload();}
+function change_lang(l){
+  var date=new Date();
+  date.setTime(date.getTime()-10000);
+  document.cookie='lang=0; expires='+date.toGMTString();
+  if(1==l){
+    document.cookie="lang=en";
+  }
+  else{
+    document.cookie="lang=zh";
+  }
+  document.cookie='gc_lang='+l;location.reload();
+}
 </script>
 </head>
 <body>

@@ -10,7 +10,7 @@
         <div class="section">Services</div>
         <ul>
             <volist name="catalist" id="vo">
-            <li class="sidebar-nav-li"><a href="{:U('index',array('cid'=>$vo['id']))}">{$vo.name}</a></li>
+            <li class="sidebar-nav-li"><a href="{:U('index',array('cid'=>$vo['id']))}"><?PHP echo $vo['name_'.$lang]; ?></a></li>
             </volist>
         </ul>
     </div>
@@ -20,15 +20,15 @@
             <volist name="list" id="vo" mod="3"><eq name="mod" value="2">
             <li class='li-eol li-preview'>
                 <a href="{:U('photos',array('pid'=>$vo['id']))}"><div class="img-frame"><div><img class="preview-img" src="{:SITE_PATH}{$vo.preview}"></div></div></img></a>
-                <div>{$vo.title}</div>
-                <div>{$vo.description}</div>
+                <div><?PHP echo $vo['title_'.$lang]; ?></div>
+                <div><?PHP echo $vo['description_'.$lang]; ?></div>
             </li>
             <div style="clear:both;"></div>
             <else/>
             <li class='li-not-eol li-preview'>
                 <a href="{:U('photos',array('pid'=>$vo['id']))}"><div class="img-frame"><div><img class="preview-img" src="{:SITE_PATH}{$vo.preview}"></div></div></img></a>
-                <div>{$vo.title}</div>
-                <div>{$vo.description}</div>
+                <div><?PHP echo $vo['title_'.$lang]; ?></div>
+                <div><?PHP echo $vo['description_'.$lang]; ?></div>
             </li>
             </eq></volist>
         </ul>

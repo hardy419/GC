@@ -2,6 +2,9 @@
 namespace Home\Controller;
 use Think\Controller;
 class BaseController extends Controller {
+
+	protected $lang;
+
 	public function __construct(){
 		parent::__construct();
 		/* if(!$this->checkStatus()){
@@ -11,6 +14,9 @@ class BaseController extends Controller {
 			}
 		}  */
 		$this->menu();
+
+		$this->lang = I('cookie.lang', 'en');
+		$this->assign ('lang', $this->lang);
 	}
 	private function menu(){
 		$courses=M('programmeslist')->field('id,etitle,title')->order('sid desc,id desc')->select();

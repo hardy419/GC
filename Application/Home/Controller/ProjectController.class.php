@@ -4,7 +4,7 @@ use Think\Controller;
 class ProjectController extends BaseController {
     public function index(){
         $catamodel = M('catagory');
-        $catalist = $catamodel->field('id,name')->select();
+        $catalist = $catamodel->field('id,name_en,name_zh')->select();
         $cid = I('get.cid', $catalist[0]['id']);
         $projmodel = M('project');
         $projmodelmap = array('cid'=>$cid);
@@ -15,7 +15,7 @@ class ProjectController extends BaseController {
         $p->setConfig('last', 'the last Page');
         $p->setConfig('first', 'the first Page');
         $p->setConfig('theme','%upPage% %first%  %prePage% %linkPage%  %downPage%  %nextPage% %end%');
-        $list=$projmodel->where($projmodelmap)->order('`id` DESC')->limit($p->firstRow.",".$p->listRows)->field('id,preview,title,description')->select();
+        $list=$projmodel->where($projmodelmap)->order('`id` DESC')->limit($p->firstRow.",".$p->listRows)->field('id,preview,title_en,title_zh,description_en,description_zh')->select();
         $show=$p->show();
         $this->assign("show",$show);
         $this->assign('catalist',$catalist);
@@ -54,7 +54,7 @@ class ProjectController extends BaseController {
     public function photos(){
         $pid = I('get.pid', 1);
         $catamodel = M('catagory');
-        $catalist = $catamodel->field('id,name')->select();
+        $catalist = $catamodel->field('id,name_en,name_zh')->select();
         $projmodel = M('project');
         $preview = $projmodel->where(array('id'=>$pid))->getField('preview');
         $projphotomodel = M('projectphoto');
