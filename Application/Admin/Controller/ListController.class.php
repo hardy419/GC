@@ -5,7 +5,7 @@ class ListController extends BaseController{
     public function index(){
         $type=I('get.type');
         $pid=I('get.pid');
-        if(!in_array($type,array('banner','catagory','page','project','projectphoto'))) $this->error('',U('Index/index'));
+        if(!in_array($type,array('banner','category','page','project','projectphoto'))) $this->error('',U('Index/index'));
         $tname=$type;
         $map=array();
         if(!empty($pid)&&is_numeric($pid)){
@@ -21,7 +21,7 @@ class ListController extends BaseController{
         }
 
         if('project' == $type) {
-            $this->_select($tname,$map,'id',$sort,false,'SELECT a.id,a.title_en,a.title_zh,a.date,b.name_en as catagory_en,b.name_zh as catagory_zh FROM gc_project as a LEFT JOIN gc_catagory as b ON a.cid=b.id');
+            $this->_select($tname,$map,'id',$sort,false,'SELECT a.id,a.title_en,a.title_zh,a.date,b.name_en as category_en,b.name_zh as category_zh FROM gc_project as a LEFT JOIN gc_category as b ON a.cid=b.id');
         }
         else {
             $this->_select($tname,$map,'id',$sort);
@@ -73,13 +73,13 @@ class ListController extends BaseController{
         $pid=I('get.pid',0);
         $this->assign('pid',$pid);
         $type=I('get.type');
-        if(!in_array($type,array('banner','catagory','page','project','projectphoto')) || (empty($id) && !in_array($type,array('banner','catagory','project','projectphoto'))))$this->error('',U('Index/index'));
+        if(!in_array($type,array('banner','category','page','project','projectphoto')) || (empty($id) && !in_array($type,array('banner','category','project','projectphoto'))))$this->error('',U('Index/index'));
         $this->assign('type',$type);
         $tname=$type;
 
         if('project' == $type) {
-            // Retrieve the catagory list for selection
-            $catalist = M('catagory')->select();
+            // Retrieve the category list for selection
+            $catalist = M('category')->select();
             $this->assign('catalist', $catalist);
         }
 
@@ -131,7 +131,7 @@ class ListController extends BaseController{
 
     public function save(){
         $type=I('post.type');
-        if(!in_array($type,array('banner','catagory','page','project','projectphoto')))$this->error('',U('Index/index'));
+        if(!in_array($type,array('banner','category','page','project','projectphoto')))$this->error('',U('Index/index'));
         $tname=$type;
         $jump=cookie("__CURRENTURL__");
         $db=D($tname);
@@ -170,11 +170,16 @@ class ListController extends BaseController{
             if ('page' == $type) {
                 // Save Chinese version to another table
                 $content_chi = I('post.content_chi', '');
-                M('page')->where(array('id'=>$id+4))->save(array('content'=>$content_chi));
+                $query = M('page')->where(array('id'=>$id+4))->save(array('content'=>$content_chi));
             }
 
             if(!empty($id)){
-                $query=$db->save();
+                if (!$query) {
+                    $query=$db->save();
+                }
+                else {
+                    $db->save();
+                }
             }else{
                 $query=$db->add();
                 $id = $query;
@@ -417,9 +422,9 @@ class ListController extends BaseController{
 
     public function checkChild($type,$id,$jump){
         switch ($type){
-            case 'catagory':
+            case 'category':
                 $count=M('project')->where(array('cid'=>$id))->count();
-                if($count>0)$this->error("Delete Failure. Please delete all projects under this catagory.",$jump);
+                if($count>0)$this->error("Delete Failure. Please delete all projects under this category.",$jump);
             break;
             case 'project':
                 $count=M('projectphoto')->where(array('pid'=>$id))->count();
@@ -429,7 +434,7 @@ class ListController extends BaseController{
     }
     public function del(){
         $type=I('get.type');
-        if(!in_array($type,array('catagory','project','projectphoto')))$this->error('',U('Index/index'));
+        if(!in_array($type,array('category','project','projectphoto')))$this->error('',U('Index/index'));
         $tname=$type;
         $id=I('get.id','');
         $jump=cookie('__CURRENTURL__');

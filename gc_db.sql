@@ -53,10 +53,10 @@ INSERT INTO `gc_banner` (`id`, `title`, `sid`, `url`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gc_catagory`
+-- Table structure for table `gc_category`
 --
 
-CREATE TABLE IF NOT EXISTS `gc_catagory` (
+CREATE TABLE IF NOT EXISTS `gc_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name_en` varchar(32) NOT NULL,
   `name_zh` varchar(32) NOT NULL,
@@ -65,10 +65,10 @@ CREATE TABLE IF NOT EXISTS `gc_catagory` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `gc_catagory`
+-- Dumping data for table `gc_category`
 --
 
-INSERT INTO `gc_catagory` (`id`, `name`, `type`) VALUES
+INSERT INTO `gc_category` (`id`, `name`, `type`) VALUES
 (7, 'Media Awareness', ''),
 (8, 'Branding', ''),
 (9, 'Event', ''),

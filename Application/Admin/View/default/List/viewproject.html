@@ -23,7 +23,7 @@
 	              <thead>
 	                <tr>
 	                    <th>Title</th>
-	                    <th>Catagory</th>
+	                    <th>Category</th>
 	                    <th>Date</th>
 	                    <th>Action</th>
 	                </tr>
@@ -32,7 +32,7 @@
 	               <volist name="list" id="vo">
 	                <tr <if condition="$current eq $vo['id']">class="warning"</if>>
 	                    <td><span class="control-en">{$vo.title_en}</span><span class="control-zh">{$vo.title_zh}</span></td>
-	                    <td><span class="control-en">{$vo.catagory_en}</span><span class="control-zh">{$vo.catagory_zh}</span></td>
+	                    <td><span class="control-en">{$vo.category_en}</span><span class="control-zh">{$vo.category_zh}</span></td>
 	                    <td>{$vo.date}</td>
 	                    <td>
 	                    <a href="{:U('edit',array('id'=>$vo['id'],'type'=>$type,'pid'=>$pid))}">Edit</a>&nbsp;&nbsp;
@@ -55,7 +55,7 @@
       <hr>
 
       <footer>
-        <p>&copy; Company 2014</p>
+        <!--p>&copy; Company 2014</p-->
       </footer>
 
     </div>
