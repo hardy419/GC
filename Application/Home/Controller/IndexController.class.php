@@ -3,9 +3,9 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends BaseController {
     public function index(){
-        $bannerurls = M('banner')->where('sid >= 80001 AND sid < 90000')->getField('url',true);
+        $bannerurls = M('banner')->where('sid >= 80001 AND sid < 90000')->getField('url_'.$this->lang,true);
         $this->assign('refurl', $bannerurls);
-        $service = M('project')->query('SELECT p.id AS pid, p.title_zh, p.title_en, p.description_zh, p.description_en, p.preview, c.name_en AS category_en, c.name_zh AS category_zh FROM gc_project p LEFT JOIN gc_catagory c ON p.cid=c.id');
+        $service = M('project')->query('SELECT p.id AS pid, p.title_zh, p.title_en, p.description_zh, p.description_en, p.preview, c.name_en AS category_en, c.name_zh AS category_zh FROM gc_project p LEFT JOIN gc_category c ON p.cid=c.id');
         for ($i=0;$i<count($service);$i++) {
             if ($service[$i]['pid'] == '26') {
                 $service[$i]['preview'] = 'Public/Img/GC/service_pic1.jpg';

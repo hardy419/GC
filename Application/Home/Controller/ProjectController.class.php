@@ -3,7 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class ProjectController extends BaseController {
     public function index(){
-        $catamodel = M('catagory');
+        $catamodel = M('category');
         $catalist = $catamodel->field('id,name_en,name_zh')->select();
         $cid = I('get.cid', $catalist[0]['id']);
         $projmodel = M('project');
@@ -53,7 +53,7 @@ class ProjectController extends BaseController {
     }
     public function photos(){
         $pid = I('get.pid', 1);
-        $catamodel = M('catagory');
+        $catamodel = M('category');
         $catalist = $catamodel->field('id,name_en,name_zh')->select();
         $projmodel = M('project');
         $preview = $projmodel->where(array('id'=>$pid))->getField('preview');

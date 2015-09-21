@@ -22,7 +22,8 @@
                 <table class="table table-striped">
 	              <thead>
 	                <tr>
-	                    <th>Image</th>
+	                    <th>Image (ENG)</th>
+	                    <th>Image (中)</th>
 	                    <th>Description</th>
 	                    <th>Action</th>
 	                </tr>
@@ -30,7 +31,8 @@
 	              <tbody>
 	               <volist name="list" id="vo">
 	                <tr <if condition="$current eq $vo['id']">class="warning"</if>>
-	                    <td><img style="width:320px;height:60px;" src="{:SITE_PATH}{$vo.url}"></img></td>
+	                    <td><img style="width:200px;height:60px;" src="{:SITE_PATH}{$vo.url_en}"></img></td>
+	                    <td><img style="width:200px;height:60px;" src="{:SITE_PATH}{$vo.url_zh}"></img></td>
 	                    <td>{$vo.title}</td>
 	                    <td>
 	                    <a href="{:U('edit',array('id'=>$vo['id'],'type'=>$type,'pid'=>$pid))}">Edit</a>&nbsp;&nbsp;
@@ -73,6 +75,10 @@
 		  return true;
 	  }
   }
+
+$(function(){
+  $('#en-a,#zh-a').css('display','none');
+});
 </script>   
 </body>
 </html>

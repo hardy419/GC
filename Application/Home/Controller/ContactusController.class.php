@@ -6,7 +6,7 @@ class ContactusController extends BaseController {
         $id=1;
         $lang=cookie('gc_lang');
         $list=M('page')->where(array('id'=>(2 == $lang)?$id+4:$id))->find();
-        $refurl = M('banner')->where(array('sid'=>$id))->getField('url');
+        $refurl = M('banner')->where(array('sid'=>$id))->getField('url_'.$this->lang);
         $this->assign('list',$list);
         $this->assign('refurl',$refurl);
 

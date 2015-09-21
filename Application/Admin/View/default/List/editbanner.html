@@ -19,16 +19,30 @@
 				    <input type="text" id="title" name="title" check="Require" warning="Title cann't be empty" value=<if condition="$list['id'] eq ''">"Banner for home page"<else/>"{$list.title}"</if> / >
 				    </div>
 				    </div>
-				    <div class="control-group">
+				    <div class="control-group control-en">
 				    <label class="control-label">Banner Image:</label>
 				    <div class="controls">
-				    <input type="text" id="image-url" name="url" value="{$list.url}" ><span id="upload-progress" class="help-inline"></span>
+				    <input type="text" id="image-url-en" name="url_en" value="{$list.url_en}" ><span id="upload-progress-en" class="help-inline"></span>
 				    </div>
 				    </div>
-				    <div class=" control-group">
+				    <div class=" control-group control-en">
 		                   <label class="control-label"></label>
 		                   <div class="controls fileinput-button">
-		                     <span class="fileinput-button"><span>Click Here To Upload</span><input id="fileupload" type="file" name="files" class="input" ></span>
+		                     <span class="fileinput-button"><span>Click Here To Upload</span><input id="fileupload-en" type="file" name="files" class="input" ></span>
+		                     <span class=" iconshadow" ><i class="icon-remove" onClick="tool.removeMovie('#time')"></i></span>
+		                     <span class="help-text"><span class="label label-important">Max File Size:<?php echo C(ATTACHSIZE)/1024/1024;?>M</span></span>
+		                   </div>
+		                </div>
+				    <div class="control-group control-zh">
+				    <label class="control-label">Banner Image:</label>
+				    <div class="controls">
+				    <input type="text" id="image-url-zh" name="url_zh" value="{$list.url_zh}" ><span id="upload-progress-zh" class="help-inline"></span>
+				    </div>
+				    </div>
+				    <div class=" control-group control-zh">
+		                   <label class="control-label"></label>
+		                   <div class="controls fileinput-button">
+		                     <span class="fileinput-button"><span>Click Here To Upload</span><input id="fileupload-zh" type="file" name="files" class="input" ></span>
 		                     <span class=" iconshadow" ><i class="icon-remove" onClick="tool.removeMovie('#time')"></i></span>
 		                     <span class="help-text"><span class="label label-important">Max File Size:<?php echo C(ATTACHSIZE)/1024/1024;?>M</span></span>
 		                   </div>
@@ -96,7 +110,8 @@ var tool={
 jQuery(function(){
 	//var url='__URL__/uploadPdf';
 	var url='__URL__/uploadPic/model/banners';
-	tool.uploadMovie(url,"#fileupload",'#image-url',"#upload-progress");
+	tool.uploadMovie(url,"#fileupload-en",'#image-url-en',"#upload-progress-en");
+	tool.uploadMovie(url,"#fileupload-zh",'#image-url-zh',"#upload-progress-zh");
 });
 </script>
 </body>

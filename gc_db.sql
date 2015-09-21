@@ -30,7 +30,8 @@ CREATE TABLE IF NOT EXISTS `gc_banner` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `sid` int(11) NOT NULL,
-  `url` varchar(255) NOT NULL,
+  `url_en` varchar(255) NOT NULL,
+  `url_zh` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `sid` (`sid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
